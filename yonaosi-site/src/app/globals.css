@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-soft-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-pale-blue text-dark-grey px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm p-6 transition-all duration-300 hover:shadow-md;
+  }
+  
+  .section-padding {
+    @apply px-4 md:px-8 lg:px-16 xl:px-24;
+  }
+}
