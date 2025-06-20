@@ -190,18 +190,20 @@ export default function DiagnosisPage() {
   const progress = ((currentStep + 1) / questions.length) * 100
 
   const handleAnswer = (value: string | number | string[]) => {
+    if (!currentQuestion) return
     const newAnswers = answers.filter(a => a.questionId !== currentQuestion.id)
     newAnswers.push({ questionId: currentQuestion.id, value })
     setAnswers(newAnswers)
   }
 
   const getCurrentAnswer = () => {
+    if (!currentQuestion) return undefined
     const answer = answers.find(a => a.questionId === currentQuestion.id)
     return answer?.value
   }
 
   const canProceed = () => {
-    if (!currentQuestion.required) return true
+    if (!currentQuestion || !currentQuestion.required) return true
     const currentAnswer = getCurrentAnswer()
     if (!currentAnswer) return false
     if (Array.isArray(currentAnswer)) return currentAnswer.length > 0
@@ -606,15 +608,17 @@ export default function DiagnosisPage() {
               transition={{ duration: 0.3 }}
               className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                {currentQuestion.title}
-              </h2>
-              <p className="text-gray-600 mb-8">
-                {currentQuestion.description}
-              </p>
+              {currentQuestion && (
+                <>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                    {currentQuestion.title}
+                  </h2>
+                  <p className="text-gray-600 mb-8">
+                    {currentQuestion.description}
+                  </p>
 
-              {/* 質問タイプ別の入力フィールド */}
-              {currentQuestion.type === 'single' && (
+                  {/* 質問タイプ別の入力フィールド */}
+                  {currentQuestion.type === 'single' && (
                 <div className="space-y-3">
                   {currentQuestion.options?.map((option) => (
                     <label
@@ -967,22 +971,24 @@ export default function DiagnosisPage() {
                 </div>
               )}
 
-              <div className="flex justify-between mt-12">
-                <button
-                  onClick={prevStep}
-                  disabled={currentStep === 0}
-                  className="px-6 py-3 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  戻る
-                </button>
-                <button
-                  onClick={nextStep}
-                  disabled={!canProceed()}
-                  className="btn-primary px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {currentStep === questions.length - 1 ? '診断結果を見る' : '次へ'}
-                </button>
-              </div>
+                  <div className="flex justify-between mt-12">
+                    <button
+                      onClick={prevStep}
+                      disabled={currentStep === 0}
+                      className="px-6 py-3 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      戻る
+                    </button>
+                    <button
+                      onClick={nextStep}
+                      disabled={!canProceed()}
+                      className="btn-primary px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {currentStep === questions.length - 1 ? '診断結果を見る' : '次へ'}
+                    </button>
+                  </div>
+                </>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

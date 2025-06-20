@@ -1,12 +1,9 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'ページが見つかりません - YONAOSI',
-  description: 'お探しのページは見つかりませんでした。YONAOSIのトップページから目的のページをお探しください。',
-  robots: 'noindex, nofollow',
-}
+// メタデータはapp/layout.tsxで404ページ用を定義
 
 export default function NotFound() {
   const suggestedLinks = [
