@@ -1,0 +1,581 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+
+interface Question {
+  id: string
+  title: string
+  description: string
+  type: 'single' | 'multiple' | 'range' | 'input'
+  options?: { value: string; label: string; description?: string }[]
+  min?: number
+  max?: number
+  step?: number
+  unit?: string
+  required: boolean
+}
+
+interface Answer {
+  questionId: string
+  value: string | number | string[]
+}
+
+interface DiagnosisResult {
+  score: number
+  category: string
+  title: string
+  description: string
+  recommendations: string[]
+  potentialSavings: number
+  nextSteps: string[]
+}
+
+const questions: Question[] = [
+  {
+    id: 'age',
+    title: 'あなたの年齢を教えてください',
+    description: 'ライフステージに合わせた最適な提案をするために必要です',
+    type: 'range',
+    min: 20,
+    max: 70,
+    step: 1,
+    unit: '歳',
+    required: true
+  },
+  {
+    id: 'income',
+    title: '年収はどれくらいですか？',
+    description: '手取りではなく、総支給額でお答えください',
+    type: 'single',
+    options: [
+      { value: '300', label: '300万円未満' },
+      { value: '400', label: '300-400万円' },
+      { value: '500', label: '400-500万円' },
+      { value: '600', label: '500-600万円' },
+      { value: '700', label: '600-700万円' },
+      { value: '800', label: '700-800万円' },
+      { value: '1000', label: '800-1000万円' },
+      { value: '1200', label: '1000-1200万円' },
+      { value: '1500', label: '1200-1500万円' },
+      { value: '1500+', label: '1500万円以上' }
+    ],
+    required: true
+  },
+  {
+    id: 'familyStatus',
+    title: '家族構成を教えてください',
+    description: '現在の状況に最も近いものをお選びください',
+    type: 'single',
+    options: [
+      { value: 'single', label: '独身', description: '一人暮らしまたは実家暮らし' },
+      { value: 'couple', label: '夫婦のみ', description: '子どもはいない' },
+      { value: 'family1', label: '子ども1人', description: '夫婦+子ども1人' },
+      { value: 'family2', label: '子ども2人', description: '夫婦+子ども2人' },
+      { value: 'family3', label: '子ども3人以上', description: '夫婦+子ども3人以上' },
+      { value: 'single_parent', label: 'ひとり親', description: 'シングルマザー・ファザー' }
+    ],
+    required: true
+  },
+  {
+    id: 'savings',
+    title: '現在の貯金額はどれくらいですか？',
+    description: '定期預金、普通預金、投資資産の合計額',
+    type: 'single',
+    options: [
+      { value: '50', label: '50万円未満' },
+      { value: '100', label: '50-100万円' },
+      { value: '200', label: '100-200万円' },
+      { value: '300', label: '200-300万円' },
+      { value: '500', label: '300-500万円' },
+      { value: '1000', label: '500-1000万円' },
+      { value: '2000', label: '1000-2000万円' },
+      { value: '3000', label: '2000-3000万円' },
+      { value: '3000+', label: '3000万円以上' }
+    ],
+    required: true
+  },
+  {
+    id: 'monthlyExpenses',
+    title: '月の支出はどれくらいですか？',
+    description: '家賃、食費、保険料、光熱費などの合計',
+    type: 'range',
+    min: 10,
+    max: 50,
+    step: 1,
+    unit: '万円',
+    required: true
+  },
+  {
+    id: 'concerns',
+    title: 'お金に関する悩みは何ですか？',
+    description: '当てはまるものをすべてお選びください（複数選択可）',
+    type: 'multiple',
+    options: [
+      { value: 'savings', label: '貯金が増えない', description: '毎月の収支がギリギリ' },
+      { value: 'investment', label: '投資を始めたいけど分からない', description: 'NISAやiDeCoって何？' },
+      { value: 'insurance', label: '保険料が高い気がする', description: '本当に必要な保障が分からない' },
+      { value: 'tax', label: '税金を減らしたい', description: '控除を活用できていない' },
+      { value: 'retirement', label: '老後資金が不安', description: 'いくら必要なのか分からない' },
+      { value: 'housing', label: '住宅購入を検討中', description: '賃貸と購入どちらが得？' },
+      { value: 'education', label: '子どもの教育費が心配', description: 'いつから準備すればいい？' },
+      { value: 'career', label: '収入を増やしたい', description: '転職や副業を考えている' }
+    ],
+    required: true
+  },
+  {
+    id: 'goals',
+    title: 'お金に関する目標を教えてください',
+    description: '最も重要だと思うものをお選びください',
+    type: 'single',
+    options: [
+      { value: 'emergency_fund', label: '緊急資金の確保', description: '生活費6ヶ月分の貯金' },
+      { value: 'house_purchase', label: 'マイホーム購入', description: '頭金の準備' },
+      { value: 'education_fund', label: '教育資金の準備', description: '子どもの将来のために' },
+      { value: 'retirement_fund', label: '老後資金の準備', description: 'ゆとりあるセカンドライフ' },
+      { value: 'investment_start', label: '資産運用の開始', description: 'お金に働いてもらう' },
+      { value: 'debt_free', label: '借金の完済', description: 'ローンからの解放' },
+      { value: 'expense_reduction', label: '固定費の削減', description: '無駄な支出をなくす' },
+      { value: 'income_increase', label: '収入アップ', description: 'キャリアアップや副業' }
+    ],
+    required: true
+  },
+  {
+    id: 'timeframe',
+    title: 'いつまでに目標を達成したいですか？',
+    description: '現実的な期間をお選びください',
+    type: 'single',
+    options: [
+      { value: '6months', label: '6ヶ月以内', description: '短期集中で結果を出したい' },
+      { value: '1year', label: '1年以内', description: '来年までには達成したい' },
+      { value: '3years', label: '3年以内', description: 'じっくり計画的に進めたい' },
+      { value: '5years', label: '5年以内', description: '中長期的な視点で' },
+      { value: '10years', label: '10年以内', description: 'ライフプランの一環として' },
+      { value: 'flexible', label: '特に決めていない', description: 'まずは現状を改善したい' }
+    ],
+    required: true
+  }
+]
+
+export default function DiagnosisPage() {
+  const [currentStep, setCurrentStep] = useState(0)
+  const [answers, setAnswers] = useState<Answer[]>([])
+  const [result, setResult] = useState<DiagnosisResult | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  })
+
+  const currentQuestion = questions[currentStep]
+  const progress = ((currentStep + 1) / questions.length) * 100
+
+  const handleAnswer = (value: string | number | string[]) => {
+    const newAnswers = answers.filter(a => a.questionId !== currentQuestion.id)
+    newAnswers.push({ questionId: currentQuestion.id, value })
+    setAnswers(newAnswers)
+  }
+
+  const getCurrentAnswer = () => {
+    const answer = answers.find(a => a.questionId === currentQuestion.id)
+    return answer?.value
+  }
+
+  const canProceed = () => {
+    if (!currentQuestion.required) return true
+    const currentAnswer = getCurrentAnswer()
+    if (!currentAnswer) return false
+    if (Array.isArray(currentAnswer)) return currentAnswer.length > 0
+    return true
+  }
+
+  const nextStep = () => {
+    if (currentStep < questions.length - 1) {
+      setCurrentStep(currentStep + 1)
+    } else {
+      generateResult()
+    }
+  }
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1)
+    }
+  }
+
+  const generateResult = () => {
+    setIsLoading(true)
+    
+    // 診断ロジック
+    setTimeout(() => {
+      const age = Number(answers.find(a => a.questionId === 'age')?.value) || 30
+      const income = answers.find(a => a.questionId === 'income')?.value as string || '500'
+      const concerns = answers.find(a => a.questionId === 'concerns')?.value as string[] || []
+      const goals = answers.find(a => a.questionId === 'goals')?.value as string || 'investment_start'
+      
+      // スコア計算
+      let score = 0
+      if (age < 30) score += 20
+      else if (age < 40) score += 15
+      else if (age < 50) score += 10
+      else score += 5
+      
+      if (Number(income.replace('+', '')) >= 600) score += 20
+      if (concerns.length >= 3) score += 15
+      
+      // カテゴリ決定
+      let category = ''
+      let title = ''
+      let description = ''
+      let recommendations: string[] = []
+      let potentialSavings = 0
+      let nextSteps: string[] = []
+      
+      if (score >= 50) {
+        category = 'optimization'
+        title = '資産形成の加速期！'
+        description = 'あなたは既に良い基盤をお持ちです。さらなる最適化で大幅な改善が期待できます。'
+        recommendations = [
+          '投資ポートフォリオの最適化で年利+2%向上',
+          '税制優遇制度のフル活用で年間30万円節税',
+          '保険の見直しで月3万円の余剰資金創出',
+          'キャリア戦略で年収20%アップ実現'
+        ]
+        potentialSavings = 580000
+        nextSteps = [
+          '専門家による詳細な資産診断',
+          '個別最適化プランの作成',
+          '実行サポートとフォローアップ'
+        ]
+      } else if (score >= 30) {
+        category = 'improvement'
+        title = '改善の余地が大きいです！'
+        description = '適切な戦略で、短期間での大幅な改善が可能です。今が変化の時です。'
+        recommendations = [
+          '固定費の見直しで年間40万円削減',
+          'NISA・iDeCoの活用で資産形成をスタート',
+          '家計の最適化で月5万円の投資余力創出',
+          '保険の適正化で年間24万円の負担軽減'
+        ]
+        potentialSavings = 420000
+        nextSteps = [
+          '家計の詳細分析と改善提案',
+          '投資の基礎から実践までサポート',
+          '目標達成までの継続フォロー'
+        ]
+      } else {
+        category = 'foundation'
+        title = 'まずは基盤作りから！'
+        description = '正しい知識と計画で、着実に資産形成の基盤を築きましょう。'
+        recommendations = [
+          '家計管理の仕組み作りで月3万円捻出',
+          '緊急資金の確保（生活費6ヶ月分）',
+          '保険の最適化で月2万円削減',
+          '投資の基礎知識習得と少額スタート'
+        ]
+        potentialSavings = 240000
+        nextSteps = [
+          '家計改善の基本からスタート',
+          '投資の正しい知識を身につける',
+          '段階的な資産形成プラン作成'
+        ]
+      }
+      
+      setResult({
+        score,
+        category,
+        title,
+        description,
+        recommendations,
+        potentialSavings,
+        nextSteps
+      })
+      setIsLoading(false)
+    }, 2000)
+  }
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // ここでリード情報を送信
+    console.log('診断結果とユーザー情報:', { result, userInfo, answers })
+    alert('ありがとうございます！専門家からご連絡いたします。')
+  }
+
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <div className="min-h-screen bg-off-white flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-16 h-16 border-4 border-soft-orange border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <h2 className="text-2xl font-bold mb-4">診断結果を分析中...</h2>
+            <p className="text-gray-600">あなたに最適なプランを作成しています</p>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  if (result) {
+    return (
+      <>
+        <Header />
+        <div className="min-h-screen bg-off-white py-12">
+          <div className="max-w-4xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
+            >
+              <div className="text-center mb-8">
+                <div className={`w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold text-white ${
+                  result.category === 'optimization' ? 'bg-pale-green' :
+                  result.category === 'improvement' ? 'bg-soft-orange' : 'bg-pale-blue'
+                }`}>
+                  {result.score}
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold mb-4">{result.title}</h1>
+                <p className="text-xl text-gray-600">{result.description}</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h3 className="text-xl font-bold mb-4">📊 改善提案</h3>
+                  <ul className="space-y-3">
+                    {result.recommendations.map((rec, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="text-soft-orange mt-1">✓</span>
+                        <span>{rec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold mb-4">🎯 次のステップ</h3>
+                  <ul className="space-y-3">
+                    {result.nextSteps.map((step, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="text-pale-blue font-bold">{index + 1}</span>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-soft-orange/10 to-pale-blue/10 rounded-xl p-6 mb-8">
+                <h3 className="text-2xl font-bold mb-2">年間改善予想額</h3>
+                <div className="text-4xl font-bold text-soft-orange">
+                  ¥{result.potentialSavings.toLocaleString()}
+                </div>
+                <p className="text-gray-600 mt-2">
+                  * 個人の状況により効果は異なります
+                </p>
+              </div>
+
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold mb-4">🎁 無料相談で詳しい提案を受け取る</h3>
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      placeholder="お名前"
+                      value={userInfo.name}
+                      onChange={(e) => setUserInfo({...userInfo, name: e.target.value})}
+                      className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-transparent"
+                      required
+                    />
+                    <input
+                      type="email"
+                      placeholder="メールアドレス"
+                      value={userInfo.email}
+                      onChange={(e) => setUserInfo({...userInfo, email: e.target.value})}
+                      className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="電話番号（任意）"
+                    value={userInfo.phone}
+                    onChange={(e) => setUserInfo({...userInfo, phone: e.target.value})}
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-transparent"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full btn-primary py-4 text-lg"
+                  >
+                    専門家との無料相談を申し込む
+                  </button>
+                </form>
+                <p className="text-sm text-gray-600 mt-4 text-center">
+                  ※ しつこい営業は一切ありません。安心してお申し込みください。
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  return (
+    <>
+      <Header />
+      <div className="min-h-screen bg-off-white py-12">
+        <div className="max-w-3xl mx-auto px-4">
+          {/* プログレスバー */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm text-gray-600">
+                質問 {currentStep + 1} / {questions.length}
+              </span>
+              <span className="text-sm text-gray-600">
+                {Math.round(progress)}% 完了
+              </span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <motion.div
+                className="bg-soft-orange h-2 rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                {currentQuestion.title}
+              </h2>
+              <p className="text-gray-600 mb-8">
+                {currentQuestion.description}
+              </p>
+
+              {/* 質問タイプ別の入力フィールド */}
+              {currentQuestion.type === 'single' && (
+                <div className="space-y-3">
+                  {currentQuestion.options?.map((option) => (
+                    <label
+                      key={option.value}
+                      className={`block p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                        getCurrentAnswer() === option.value
+                          ? 'border-soft-orange bg-soft-orange/5'
+                          : 'border-gray-200 hover:border-soft-orange/50'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name={currentQuestion.id}
+                        value={option.value}
+                        checked={getCurrentAnswer() === option.value}
+                        onChange={(e) => handleAnswer(e.target.value)}
+                        className="sr-only"
+                      />
+                      <div className="font-medium">{option.label}</div>
+                      {option.description && (
+                        <div className="text-sm text-gray-600 mt-1">
+                          {option.description}
+                        </div>
+                      )}
+                    </label>
+                  ))}
+                </div>
+              )}
+
+              {currentQuestion.type === 'multiple' && (
+                <div className="space-y-3">
+                  {currentQuestion.options?.map((option) => (
+                    <label
+                      key={option.value}
+                      className={`block p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                        (getCurrentAnswer() as string[])?.includes(option.value)
+                          ? 'border-soft-orange bg-soft-orange/5'
+                          : 'border-gray-200 hover:border-soft-orange/50'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        value={option.value}
+                        checked={(getCurrentAnswer() as string[])?.includes(option.value) || false}
+                        onChange={(e) => {
+                          const current = (getCurrentAnswer() as string[]) || []
+                          const newValue = e.target.checked
+                            ? [...current, e.target.value]
+                            : current.filter(v => v !== e.target.value)
+                          handleAnswer(newValue)
+                        }}
+                        className="sr-only"
+                      />
+                      <div className="font-medium">{option.label}</div>
+                      {option.description && (
+                        <div className="text-sm text-gray-600 mt-1">
+                          {option.description}
+                        </div>
+                      )}
+                    </label>
+                  ))}
+                </div>
+              )}
+
+              {currentQuestion.type === 'range' && (
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-soft-orange mb-2">
+                      {getCurrentAnswer() || currentQuestion.min}{currentQuestion.unit}
+                    </div>
+                  </div>
+                  <input
+                    type="range"
+                    min={currentQuestion.min}
+                    max={currentQuestion.max}
+                    step={currentQuestion.step}
+                    value={getCurrentAnswer() as number || currentQuestion.min}
+                    onChange={(e) => handleAnswer(Number(e.target.value))}
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                  />
+                  <div className="flex justify-between text-sm text-gray-600">
+                    <span>{currentQuestion.min}{currentQuestion.unit}</span>
+                    <span>{currentQuestion.max}{currentQuestion.unit}</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex justify-between mt-12">
+                <button
+                  onClick={prevStep}
+                  disabled={currentStep === 0}
+                  className="px-6 py-3 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  戻る
+                </button>
+                <button
+                  onClick={nextStep}
+                  disabled={!canProceed()}
+                  className="btn-primary px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {currentStep === questions.length - 1 ? '診断結果を見る' : '次へ'}
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+      <Footer />
+    </>
+  )
+}

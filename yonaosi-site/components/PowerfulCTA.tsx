@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function PowerfulCTA() {
   const [timeLeft, setTimeLeft] = useState({
@@ -125,16 +126,18 @@ export default function PowerfulCTA() {
               </div>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full md:w-auto mx-auto block bg-gradient-to-r from-soft-orange to-pale-blue text-white font-bold text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
-            >
-              <svg className="inline-block w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              無料相談を予約する（LINE）
-            </motion.button>
+            <Link href="/diagnosis">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full md:w-auto mx-auto block bg-gradient-to-r from-soft-orange to-pale-blue text-white font-bold text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
+              >
+                <svg className="inline-block w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+                無料診断を始める（3分）
+              </motion.div>
+            </Link>
 
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               <div className="text-center">

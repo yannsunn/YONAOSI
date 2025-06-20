@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function DataDrivenResults() {
   const [counters, setCounters] = useState({
@@ -223,9 +224,9 @@ export default function DataDrivenResults() {
                   の差に！
                 </p>
               </div>
-              <button className="btn-primary whitespace-nowrap">
+              <Link href="/diagnosis" className="btn-primary whitespace-nowrap inline-block">
                 あなたの削減額を診断する
-              </button>
+              </Link>
             </div>
           </div>
         </motion.div>
@@ -260,9 +261,9 @@ export default function DataDrivenResults() {
           <p className="text-lg mb-8">
             * 月5万円を年利5%で運用した場合の65歳時点の資産額
           </p>
-          <button className="bg-white text-soft-orange font-bold px-8 py-4 rounded-full hover:shadow-lg transition-all">
+          <Link href="/diagnosis" className="bg-white text-soft-orange font-bold px-8 py-4 rounded-full hover:shadow-lg transition-all inline-block">
             今すぐ始めて、最大の成果を
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

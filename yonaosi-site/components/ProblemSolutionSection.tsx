@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function ProblemSolutionSection() {
   const [activeTab, setActiveTab] = useState(0)
@@ -168,9 +169,9 @@ export default function ProblemSolutionSection() {
             あなたも、
             <span className="text-soft-orange">今日から変われます</span>
           </p>
-          <button className="btn-primary text-lg px-8 py-4">
+          <Link href="/diagnosis" className="btn-primary text-lg px-8 py-4 inline-block">
             無料で改善ポイントを診断する
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -29,4 +29,16 @@
   .section-padding {
     @apply px-4 md:px-8 lg:px-16 xl:px-24;
   }
+
+  .slider {
+    background: linear-gradient(to right, #FFB98B 0%, #FFB98B 50%, #e5e7eb 50%, #e5e7eb 100%);
+  }
+
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-6 h-6 bg-soft-orange rounded-full cursor-pointer shadow-lg;
+  }
+
+  .slider::-moz-range-thumb {
+    @apply w-6 h-6 bg-soft-orange rounded-full cursor-pointer shadow-lg border-0;
+  }
 }
