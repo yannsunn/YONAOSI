@@ -19,7 +19,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-white">
+    <section className="section-padding py-16 md:py-24 bg-white section-bg-pattern">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           <motion.div
@@ -52,14 +52,14 @@ export default function HeroSection() {
             </p>
             
             <p className="text-lg mb-8 text-gray-700">
-              5,000人以上が実証済み。プロの視点で、
+              多くの方が効果を実感。プロの視点で、
               <br />
-              あなたの資産形成を最適化します。
+              あなたの資産形成を最適化する可能性があります。
             </p>
 
             <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-gray-600">平均削減額</span>
+                <span className="text-gray-600">年間削減の可能性</span>
                 <motion.span 
                   className="text-3xl font-bold text-soft-orange"
                   key={savingsAmount}
@@ -86,7 +86,10 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <SimpleDiagnosisForm />
-              <button className="btn-secondary flex items-center justify-center gap-2 text-lg py-4">
+              <button 
+                onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+                className="btn-secondary flex items-center justify-center gap-2 text-lg py-4"
+              >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
                 </svg>
@@ -100,7 +103,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="text-sm text-gray-600 mt-4"
             >
-              ※ 相談後の勧誘は一切ありません。安心してご利用ください。
+              ※ 相談後の勧誘は一切ありません。効果を保証するものではありません。
             </motion.p>
           </motion.div>
 

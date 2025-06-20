@@ -9,9 +9,16 @@ export default function SimpleDiagnosisForm() {
   const [formData, setFormData] = useState({
     age: '',
     income: '',
-    savings: '',
+    jobType: '',
     concerns: [] as string[]
   })
+
+  const jobTypes = [
+    { value: '会社員・公務員', class: 'card-employee', icon: '💼' },
+    { value: '経営者・個人事業主', class: 'card-business', icon: '📊' },
+    { value: 'アルバイト・パート', class: 'card-part-time', icon: '🕰' },
+    { value: 'その他', class: 'card-other', icon: '📁' }
+  ]
 
   const concerns = [
     '保険料が高い',
@@ -24,11 +31,11 @@ export default function SimpleDiagnosisForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // フォーム送信処理
-    alert('診断リクエストを受け付けました。専門家からご連絡いたします。')
+    // 公式LINEへリダイレクト
+    window.open('https://line.me/R/ti/p/@yonaosi', '_blank')
     setIsOpen(false)
     setStep(1)
-    setFormData({ age: '', income: '', savings: '', concerns: [] })
+    setFormData({ age: '', income: '', jobType: '', concerns: [] })
   }
 
   return (
@@ -105,6 +112,34 @@ export default function SimpleDiagnosisForm() {
                         </select>
                       </div>
                       <div>
+                        <label className="block text-sm font-medium mb-2">職業</label>
+                        <div className="grid grid-cols-2 gap-3">
+                          {jobTypes.map((job) => (
+                            <label
+                              key={job.value}
+                              className={`relative cursor-pointer p-4 rounded-lg border-2 transition-all ${
+                                formData.jobType === job.value 
+                                  ? job.class + ' border-soft-orange' 
+                                  : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name="jobType"
+                                value={job.value}
+                                checked={formData.jobType === job.value}
+                                onChange={(e) => setFormData({ ...formData, jobType: e.target.value })}
+                                className="sr-only"
+                              />
+                              <div className="text-center">
+                                <div className="text-2xl mb-1">{job.icon}</div>
+                                <div className="text-xs font-medium">{job.value}</div>
+                              </div>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
                         <label className="block text-sm font-medium mb-2">年収（税込）</label>
                         <select
                           value={formData.income}
@@ -125,7 +160,7 @@ export default function SimpleDiagnosisForm() {
                       type="button"
                       onClick={() => setStep(2)}
                       className="btn-primary w-full mt-6"
-                      disabled={!formData.age || !formData.income}
+                      disabled={!formData.age || !formData.income || !formData.jobType}
                     >
                       次へ
                     </button>
@@ -189,6 +224,7 @@ export default function SimpleDiagnosisForm() {
                       <p className="text-sm text-gray-600 mb-2">以下の内容で診断を行います：</p>
                       <ul className="text-sm space-y-1">
                         <li>年齢: {formData.age}</li>
+                        <li>職業: {formData.jobType}</li>
                         <li>年収: {formData.income}</li>
                         <li>お悩み: {formData.concerns.join('、')}</li>
                       </ul>
@@ -196,9 +232,12 @@ export default function SimpleDiagnosisForm() {
                     <div className="space-y-3">
                       <button
                         type="submit"
-                        className="btn-primary w-full"
+                        className="btn-primary w-full flex items-center justify-center gap-2"
                       >
-                        無料診断を受け取る
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
+                        </svg>
+                        公式LINEで無料相談を受け取る
                       </button>
                       <button
                         type="button"

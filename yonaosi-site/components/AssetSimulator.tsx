@@ -44,7 +44,7 @@ export default function AssetSimulator() {
   const projectionData = calculateProjection()
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-gray-50">
+    <section className="section-padding py-16 md:py-24 bg-gray-50 section-bg-pattern">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,6 +58,9 @@ export default function AssetSimulator() {
           </h2>
           <p className="text-lg text-gray-600">
             あなたの条件で将来の資産形成をシミュレーション
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            ※ このシミュレーションは参考例であり、運用成果を保証するものではありません
           </p>
         </motion.div>
 
@@ -198,7 +201,10 @@ export default function AssetSimulator() {
                   </ul>
                 </div>
 
-                <button className="btn-primary w-full mt-6">
+                <button 
+                  onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+                  className="btn-primary w-full mt-6"
+                >
                   詳細な相談を申し込む
                 </button>
               </div>

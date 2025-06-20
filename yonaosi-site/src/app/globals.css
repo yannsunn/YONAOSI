@@ -30,6 +30,31 @@
     @apply px-4 md:px-8 lg:px-16 xl:px-24;
   }
 
+  /* 職業別カード色分け */
+  .card-employee {
+    @apply bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200;
+  }
+  
+  .card-business {
+    @apply bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200;
+  }
+  
+  .card-part-time {
+    @apply bg-gradient-to-br from-green-50 to-green-100 border-green-200;
+  }
+  
+  .card-other {
+    @apply bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200;
+  }
+
+  /* 背景デザイン */
+  .section-bg-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 185, 139, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(168, 216, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(152, 216, 191, 0.03) 0%, transparent 50%);
+  }
+
   /* Mobile-specific optimizations */
   @media (max-width: 640px) {
     .mobile-optimized {

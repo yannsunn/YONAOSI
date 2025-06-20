@@ -101,7 +101,7 @@ export default function ResultsShowcase() {
   ]
 
   return (
-    <section className="section-padding py-20 bg-white">
+    <section className="section-padding py-20 bg-white section-bg-pattern">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ export default function ResultsShowcase() {
             <span className="text-soft-orange">確かな実績</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            これまでに5,000人以上の人生を変えてきました。次はあなたの番です。
+多くの方の人生を変えてきました。次はあなたの番かもしれません。
           </p>
         </motion.div>
 
@@ -146,7 +146,7 @@ export default function ResultsShowcase() {
               {counters.savings}
               <span className="text-xl md:text-2xl">万円</span>
             </div>
-            <p className="text-gray-600 font-medium">平均年間削減額</p>
+            <p className="text-gray-600 font-medium">年間削減の可能性</p>
             <p className="text-sm text-gray-500 mt-2">固定費の見直しで</p>
           </motion.div>
 
@@ -176,8 +176,8 @@ export default function ResultsShowcase() {
               {counters.increase}
               <span className="text-xl md:text-2xl">%</span>
             </div>
-            <p className="text-gray-600 font-medium">資産増加率</p>
-            <p className="text-sm text-gray-500 mt-2">10年後の平均</p>
+            <p className="text-gray-600 font-medium">資産増加可能性</p>
+            <p className="text-sm text-gray-500 mt-2">10年後の可能性</p>
           </motion.div>
         </div>
 
@@ -189,8 +189,11 @@ export default function ResultsShowcase() {
           className="bg-gray-50 rounded-2xl shadow-xl p-8 md:p-12 mb-16"
         >
           <h3 className="text-2xl font-bold mb-8 text-center">
-            実際の改善例（年間ベース）
+            改善例（年間ベース）
           </h3>
+          <p className="text-sm text-gray-500 text-center mb-6">
+            ※ 効果は個人により異なり、成果を保証するものではありません
+          </p>
           
           <div className="space-y-6 mb-10">
             {impactData.map((item, index) => (
@@ -248,9 +251,12 @@ export default function ResultsShowcase() {
                   の差に！
                 </p>
               </div>
-              <Link href="/diagnosis" className="btn-primary whitespace-nowrap inline-block">
-                あなたの削減額を診断する
-              </Link>
+              <button 
+                onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+                className="btn-primary whitespace-nowrap"
+              >
+                あなたの削減可能性を診断する
+              </button>
             </div>
           </div>
         </motion.div>
