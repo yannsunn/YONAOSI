@@ -15,7 +15,7 @@ const stageData = [
         {
           icon: '💰',
           title: '新NISA・iDeCo完全活用',
-          impact: '年間40万円の非課税投資',
+          impact: '非課税投資の活用',
           detail: '税制優遇を最大活用して効率的な資産形成'
         },
         {
@@ -27,41 +27,41 @@ const stageData = [
         {
           icon: '🏠',
           title: '賢い一人暮らし術',
-          impact: '月3万円の余剰資金創出',
+          impact: '余剰資金創出の可能性',
           detail: '家賃交渉や光熱費削減で投資原資を確保'
         }
       ],
-      stat: { label: '25歳から始めた場合', value: '65歳時点で1.2億円', detail: '月5万円積立・年利5%' }
+      stat: { label: '積立投資の例', value: '長期的な資産形成', detail: '個人差があります' }
     },
   },
   {
     id: 'family',
     label: '子育て期',
-    badge: '相談数No.1',
+    badge: '人気ステージ',
     content: {
       title: '子どもの未来に、最高の準備を',
       description: '教育資金、住宅ローン、老後資金。すべてを両立させる賢い家計戦略があります。',
       services: [
         {
           icon: '🎓',
-          title: '教育資金1,000万円の作り方',
-          impact: '月2.5万円で達成可能',
+          title: '教育資金の準備方法',
+          impact: '月額積立で用意可能',
           detail: 'ジュニアNISA活用と学資保険の見直し'
         },
         {
           icon: '🏡',
-          title: '住宅ローン10年短縮術',
-          impact: '総返済額800万円削減',
+          title: '住宅ローン最適化',
+          impact: '返済額削減の可能性',
           detail: '繰上返済と借り換えの最適タイミング'
         },
         {
           icon: '📊',
           title: '家計の見える化サポート',
-          impact: '年間60万円の節約',
+          impact: '家計節約の可能性',
           detail: '支出管理アプリ導入と固定費削減'
         }
       ],
-      stat: { label: '教育資金準備', value: '大学まで2,000万円', detail: '計画的準備で負担軽減' }
+      stat: { label: '教育資金準備', value: '計画的な用意', detail: '個々の状況に応じて' }
     },
   },
   {
@@ -91,7 +91,7 @@ const stageData = [
           detail: '高額療養費制度と民間保険の最適化'
         }
       ],
-      stat: { label: '必要老後資金', value: '夫婦で5,000万円', detail: 'ゆとりある生活を実現' }
+      stat: { label: '老後資金準備', value: '必要額の計算', detail: '個々のライフスタイルに応じて' }
     },
   },
 ]
