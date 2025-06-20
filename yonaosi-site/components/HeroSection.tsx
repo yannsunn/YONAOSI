@@ -27,14 +27,19 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.p 
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-soft-orange font-bold mb-4"
+              className="mb-4"
             >
-              知識の差が、人生の差になる時代
-            </motion.p>
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-soft-orange to-orange-400 text-white px-4 py-2 rounded-full text-sm font-bold mb-2">
+                ⚖️ 世直しの専門家
+              </span>
+              <p className="text-soft-orange font-bold">
+                情報格差から消費者を守る、中立的な立場
+              </p>
+            </motion.div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               今の選択で、

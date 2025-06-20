@@ -122,7 +122,7 @@ export default function LifeStageTabs() {
                 className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 
                   data-[state=active]:${stage.color} data-[state=active]:text-white
                   data-[state=inactive]:bg-gray-100 data-[state=inactive]:text-gray-600
-                  hover:opacity-80`}
+                  hover:bg-gray-200`}
               >
                 {stage.label}
               </Tabs.Trigger>
