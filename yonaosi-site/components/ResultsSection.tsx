@@ -94,7 +94,7 @@ export default function ResultsSection() {
                 
                 <div className="md:w-3/4">
                   <p className="mb-4 text-gray-700">"{testimonial.content}"</p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-soft-orange/10 rounded-full">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full">
                     <span className="text-soft-orange">✓</span>
                     <span className="text-sm font-medium">{testimonial.result}</span>
                   </div>

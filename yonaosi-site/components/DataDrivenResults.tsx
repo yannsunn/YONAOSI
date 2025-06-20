@@ -77,7 +77,7 @@ export default function DataDrivenResults() {
   ]
 
   return (
-    <section className="section-padding py-20 bg-gradient-to-b from-white to-off-white">
+    <section className="section-padding py-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -118,7 +118,7 @@ export default function DataDrivenResults() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-white rounded-2xl shadow-xl p-8 text-center"
           >
-            <div className="text-5xl font-bold text-pale-blue mb-2">
+            <div className="text-5xl font-bold text-soft-orange mb-2">
               {counters.savings}
               <span className="text-2xl">万円</span>
             </div>
@@ -133,7 +133,7 @@ export default function DataDrivenResults() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white rounded-2xl shadow-xl p-8 text-center"
           >
-            <div className="text-5xl font-bold text-pale-green mb-2">
+            <div className="text-5xl font-bold text-soft-orange mb-2">
               {counters.satisfaction}
               <span className="text-2xl">%</span>
             </div>
@@ -191,7 +191,7 @@ export default function DataDrivenResults() {
                     whileInView={{ width: `${(item.after / item.before) * 100}%` }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-soft-orange to-pale-blue rounded-full"
+                    className="absolute top-0 left-0 h-full bg-soft-orange rounded-full"
                   />
                   <div className="absolute inset-0 flex items-center justify-between px-4 text-sm">
                     <span className="text-white font-medium">
@@ -206,7 +206,7 @@ export default function DataDrivenResults() {
             ))}
           </div>
 
-          <div className="mt-10 p-6 bg-gradient-to-r from-soft-orange/10 to-pale-blue/10 rounded-xl">
+          <div className="mt-10 p-6 bg-gray-50 rounded-xl">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <p className="text-2xl font-bold mb-2">
@@ -236,7 +236,7 @@ export default function DataDrivenResults() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-soft-orange to-pale-blue text-white rounded-2xl p-8 md:p-12 text-center"
+          className="bg-soft-orange text-white rounded-2xl p-8 md:p-12 text-center"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-6">
             時間の価値を最大化する

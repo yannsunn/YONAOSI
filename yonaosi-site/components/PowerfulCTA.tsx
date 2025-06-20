@@ -5,14 +5,14 @@ import Link from 'next/link'
 
 export default function PowerfulCTA() {
   return (
-    <section className="section-padding py-20 bg-gradient-to-b from-off-white to-white">
+    <section className="section-padding py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-soft-orange via-pale-blue to-pale-green p-1 rounded-3xl shadow-2xl"
+          className="bg-soft-orange p-1 rounded-3xl shadow-xl"
         >
           <div className="bg-white rounded-3xl p-8 md:p-12">
             <div className="text-center mb-8">
@@ -29,7 +29,7 @@ export default function PowerfulCTA() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-soft-orange/5 to-pale-blue/5 rounded-2xl p-6 mb-8">
+            <div className="bg-gray-50 rounded-2xl p-6 mb-8">
               <h3 className="text-xl font-bold mb-4 text-center">
                 💡 無料診断で得られるもの
               </h3>
@@ -41,7 +41,7 @@ export default function PowerfulCTA() {
                   transition={{ duration: 0.4 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-pale-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">あなた専用の改善プラン</span>
@@ -53,7 +53,7 @@ export default function PowerfulCTA() {
                   transition={{ duration: 0.4, delay: 0.1 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-pale-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">年間改善予想額の算出</span>
@@ -65,7 +65,7 @@ export default function PowerfulCTA() {
                   transition={{ duration: 0.4, delay: 0.2 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-pale-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">専門家による無料アドバイス</span>
@@ -77,7 +77,7 @@ export default function PowerfulCTA() {
                   transition={{ duration: 0.4, delay: 0.3 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-pale-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   <span className="text-gray-700">実行可能な具体的ステップ</span>
@@ -99,7 +99,7 @@ export default function PowerfulCTA() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full md:w-auto mx-auto block bg-gradient-to-r from-soft-orange to-pale-blue text-white font-bold text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
+                className="w-full md:w-auto mx-auto block bg-soft-orange hover:bg-soft-orange/90 text-white font-bold text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
               >
                 <svg className="inline-block w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -110,7 +110,7 @@ export default function PowerfulCTA() {
 
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               <div className="text-center">
-                <div className="w-12 h-12 bg-soft-orange/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-soft-orange font-bold">1</span>
                 </div>
                 <h4 className="font-bold mb-2">3分で診断完了</h4>
@@ -119,8 +119,8 @@ export default function PowerfulCTA() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-pale-blue/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-pale-blue font-bold">2</span>
+                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-gray-600 font-bold">2</span>
                 </div>
                 <h4 className="font-bold mb-2">無料オンライン相談</h4>
                 <p className="text-sm text-gray-600">
@@ -128,8 +128,8 @@ export default function PowerfulCTA() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-pale-green/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-pale-green font-bold">3</span>
+                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-gray-600 font-bold">3</span>
                 </div>
                 <h4 className="font-bold mb-2">実行サポート</h4>
                 <p className="text-sm text-gray-600">
@@ -143,7 +143,7 @@ export default function PowerfulCTA() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 p-6 bg-pale-green/10 rounded-xl text-center"
+              className="mt-8 p-6 bg-gray-100 rounded-xl text-center"
             >
               <p className="text-lg font-bold text-dark-grey mb-2">
                 安心の保証

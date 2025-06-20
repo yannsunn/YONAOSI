@@ -19,7 +19,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-gradient-to-br from-off-white to-soft-orange/10">
+    <section className="section-padding py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -33,10 +33,10 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-4"
             >
-              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-soft-orange to-orange-400 text-white px-4 py-2 rounded-full text-sm font-bold mb-2">
+              <span className="inline-flex items-center gap-2 bg-soft-orange text-white px-4 py-2 rounded-full text-sm font-bold mb-2">
                 ⚖️ 世直しの専門家
               </span>
-              <p className="text-soft-orange font-bold">
+              <p className="text-gray-600 font-medium">
                 情報格差から消費者を守る、中立的な立場
               </p>
             </motion.div>
@@ -124,7 +124,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.4, delay: 0.4 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-soft-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <p className="text-gray-700">投資は始めたけど、<span className="font-bold">これで正解？</span></p>
@@ -135,7 +135,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.4, delay: 0.5 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-soft-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <p className="text-gray-700">保険料、<span className="font-bold">高すぎない？</span></p>
@@ -146,7 +146,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.4, delay: 0.6 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-soft-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <p className="text-gray-700">税金、<span className="font-bold">もっと減らせるはず</span></p>
@@ -157,26 +157,26 @@ export default function HeroSection() {
                   transition={{ duration: 0.4, delay: 0.7 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-soft-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <p className="text-gray-700">老後資金、<span className="font-bold">本当に足りる？</span></p>
                 </motion.div>
               </div>
               
-              <div className="mt-8 p-4 bg-pale-green/20 rounded-lg">
+              <div className="mt-8 p-4 bg-gray-50 rounded-lg">
                 <p className="text-sm font-bold text-dark-grey mb-2">YONAOSIが変える、3つのこと</p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
-                    <span className="text-pale-green">●</span>
+                    <span className="text-soft-orange">●</span>
                     <span>売りたいものではなく、必要なものを</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-pale-green">●</span>
+                    <span className="text-soft-orange">●</span>
                     <span>点ではなく、面で捉える最適化</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-pale-green">●</span>
+                    <span className="text-soft-orange">●</span>
                     <span>今日から、人生が変わる実践</span>
                   </div>
                 </div>

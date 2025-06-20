@@ -29,7 +29,7 @@ const stageData = [
   {
     id: 'marriage',
     label: '結婚準備期',
-    color: 'bg-pale-blue',
+    color: 'bg-soft-orange',
     badge: '最も削減効果大',
     content: {
       title: '二人で築く、豊かな未来',
@@ -51,7 +51,7 @@ const stageData = [
   {
     id: 'family',
     label: '子育て期',
-    color: 'bg-pale-green',
+    color: 'bg-soft-orange',
     badge: '相談数No.1',
     content: {
       title: '子どもの未来に、最高の準備を',
@@ -120,7 +120,7 @@ export default function LifeStageTabs() {
                 key={stage.id}
                 value={stage.id}
                 className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 
-                  data-[state=active]:${stage.color} data-[state=active]:text-white
+                  data-[state=active]:bg-soft-orange data-[state=active]:text-white
                   data-[state=inactive]:bg-gray-100 data-[state=inactive]:text-gray-600
                   hover:bg-gray-200`}
               >
@@ -143,7 +143,7 @@ export default function LifeStageTabs() {
               >
                 {stage.badge && (
                   <div className="absolute top-4 right-4">
-                    <span className={`${stage.color} text-white px-4 py-2 rounded-full text-sm font-bold`}>
+                    <span className="bg-soft-orange text-white px-4 py-2 rounded-full text-sm font-bold">
                       {stage.badge}
                     </span>
                   </div>

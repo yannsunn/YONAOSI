@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function CTASection() {
   return (
-    <section className="section-padding py-16 md:py-24 bg-gradient-to-r from-soft-orange/10 to-pale-blue/10">
+    <section className="section-padding py-16 md:py-24 bg-gray-50">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
