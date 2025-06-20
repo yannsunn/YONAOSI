@@ -2,7 +2,6 @@
 const nextConfig = {
   // パフォーマンス最適化
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
     serverMinification: true,
     serverComponentsExternalPackages: ['jspdf', 'html2canvas'],

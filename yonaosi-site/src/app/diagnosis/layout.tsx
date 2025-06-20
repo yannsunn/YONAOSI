@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yonaosi.awakeinc.co.jp'),
   title: 'YONAOSI 無料診断｜3分で分かるお金の改善ポイント【98%満足度】',
   description: '累計5,234人が実践。平均年間52万円の家計改善実績。投資・保険・税金の悩みを3分診断で解決。専門家による無料相談付き。今すぐ診断開始。',
   keywords: ['無料診断', '家計改善', '資産形成', '投資診断', '保険見直し', '税金対策', 'お金の相談'],

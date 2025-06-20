@@ -14,6 +14,7 @@ import Footer from '@components/Footer'
 
 // SEO超最適化メタデータ
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yonaosi.awakeinc.co.jp'),
   title: 'YONAOSI｜世直しの専門家による資産形成プラットフォーム【無料診断3分】',
   description: '世直しの専門家が5,234人の改善を実現。平均年間52万円の家計改善実績。情報格差から消費者を守り、投資・保険・不動産の適正選択をサポート。98%満足度の中立的アドバイス。',
   keywords: ['世直し', '適正価格', '資産形成', '家計改善', '投資相談', 'NISA', 'iDeCo', '保険見直し', '税金対策', '不動産選択', '情報格差', '中立的アドバイス'],
