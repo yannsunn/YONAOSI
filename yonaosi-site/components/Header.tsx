@@ -8,7 +8,7 @@ export default function Header() {
 
   const navItems = [
     { href: '/', label: 'トップ' },
-    { href: '/diagnosis', label: '無料診断' },
+    { href: '/diagnosis', label: '診断' },
   ]
 
   return (
@@ -33,7 +33,10 @@ export default function Header() {
             ))}
           </nav>
 
-          <button className="btn-secondary flex items-center gap-2 text-sm md:text-base px-3 md:px-6 py-2 md:py-3 min-h-[44px] hidden sm:flex">
+          <button 
+            onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+            className="btn-secondary flex items-center gap-2 text-sm md:text-base px-3 md:px-6 py-2 md:py-3 min-h-[44px] hidden sm:flex"
+          >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
             </svg>

@@ -13,21 +13,21 @@ export default function ProblemSolutionSection() {
       title: '投資は始めたけど、これで正解？',
       description: 'とりあえず始めた投資信託。手数料は適正？リスクは大丈夫？本当にこのままでいいのか不安。',
       solution: '証券外務員が最適なポートフォリオを診断。手数料を50%削減し、リターンを最大化。',
-      stat: '平均リターン +3.2%/年'
+      stat: 'リターン向上の可能性'
     },
     {
       icon: '🛡️',
       title: '保険料、高すぎない？',
       description: '毎月数万円の保険料。本当に必要な保障？重複していない？見直したいけど、何から手をつければ…',
       solution: '必要保障額を正確に算出。重複を排除し、本当に必要な保障だけに最適化。',
-      stat: '平均削減額 月3.8万円'
+      stat: '月額削減の可能性'
     },
     {
       icon: '💰',
       title: '税金、もっと減らせるはず',
       description: '年末調整だけで終わらせていませんか？実は使える控除がまだある。知識の差が、手取りの差に。',
       solution: 'iDeCo、ふるさと納税、医療費控除を完全活用。合法的に税金を最小化。',
-      stat: '平均節税額 年25万円'
+      stat: '節税の可能性'
     }
   ]
 
@@ -169,9 +169,12 @@ export default function ProblemSolutionSection() {
             あなたも、
             <span className="text-soft-orange">今日から変われます</span>
           </p>
-          <Link href="/diagnosis" className="btn-primary text-lg px-8 py-4 inline-block">
-            無料で改善ポイントを診断する
-          </Link>
+          <button 
+            onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+            className="btn-primary text-lg px-8 py-4"
+          >
+            改善ポイントを診断する
+          </button>
         </motion.div>
       </div>
     </section>

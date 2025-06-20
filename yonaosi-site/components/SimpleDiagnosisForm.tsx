@@ -44,7 +44,7 @@ export default function SimpleDiagnosisForm() {
         onClick={() => setIsOpen(true)}
         className="btn-primary"
       >
-        3分で無料診断を受ける
+        3分で診断を受ける
       </button>
 
       <AnimatePresence>
@@ -63,7 +63,7 @@ export default function SimpleDiagnosisForm() {
               className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-8"
             >
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-bold">無料診断フォーム</h3>
+                <h3 className="text-xl font-bold">診断フォーム</h3>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-gray-400 hover:text-gray-600"
@@ -237,7 +237,7 @@ export default function SimpleDiagnosisForm() {
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                           <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
                         </svg>
-                        公式LINEで無料相談を受け取る
+                        公式LINEで相談を受け取る
                       </button>
                       <button
                         type="button"

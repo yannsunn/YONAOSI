@@ -25,13 +25,13 @@ export default function PowerfulCTA() {
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
                 5年後、10年後のあなたは、今日の決断に感謝する可能性があります。
                 <br />
-                まずは無料診断で、改善の可能性を確かめてみませんか？
+                まずは診断で、改善の可能性を確かめてみませんか？
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-2xl p-6 mb-8">
               <h3 className="text-xl font-bold mb-4 text-center">
-                💡 無料診断で得られるもの
+                💡 初回診断で得られるもの
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <motion.div
@@ -117,7 +117,7 @@ export default function PowerfulCTA() {
                 <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-gray-600 font-bold">2</span>
                 </div>
-                <h4 className="font-bold mb-2">無料オンライン相談</h4>
+                <h4 className="font-bold mb-2">初回オンライン相談</h4>
                 <p className="text-sm text-gray-600">
                   専門家が最適な改善策を提案
                 </p>

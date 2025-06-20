@@ -21,7 +21,7 @@ const stageData = [
         {
           icon: '💼',
           title: '年収アップ戦略',
-          impact: '平均年収135%達成',
+          impact: '年収アップの可能性',
           detail: 'キャリア設計と転職サポートで収入増'
         },
         {
@@ -172,8 +172,11 @@ export default function SupportServices() {
                     <p className="text-xs text-gray-500">{stage.content.stat.detail}</p>
                   </div>
 
-                  <button className="btn-primary w-full sm:w-auto min-h-[44px] px-6 py-3">
-                    無料相談を申し込む
+                  <button 
+                    onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+                    className="btn-primary w-full sm:w-auto min-h-[44px] px-6 py-3"
+                  >
+                    LINE相談を申し込む
                   </button>
                 </div>
               </motion.div>

@@ -12,7 +12,7 @@ import Footer from '@components/Footer'
 // SEO超最適化メタデータ
 export const metadata: Metadata = {
   metadataBase: new URL('https://yonaosi.awakeinc.co.jp'),
-  title: 'YONAOSI｜世直しの専門家による資産形成プラットフォーム【無料診断3分】',
+  title: 'YONAOSI｜世直しの専門家による資産形成プラットフォーム【初回相談無料】',
   description: '世直しの専門家が多くの方の改善を実現。年間最大52万円の家計改善可能性。情報格差から消費者を守り、投資・保険・不動産の適正選択をサポート。98%満足度の中立的アドバイス。',
   keywords: ['世直し', '適正価格', '資産形成', '家計改善', '投資相談', 'NISA', 'iDeCo', '保険見直し', '税金対策', '不動産選択', '情報格差', '中立的アドバイス'],
   authors: [{ name: 'YONAOSI編集部' }],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@yonaosi_jp',
     creator: '@yonaosi_jp',
-    title: 'YONAOSI｜世直しの専門家による無料診断',
+    title: 'YONAOSI｜世直しの専門家による初回相談',
     description: '情報格差から守る中立的アドバイス。多くの方が実践。最大年間52万円改善可能性。',
     images: ['/twitter-card.jpg'],
   },
@@ -95,7 +95,7 @@ const structuredData = {
     {
       "@type": "Service",
       "name": "YONAOSI診断サービス",
-      "description": "3分で完了する無料診断で資産形成の改善ポイントを特定。世直しの専門家による中立的なアドバイス",
+      "description": "3分で完了する診断で資産形成の改善可能性を特定。世直しの専門家による中立的なアドバイス",
       "provider": {
         "@id": "https://yonaosi.awakeinc.co.jp/#organization"
       },
@@ -109,7 +109,7 @@ const structuredData = {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "JPY",
-        "description": "無料診断サービス"
+        "description": "初回相談サービス"
       },
       "audience": {
         "@type": "Audience",
