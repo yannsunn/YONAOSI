@@ -8,11 +8,7 @@ export default function Header() {
 
   const navItems = [
     { href: '/', label: 'トップ' },
-    { href: '/plans', label: 'プラン' },
-    { href: '/simulator', label: 'シミュレーター' },
-    { href: '/support', label: 'サポート' },
-    { href: '/community', label: 'コミュニティ' },
-    { href: '/faq', label: 'FAQ' },
+    { href: '/diagnosis', label: '無料診断' },
   ]
 
   return (

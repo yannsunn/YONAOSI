@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
 import Header from '@components/Header'
 import HeroSection from '@components/HeroSection'
-import MissionBeliefSection from '@components/MissionBeliefSection'
 import ProblemSolutionSection from '@components/ProblemSolutionSection'
-import DataDrivenResults from '@components/DataDrivenResults'
-import LifeStageTabs from '@components/LifeStageTabs'
+import ResultsShowcase from '@components/ResultsShowcase'
+import SupportServices from '@components/SupportServices'
 import AssetSimulator from '@components/AssetSimulator'
-import SupportCards from '@components/SupportCards'
-import ResultsSection from '@components/ResultsSection'
 import PowerfulCTA from '@components/PowerfulCTA'
 import FAQSection from '@components/FAQSection'
 import Footer from '@components/Footer'
@@ -142,13 +139,10 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <MissionBeliefSection />
         <ProblemSolutionSection />
-        <DataDrivenResults />
-        <LifeStageTabs />
+        <ResultsShowcase />
+        <SupportServices />
         <AssetSimulator />
-        <SupportCards />
-        <ResultsSection />
         <PowerfulCTA />
         <FAQSection />
       </main>

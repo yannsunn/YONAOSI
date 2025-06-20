@@ -15,20 +15,16 @@ export default function Footer() {
             <div>
               <h4 className="font-medium mb-4">サービス</h4>
               <ul className="space-y-3 text-sm text-gray-300">
-                <li><a href="/plans" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">ライフプランニング</a></li>
-                <li><a href="/simulator" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">資産形成シミュレーター</a></li>
-                <li><a href="/support" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">専門家サポート</a></li>
-                <li><a href="/community" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">コミュニティ</a></li>
+                <li><a href="/diagnosis" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">無料診断</a></li>
+                <li><a href="/#" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">LINE相談</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-medium mb-4">会社情報</h4>
+              <h4 className="font-medium mb-4">情報</h4>
               <ul className="space-y-3 text-sm text-gray-300">
-                <li><a href="/about" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">会社概要</a></li>
-                <li><a href="/privacy" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">プライバシーポリシー</a></li>
-                <li><a href="/terms" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">利用規約</a></li>
-                <li><a href="/legal" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">金融関連法表示</a></li>
+                <li><a href="#" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">プライバシーポリシー</a></li>
+                <li><a href="#" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">特定商取引法</a></li>
               </ul>
             </div>
             

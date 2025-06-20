@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+import SimpleDiagnosisForm from './SimpleDiagnosisForm'
 
 export default function PowerfulCTA() {
   return (
@@ -95,18 +95,13 @@ export default function PowerfulCTA() {
               </div>
             </div>
 
-            <Link href="/diagnosis">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full md:w-auto mx-auto block bg-soft-orange hover:bg-soft-orange/90 text-white font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all text-center min-h-[44px]"
-              >
-                <svg className="inline-block w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
-                無料診断を始める（3分）
-              </motion.div>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex justify-center"
+            >
+              <SimpleDiagnosisForm />
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
               <div className="text-center">
