@@ -31,35 +31,6 @@ export default function ProblemSolutionSection() {
     }
   ]
 
-  const testimonialData = [
-    {
-      age: '30代',
-      gender: '女性',
-      initial: 'T.K',
-      bgColor: 'bg-soft-orange/10',
-      textColor: 'text-soft-orange',
-      content: '知らないって怖いと実感。税金の仕組みを理解するだけで、年間25万円も手取りが増えました。',
-      result: '年収そのままで手取り25万円UP'
-    },
-    {
-      age: '40代',
-      gender: '男性',
-      initial: 'Y.S',
-      bgColor: 'bg-pale-blue/10',
-      textColor: 'text-pale-blue',
-      content: '転職で年収が450万円から680万円に！自分の市場価値を正しく評価してもらえました。',
-      result: '年収230万円UP達成'
-    },
-    {
-      age: '50代',
-      gender: '女性',
-      initial: 'K.M',
-      bgColor: 'bg-pale-green/10',
-      textColor: 'text-pale-green',
-      content: '住宅ローンの見直しで月々3万円の削減。30年で見ると1,000万円以上の差に。',
-      result: '総返済額1,080万円削減'
-    }
-  ]
 
   return (
     <section className="section-padding py-20 bg-white">
@@ -117,46 +88,6 @@ export default function ProblemSolutionSection() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-soft-orange/5 to-pale-blue/5 rounded-2xl p-8 md:p-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            実際の成功事例
-          </h3>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonialData.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg"
-              >
-                <div className="flex items-center mb-4">
-                  <div className={`w-12 h-12 rounded-full ${testimonial.bgColor} flex items-center justify-center mr-3`}>
-                    <span className={`font-bold ${testimonial.textColor}`}>
-                      {testimonial.initial}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-bold">{testimonial.age} {testimonial.gender}</p>
-                    <div className="flex text-soft-orange text-sm">
-                      {'★★★★★'}
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-gray-700 mb-4 italic">
-                  "{testimonial.content}"
-                </p>
-                
-                <div className="bg-gradient-to-r from-soft-orange to-pale-blue text-white rounded-lg px-4 py-2 text-center">
-                  <p className="text-sm font-bold">{testimonial.result}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
