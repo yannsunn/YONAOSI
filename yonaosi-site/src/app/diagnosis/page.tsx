@@ -9,7 +9,7 @@ interface Question {
   id: string
   title: string
   description: string
-  type: 'single' | 'multiple' | 'range' | 'input'
+  type: 'single' | 'multiple' | 'range' | 'input' | 'input_with_options'
   options?: { value: string; label: string; description?: string }[]
   min?: number
   max?: number
@@ -49,7 +49,7 @@ const questions: Question[] = [
     id: 'income',
     title: '年収はどれくらいですか？',
     description: '手取りではなく、総支給額でお答えください',
-    type: 'single',
+    type: 'input_with_options',
     options: [
       { value: '300', label: '300万円未満' },
       { value: '400', label: '300-400万円' },
@@ -83,7 +83,7 @@ const questions: Question[] = [
     id: 'savings',
     title: '現在の貯金額はどれくらいですか？',
     description: '定期預金、普通預金、投資資産の合計額',
-    type: 'single',
+    type: 'input_with_options',
     options: [
       { value: '50', label: '50万円未満' },
       { value: '100', label: '50-100万円' },
@@ -535,23 +535,288 @@ export default function DiagnosisPage() {
               {currentQuestion.type === 'range' && (
                 <div className="space-y-6">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-soft-orange mb-2">
+                    <div className="text-4xl font-bold text-soft-orange mb-4">
                       {getCurrentAnswer() || currentQuestion.min}{currentQuestion.unit}
                     </div>
+                    
+                    {/* 数値入力とボタン調整 */}
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const current = (getCurrentAnswer() as number) || currentQuestion.min!
+                          const newValue = Math.max(current - (currentQuestion.step || 1), currentQuestion.min!)
+                          handleAnswer(newValue)
+                        }}
+                        className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-xl font-bold transition-colors"
+                      >
+                        −
+                      </button>
+                      
+                      <div className="relative">
+                        <input
+                          type="number"
+                          min={currentQuestion.min}
+                          max={currentQuestion.max}
+                          step={currentQuestion.step}
+                          value={getCurrentAnswer() as number || currentQuestion.min}
+                          onChange={(e) => {
+                            const value = Number(e.target.value)
+                            if (value >= currentQuestion.min! && value <= currentQuestion.max!) {
+                              handleAnswer(value)
+                            }
+                          }}
+                          className="w-24 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-soft-orange focus:outline-none"
+                        />
+                        <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm text-gray-500">
+                          {currentQuestion.unit}
+                        </span>
+                      </div>
+                      
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const current = (getCurrentAnswer() as number) || currentQuestion.min!
+                          const newValue = Math.min(current + (currentQuestion.step || 1), currentQuestion.max!)
+                          handleAnswer(newValue)
+                        }}
+                        className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-xl font-bold transition-colors"
+                      >
+                        ＋
+                      </button>
+                    </div>
                   </div>
-                  <input
-                    type="range"
-                    min={currentQuestion.min}
-                    max={currentQuestion.max}
-                    step={currentQuestion.step}
-                    value={getCurrentAnswer() as number || currentQuestion.min}
-                    onChange={(e) => handleAnswer(Number(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>{currentQuestion.min}{currentQuestion.unit}</span>
-                    <span>{currentQuestion.max}{currentQuestion.unit}</span>
+                  
+                  {/* スライダー */}
+                  <div className="space-y-4">
+                    <input
+                      type="range"
+                      min={currentQuestion.min}
+                      max={currentQuestion.max}
+                      step={currentQuestion.step}
+                      value={getCurrentAnswer() as number || currentQuestion.min}
+                      onChange={(e) => handleAnswer(Number(e.target.value))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-sm text-gray-600">
+                      <span>{currentQuestion.min}{currentQuestion.unit}</span>
+                      <span>{currentQuestion.max}{currentQuestion.unit}</span>
+                    </div>
                   </div>
+                  
+                  {/* プリセットボタン */}
+                  <div className="grid grid-cols-3 gap-3 mt-6">
+                    {currentQuestion.id === 'age' && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => handleAnswer(25)}
+                          className={`py-2 px-4 rounded-lg text-sm transition-all ${
+                            getCurrentAnswer() === 25 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                        >
+                          25歳
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleAnswer(35)}
+                          className={`py-2 px-4 rounded-lg text-sm transition-all ${
+                            getCurrentAnswer() === 35 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                        >
+                          35歳
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleAnswer(45)}
+                          className={`py-2 px-4 rounded-lg text-sm transition-all ${
+                            getCurrentAnswer() === 45 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                        >
+                          45歳
+                        </button>
+                      </>
+                    )}
+                    {currentQuestion.id === 'monthlyExpenses' && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => handleAnswer(15)}
+                          className={`py-2 px-4 rounded-lg text-sm transition-all ${
+                            getCurrentAnswer() === 15 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                        >
+                          15万円
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleAnswer(25)}
+                          className={`py-2 px-4 rounded-lg text-sm transition-all ${
+                            getCurrentAnswer() === 25 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                        >
+                          25万円
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleAnswer(35)}
+                          className={`py-2 px-4 rounded-lg text-sm transition-all ${
+                            getCurrentAnswer() === 35 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                        >
+                          35万円
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {currentQuestion.type === 'input_with_options' && (
+                <div className="space-y-6">
+                  {/* 直接入力フィールド */}
+                  <div className="bg-pale-green/10 border-2 border-pale-green/30 rounded-lg p-6">
+                    <h4 className="font-bold mb-4 text-center">💡 正確な金額を入力する</h4>
+                    <div className="flex items-center justify-center gap-3">
+                      <input
+                        type="number"
+                        placeholder="金額を入力"
+                        value={typeof getCurrentAnswer() === 'number' ? getCurrentAnswer() : ''}
+                        onChange={(e) => {
+                          const value = e.target.value
+                          if (value === '') {
+                            handleAnswer('')
+                          } else {
+                            handleAnswer(Number(value))
+                          }
+                        }}
+                        className="w-32 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-soft-orange focus:outline-none"
+                      />
+                      <span className="text-lg font-medium">万円</span>
+                    </div>
+                    <p className="text-sm text-gray-600 text-center mt-3">
+                      具体的な金額がわかる場合は、こちらに直接入力してください
+                    </p>
+                  </div>
+
+                  <div className="text-center text-gray-500 font-medium">
+                    または
+                  </div>
+
+                  {/* 選択肢 */}
+                  <div>
+                    <h4 className="font-bold mb-4 text-center">📋 おおよその範囲で選ぶ</h4>
+                    <div className="space-y-3">
+                      {currentQuestion.options?.map((option) => (
+                        <label
+                          key={option.value}
+                          className={`block p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                            getCurrentAnswer() === option.value
+                              ? 'border-soft-orange bg-soft-orange/5'
+                              : 'border-gray-200 hover:border-soft-orange/50'
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name={currentQuestion.id}
+                            value={option.value}
+                            checked={getCurrentAnswer() === option.value}
+                            onChange={(e) => handleAnswer(e.target.value)}
+                            className="sr-only"
+                          />
+                          <div className="font-medium">{option.label}</div>
+                          {option.description && (
+                            <div className="text-sm text-gray-600 mt-1">
+                              {option.description}
+                            </div>
+                          )}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* クイック選択ボタン */}
+                  {currentQuestion.id === 'income' && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(350)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 350 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        350万円
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(450)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 450 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        450万円
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(550)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 550 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        550万円
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(800)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 800 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        800万円
+                      </button>
+                    </div>
+                  )}
+
+                  {currentQuestion.id === 'savings' && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(80)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 80 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        80万円
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(150)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 150 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        150万円
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(400)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 400 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        400万円
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAnswer(800)}
+                        className={`py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                          getCurrentAnswer() === 800 ? 'bg-soft-orange text-white' : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        800万円
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 
