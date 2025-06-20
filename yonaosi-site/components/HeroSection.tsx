@@ -21,7 +21,7 @@ export default function HeroSection() {
   return (
     <section className="section-padding py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -41,13 +41,13 @@ export default function HeroSection() {
               </p>
             </motion.div>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
               今の選択で、
               <br />
               <span className="text-soft-orange">未来は変わる</span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-4 font-bold">
+            <p className="text-lg md:text-xl lg:text-2xl mb-4 font-bold">
               お金の不安から解放される、新しい生き方へ
             </p>
             
@@ -68,18 +68,18 @@ export default function HeroSection() {
                   <span className="text-sm text-gray-600">/年</span>
                 </motion.span>
               </div>
-              <div className="grid grid-cols-3 gap-4 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-bold text-dark-grey">98%</div>
-                  <div className="text-xs text-gray-600">満足度</div>
+                  <div className="text-sm sm:text-xs text-gray-600">満足度</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-dark-grey">2.3倍</div>
-                  <div className="text-xs text-gray-600">資産増加</div>
+                  <div className="text-sm sm:text-xs text-gray-600">資産増加</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-dark-grey">3ヶ月</div>
-                  <div className="text-xs text-gray-600">効果実感</div>
+                  <div className="text-sm sm:text-xs text-gray-600">効果実感</div>
                 </div>
               </div>
             </div>

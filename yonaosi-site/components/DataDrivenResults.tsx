@@ -95,17 +95,17 @@ export default function DataDrivenResults() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-xl p-8 text-center"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-8 text-center"
           >
-            <div className="text-5xl font-bold text-soft-orange mb-2">
+            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-soft-orange mb-2">
               {counters.clients.toLocaleString()}
-              <span className="text-2xl">人</span>
+              <span className="text-xl md:text-2xl">人</span>
             </div>
             <p className="text-gray-600 font-medium">累計相談実績</p>
             <p className="text-sm text-gray-500 mt-2">2019年〜現在</p>
@@ -116,11 +116,11 @@ export default function DataDrivenResults() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-xl p-8 text-center"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-8 text-center"
           >
-            <div className="text-5xl font-bold text-soft-orange mb-2">
+            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-soft-orange mb-2">
               {counters.savings}
-              <span className="text-2xl">万円</span>
+              <span className="text-xl md:text-2xl">万円</span>
             </div>
             <p className="text-gray-600 font-medium">平均年間削減額</p>
             <p className="text-sm text-gray-500 mt-2">固定費の見直しで</p>
@@ -131,11 +131,11 @@ export default function DataDrivenResults() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-xl p-8 text-center"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-8 text-center"
           >
-            <div className="text-5xl font-bold text-soft-orange mb-2">
+            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-soft-orange mb-2">
               {counters.satisfaction}
-              <span className="text-2xl">%</span>
+              <span className="text-xl md:text-2xl">%</span>
             </div>
             <p className="text-gray-600 font-medium">お客様満足度</p>
             <p className="text-sm text-gray-500 mt-2">3ヶ月後アンケート</p>
@@ -146,11 +146,11 @@ export default function DataDrivenResults() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-2xl shadow-xl p-8 text-center"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-8 text-center"
           >
-            <div className="text-5xl font-bold text-soft-orange mb-2">
+            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-soft-orange mb-2">
               {counters.increase}
-              <span className="text-2xl">%</span>
+              <span className="text-xl md:text-2xl">%</span>
             </div>
             <p className="text-gray-600 font-medium">資産増加率</p>
             <p className="text-sm text-gray-500 mt-2">10年後の平均</p>
@@ -207,7 +207,7 @@ export default function DataDrivenResults() {
           </div>
 
           <div className="mt-10 p-6 bg-gray-50 rounded-xl">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
               <div>
                 <p className="text-2xl font-bold mb-2">
                   合計削減額: 
@@ -241,21 +241,21 @@ export default function DataDrivenResults() {
           <h3 className="text-2xl md:text-3xl font-bold mb-6">
             時間の価値を最大化する
           </h3>
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 mb-8">
             <div>
-              <div className="text-4xl font-bold mb-2">25歳</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">25歳</div>
               <p className="text-sm opacity-90">から始めると</p>
-              <p className="text-2xl font-bold mt-2">1.2億円</p>
+              <p className="text-lg md:text-xl lg:text-2xl font-bold mt-2">1.2億円</p>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">35歳</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">35歳</div>
               <p className="text-sm opacity-90">から始めると</p>
-              <p className="text-2xl font-bold mt-2">6,800万円</p>
+              <p className="text-lg md:text-xl lg:text-2xl font-bold mt-2">6,800万円</p>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">45歳</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">45歳</div>
               <p className="text-sm opacity-90">から始めると</p>
-              <p className="text-2xl font-bold mt-2">3,200万円</p>
+              <p className="text-lg md:text-xl lg:text-2xl font-bold mt-2">3,200万円</p>
             </div>
           </div>
           <p className="text-lg mb-8">

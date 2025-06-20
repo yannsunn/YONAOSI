@@ -14,15 +14,15 @@ export default function PowerfulCTA() {
           transition={{ duration: 0.6 }}
           className="bg-soft-orange p-1 rounded-3xl shadow-xl"
         >
-          <div className="bg-white rounded-3xl p-8 md:p-12">
+          <div className="bg-white rounded-3xl p-4 md:p-8 lg:p-12">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6">
                 今日が、
                 <span className="text-soft-orange">人生を変える日</span>
                 になる
               </h2>
               
-              <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
                 5年後、10年後のあなたは、今日の決断に感謝するはずです。
                 <br />
                 まずは無料診断で、可能性を確かめてみませんか？
@@ -85,7 +85,7 @@ export default function PowerfulCTA() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-8 mb-8">
+            <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6 md:mb-8">
               <div className="bg-white shadow-xl rounded-xl p-4">
                 <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
                   <rect width="150" height="150" fill="white"/>
@@ -99,7 +99,7 @@ export default function PowerfulCTA() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full md:w-auto mx-auto block bg-soft-orange hover:bg-soft-orange/90 text-white font-bold text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
+                className="w-full md:w-auto mx-auto block bg-soft-orange hover:bg-soft-orange/90 text-white font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all text-center min-h-[44px]"
               >
                 <svg className="inline-block w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -108,7 +108,7 @@ export default function PowerfulCTA() {
               </motion.div>
             </Link>
 
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-soft-orange font-bold">1</span>

@@ -15,19 +15,34 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-soft-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+    @apply bg-soft-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[44px] flex items-center justify-center;
   }
   
   .btn-secondary {
-    @apply bg-pale-blue text-dark-grey px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+    @apply bg-pale-blue text-dark-grey px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[44px] flex items-center justify-center;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-sm p-6 transition-all duration-300 hover:shadow-md;
+    @apply bg-white rounded-xl shadow-sm p-4 md:p-6 transition-all duration-300 hover:shadow-md;
   }
   
   .section-padding {
     @apply px-4 md:px-8 lg:px-16 xl:px-24;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 640px) {
+    .mobile-optimized {
+      @apply text-sm leading-relaxed;
+    }
+    
+    .mobile-touch-target {
+      @apply min-h-[44px] min-w-[44px];
+    }
+    
+    .mobile-spacing {
+      @apply gap-4 p-4;
+    }
   }
 
   .slider {

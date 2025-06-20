@@ -45,7 +45,7 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             よくあるご質問
           </h2>
           <p className="text-lg text-gray-600">
@@ -64,7 +64,7 @@ export default function FAQSection() {
             >
               <Accordion.Item value={`item-${index}`} className="card">
                 <Accordion.Header>
-                  <Accordion.Trigger className="w-full flex items-center justify-between text-left py-4 hover:text-soft-orange transition-colors">
+                  <Accordion.Trigger className="w-full flex items-center justify-between text-left py-4 md:py-3 hover:text-soft-orange transition-colors min-h-[44px]">
                     <span className="font-medium pr-4">{faq.question}</span>
                     <svg
                       className="transform transition-transform duration-300 data-[state=open]:rotate-180"
@@ -78,7 +78,7 @@ export default function FAQSection() {
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
-                  <div className="pb-4 pt-2 text-gray-600">
+                  <div className="pb-4 pt-2 text-gray-600 text-sm md:text-base leading-relaxed">
                     {faq.answer}
                   </div>
                 </Accordion.Content>
@@ -97,7 +97,7 @@ export default function FAQSection() {
           <p className="text-gray-600 mb-4">
             その他のご質問はお気軽にお問い合わせください
           </p>
-          <button className="btn-secondary">
+          <button className="btn-secondary min-h-[44px] px-6 py-3">
             お問い合わせはこちら
           </button>
         </motion.div>

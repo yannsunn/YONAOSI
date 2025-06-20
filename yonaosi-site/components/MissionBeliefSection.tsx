@@ -72,7 +72,7 @@ export default function MissionBeliefSection() {
             を掲げるのか
           </h2>
           
-          <div className="space-y-6 text-lg md:text-xl text-gray-700">
+          <div className="space-y-6 text-base md:text-lg lg:text-xl text-gray-700">
             <p className="leading-relaxed">
               情報が溢れ、選択肢が増えた現代。<br />
               しかし、<span className="font-bold text-soft-orange">何が本当に適正なのか</span>を判断する基準が失われています。
@@ -122,7 +122,7 @@ export default function MissionBeliefSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-gray-50 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-200 mb-16"
+          className="bg-gray-50 rounded-2xl shadow-lg p-4 md:p-8 lg:p-12 border border-gray-200 mb-16"
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-dark-grey">
@@ -168,7 +168,7 @@ export default function MissionBeliefSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-200"
+          className="text-center bg-gray-50 rounded-2xl p-4 md:p-8 lg:p-12 border border-gray-200"
         >
           <div className="mb-8">
             <div className="text-5xl mb-4">⚖️</div>
@@ -181,15 +181,15 @@ export default function MissionBeliefSection() {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link 
               href="/diagnosis"
-              className="inline-flex items-center justify-center gap-3 bg-soft-orange hover:bg-soft-orange/90 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 bg-soft-orange hover:bg-soft-orange/90 text-white font-bold text-base md:text-lg px-6 md:px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 min-h-[44px]"
             >
               <span>🔍</span>
               まずは無料診断で現状を把握
             </Link>
-            <button className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-dark-grey font-medium text-lg px-8 py-4 rounded-full border border-gray-300 transition-all duration-300">
+            <button className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-dark-grey font-medium text-base md:text-lg px-6 md:px-8 py-4 rounded-full border border-gray-300 transition-all duration-300 min-h-[44px]">
               <span>💬</span>
               専門家に直接相談する
             </button>

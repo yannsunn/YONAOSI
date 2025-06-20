@@ -114,12 +114,12 @@ export default function LifeStageTabs() {
         </motion.div>
 
         <Tabs.Root defaultValue="single" className="w-full">
-          <Tabs.List className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
+          <Tabs.List className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mb-8">
             {stageData.map((stage) => (
               <Tabs.Trigger
                 key={stage.id}
                 value={stage.id}
-                className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 
+                className={`px-3 py-4 md:px-4 md:py-3 rounded-lg font-medium text-sm md:text-base transition-all duration-300 min-h-[44px] flex items-center justify-center
                   data-[state=active]:bg-soft-orange data-[state=active]:text-white
                   data-[state=inactive]:bg-gray-100 data-[state=inactive]:text-gray-600
                   hover:bg-gray-200`}
@@ -149,7 +149,7 @@ export default function LifeStageTabs() {
                   </div>
                 )}
                 
-                <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center">
                   <div>
                     <h3 className="text-2xl font-bold mb-4">{stage.content.title}</h3>
                     <p className="text-gray-600 mb-6">{stage.content.description}</p>
@@ -176,14 +176,14 @@ export default function LifeStageTabs() {
                       <p className="text-xs text-gray-500">{stage.content.stat.detail}</p>
                     </div>
 
-                    <button className="btn-primary w-full sm:w-auto">
+                    <button className="btn-primary w-full sm:w-auto min-h-[44px] px-6 py-3">
                       無料相談を申し込む
                     </button>
                   </div>
 
                   <div>
                     <div className="text-center mb-6">
-                      <div className="text-8xl mb-4">{stage.content.image}</div>
+                      <div className="text-6xl md:text-7xl lg:text-8xl mb-4">{stage.content.image}</div>
                     </div>
                     
                     {stage.content.testimonial && (
