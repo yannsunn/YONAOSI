@@ -13,7 +13,7 @@ import Footer from '@components/Footer'
 export const metadata: Metadata = {
   metadataBase: new URL('https://yonaosi.awakeinc.co.jp'),
   title: 'YONAOSI｜世直しの専門家による資産形成プラットフォーム【初回相談無料】',
-  description: '世直しの専門家が多くの方の改善を実現。年間最大52万円の家計改善可能性。情報格差から消費者を守り、投資・保険・不動産の適正選択をサポート。98%満足度の中立的アドバイス。',
+  description: '世直しの専門家が多くの方の改善を実現。家計改善の可能性をサポート。情報格差から消費者を守り、投資・保険・不動産の適正選択をサポート。中立的アドバイス。',
   keywords: ['世直し', '適正価格', '資産形成', '家計改善', '投資相談', 'NISA', 'iDeCo', '保険見直し', '税金対策', '不動産選択', '情報格差', '中立的アドバイス'],
   authors: [{ name: 'YONAOSI編集部' }],
   creator: 'YONAOSI',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     url: 'https://yonaosi.awakeinc.co.jp',
     siteName: 'YONAOSI',
     title: 'YONAOSI｜世直しの専門家による資産形成プラットフォーム',
-    description: '情報格差から消費者を守る世直しの専門家。最大年間52万円の改善可能性。中立的立場で適正な選択をサポート。',
+    description: '情報格差から消費者を守る世直しの専門家。家計改善の可能性をサポート。中立的立場で適正な選択をサポート。',
     images: [
       {
         url: '/og-image.jpg',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     site: '@yonaosi_jp',
     creator: '@yonaosi_jp',
     title: 'YONAOSI｜世直しの専門家による初回相談',
-    description: '情報格差から守る中立的アドバイス。多くの方が実践。最大年間52万円改善可能性。',
+    description: '情報格差から守る中立的アドバイス。多くの方が実践。家計改善の可能性をサポート。',
     images: ['/twitter-card.jpg'],
   },
   alternates: {

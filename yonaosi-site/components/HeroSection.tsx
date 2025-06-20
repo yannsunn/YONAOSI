@@ -2,21 +2,8 @@
 
 import { motion } from 'framer-motion'
 import SimpleDiagnosisForm from './SimpleDiagnosisForm'
-import { useState, useEffect } from 'react'
 
 export default function HeroSection() {
-  const [savingsAmount, setSavingsAmount] = useState(0)
-  const targetSavings = 520000 // 年間52万円
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSavingsAmount(prev => {
-        const next = prev + 10000
-        return next >= targetSavings ? targetSavings : next
-      })
-    }, 50)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <section className="section-padding py-16 md:py-24 bg-white section-bg-pattern">
@@ -58,29 +45,25 @@ export default function HeroSection() {
             </p>
 
             <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-gray-600">年間削減の可能性</span>
-                <motion.span 
-                  className="text-3xl font-bold text-soft-orange"
-                  key={savingsAmount}
-                >
-                  ¥{savingsAmount.toLocaleString()}
-                  <span className="text-sm text-gray-600">/年</span>
-                </motion.span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold text-dark-grey">98%</div>
-                  <div className="text-sm sm:text-xs text-gray-600">満足度</div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold mb-4">YONAOSIの特徴</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-soft-orange">中立</div>
+                    <div className="text-sm sm:text-xs text-gray-600">公正な立場</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-soft-orange">包括</div>
+                    <div className="text-sm sm:text-xs text-gray-600">総合サポート</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-soft-orange">継続</div>
+                    <div className="text-sm sm:text-xs text-gray-600">長期フォロー</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-dark-grey">2.3倍</div>
-                  <div className="text-sm sm:text-xs text-gray-600">資産増加</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-dark-grey">3ヶ月</div>
-                  <div className="text-sm sm:text-xs text-gray-600">効果実感</div>
-                </div>
+                <p className="text-xs text-gray-500 mt-4">
+                  ※ 効果は個人により異なり、成果を保証するものではありません
+                </p>
               </div>
             </div>
 

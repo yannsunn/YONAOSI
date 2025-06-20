@@ -67,7 +67,7 @@ const stageData = [
   {
     id: 'second',
     label: 'セカンドライフ期',
-    badge: '満足度98%',
+    badge: '充実サポート',
     content: {
       title: '自由で豊かな第二の人生へ',
       description: 'これまでの努力を最大限に活かし、お金の心配から解放された理想のセカンドライフを実現します。',
@@ -75,19 +75,19 @@ const stageData = [
         {
           icon: '🏦',
           title: '年金受給額を最大化',
-          impact: '受給額20%アップ',
+          impact: '受給額改善の可能性',
           detail: '繰下げ受給と加給年金の活用術'
         },
         {
           icon: '💎',
           title: '退職金運用の黄金ルール',
-          impact: '10年で1.5倍に成長',
+          impact: '運用改善の可能性',
           detail: 'リスク分散と定期収入の確保'
         },
         {
           icon: '🏥',
           title: '医療・介護費用の準備',
-          impact: '自己負担90%削減',
+          impact: '負担軽減の可能性',
           detail: '高額療養費制度と民間保険の最適化'
         }
       ],
@@ -198,22 +198,22 @@ export default function SupportServices() {
             <div className="text-center">
               <div className="text-3xl mb-2">📊</div>
               <h4 className="font-bold mb-1">税金最適化</h4>
-              <p className="text-sm text-gray-600">年間35万円削減</p>
+              <p className="text-sm text-gray-600">節税効果の可能性</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🛡️</div>
               <h4 className="font-bold mb-1">保険見直し</h4>
-              <p className="text-sm text-gray-600">保険料50%削減</p>
+              <p className="text-sm text-gray-600">保険料削減の可能性</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">⚡</div>
               <h4 className="font-bold mb-1">光熱費削減</h4>
-              <p className="text-sm text-gray-600">年間6万円節約</p>
+              <p className="text-sm text-gray-600">光熱費削減の可能性</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">💳</div>
               <h4 className="font-bold mb-1">ローン見直し</h4>
-              <p className="text-sm text-gray-600">金利1.2%削減</p>
+              <p className="text-sm text-gray-600">金利削減の可能性</p>
             </div>
           </div>
           <p className="text-gray-600">
