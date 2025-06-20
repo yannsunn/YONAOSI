@@ -20,16 +20,18 @@ const nextConfig = {
   compress: true,
   
   // Bundle Analyzer（開発時のみ）
-  ...(process.env.ANALYZE === 'true' && {
-    webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    if (process.env.ANALYZE === 'true' && !isServer) {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
       config.plugins.push(
-        new (require('@next/bundle-analyzer')({
-          enabled: true,
-        }))()
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+        })
       )
-      return config
-    },
-  }),
+    }
+    return config
+  },
   
   // Core Web Vitals最適化
   poweredByHeader: false,
