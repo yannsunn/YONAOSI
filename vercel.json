@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "yonaosi",
+  "alias": ["yonaosi.awakeinc.co.jp"],
+  "builds": [
+    {
+      "src": "yonaosi-site/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/yonaosi-site/$1"
+    }
+  ]
+}
