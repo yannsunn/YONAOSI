@@ -47,53 +47,122 @@
     @apply bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200;
   }
 
-  /* 背景デザイン */
+  /* 背景デザイン - 新カラーパレット */
   .section-bg-pattern {
     background-image: 
-      radial-gradient(circle at 20% 50%, rgba(255, 185, 139, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(168, 216, 255, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(152, 216, 191, 0.08) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(255, 185, 139, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(200, 230, 160, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(168, 216, 255, 0.06) 0%, transparent 50%);
   }
 
   .hero-bg-pattern {
     background: linear-gradient(135deg, 
-      rgba(255, 185, 139, 0.05) 0%,
-      rgba(168, 216, 255, 0.05) 50%,
-      rgba(152, 216, 191, 0.05) 100%
+      rgba(255, 185, 139, 0.04) 0%,
+      rgba(200, 230, 160, 0.04) 35%,
+      rgba(168, 216, 255, 0.04) 70%,
+      rgba(254, 252, 251, 0.95) 100%
     );
   }
 
   .card-bg-gradient {
     background: linear-gradient(145deg, 
-      rgba(255, 255, 255, 0.95) 0%,
+      rgba(254, 252, 251, 0.95) 0%,
+      rgba(255, 255, 255, 0.95) 50%,
       rgba(248, 249, 250, 0.95) 100%
     );
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 185, 139, 0.15);
   }
 
+  /* メイン機能カード（オレンジ系） */
   .feature-card-1 {
     background: linear-gradient(135deg, 
-      rgba(255, 185, 139, 0.1) 0%,
-      rgba(255, 255, 255, 0.9) 100%
+      rgba(255, 185, 139, 0.08) 0%,
+      rgba(255, 212, 179, 0.05) 50%,
+      rgba(255, 255, 255, 0.95) 100%
     );
     border-left: 4px solid #FFB98B;
+    box-shadow: 0 4px 6px rgba(255, 185, 139, 0.1);
   }
 
+  /* セカンダリ機能カード（黄緑系） */
   .feature-card-2 {
     background: linear-gradient(135deg, 
-      rgba(168, 216, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.9) 100%
+      rgba(200, 230, 160, 0.08) 0%,
+      rgba(224, 242, 204, 0.05) 50%,
+      rgba(255, 255, 255, 0.95) 100%
     );
-    border-left: 4px solid #A8D8FF;
+    border-left: 4px solid #C8E6A0;
+    box-shadow: 0 4px 6px rgba(200, 230, 160, 0.1);
   }
 
+  /* サポート機能カード（水色系） */
   .feature-card-3 {
     background: linear-gradient(135deg, 
-      rgba(152, 216, 191, 0.1) 0%,
-      rgba(255, 255, 255, 0.9) 100%
+      rgba(168, 216, 255, 0.08) 0%,
+      rgba(204, 235, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.95) 100%
     );
-    border-left: 4px solid #98D8BF;
+    border-left: 4px solid #A8D8FF;
+    box-shadow: 0 4px 6px rgba(168, 216, 255, 0.1);
+  }
+
+  /* 診断システム専用カード */
+  .diagnosis-card-primary {
+    background: linear-gradient(145deg, 
+      rgba(255, 185, 139, 0.1) 0%,
+      rgba(255, 212, 179, 0.06) 30%,
+      rgba(254, 252, 251, 0.95) 100%
+    );
+    border: 2px solid rgba(255, 185, 139, 0.2);
+    box-shadow: 0 8px 16px rgba(255, 185, 139, 0.15);
+  }
+
+  .diagnosis-card-secondary {
+    background: linear-gradient(145deg, 
+      rgba(200, 230, 160, 0.1) 0%,
+      rgba(224, 242, 204, 0.06) 30%,
+      rgba(254, 252, 251, 0.95) 100%
+    );
+    border: 2px solid rgba(200, 230, 160, 0.2);
+    box-shadow: 0 8px 16px rgba(200, 230, 160, 0.15);
+  }
+
+  .diagnosis-card-accent {
+    background: linear-gradient(145deg, 
+      rgba(168, 216, 255, 0.1) 0%,
+      rgba(204, 235, 255, 0.06) 30%,
+      rgba(254, 252, 251, 0.95) 100%
+    );
+    border: 2px solid rgba(168, 216, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(168, 216, 255, 0.15);
+  }
+
+  /* ボタンスタイルの拡張 */
+  .btn-lime {
+    background: linear-gradient(135deg, #C8E6A0 0%, #B8D987 100%);
+    color: #365314;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(200, 230, 160, 0.2);
+  }
+
+  .btn-lime:hover {
+    background: linear-gradient(135deg, #B8D987 0%, #A6CC7A 100%);
+    box-shadow: 0 6px 12px rgba(200, 230, 160, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-pale-blue {
+    background: linear-gradient(135deg, #A8D8FF 0%, #85C8FF 100%);
+    color: #1e3a8a;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(168, 216, 255, 0.2);
+  }
+
+  .btn-pale-blue:hover {
+    background: linear-gradient(135deg, #85C8FF 0%, #66B8FF 100%);
+    box-shadow: 0 6px 12px rgba(168, 216, 255, 0.3);
+    transform: translateY(-1px);
   }
 
   /* Mobile-specific optimizations */

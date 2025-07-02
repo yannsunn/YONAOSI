@@ -7,11 +7,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // メインカラー（オレンジ系）
         'soft-orange': '#FFB98B',
-        'pale-green': '#98D8BF',
+        'soft-orange-light': '#FFD4B3',
+        'soft-orange-dark': '#FF9F6B',
+        
+        // アクセントカラー1（黄緑系）
+        'lime-green': '#C8E6A0',
+        'lime-green-light': '#E0F2CC',
+        'lime-green-dark': '#B8D987',
+        
+        // アクセントカラー2（水色系）  
         'pale-blue': '#A8D8FF',
+        'pale-blue-light': '#CCEBFF',
+        'pale-blue-dark': '#85C8FF',
+        
+        // 既存カラー（互換性のため）
+        'pale-green': '#98D8BF',
+        
+        // ベースカラー
         'off-white': '#F8F9FA',
+        'warm-white': '#FEFCFB',
         'dark-grey': '#333333',
+        'soft-grey': '#6B7280',
       },
       fontFamily: {
         sans: ['Noto Sans JP', 'sans-serif'],

@@ -407,24 +407,24 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
           </div>
 
           {/* ユーザープロファイル詳細 */}
-          <div className="bg-gradient-to-r from-soft-orange/10 to-pale-blue/10 rounded-lg p-6 mb-8">
+          <div className="bg-gradient-to-r from-soft-orange/8 via-lime-green/6 to-pale-blue/8 rounded-lg p-6 mb-8 border border-soft-orange/20">
             <h3 className="text-xl font-bold mb-4">診断対象プロファイル</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white rounded-lg p-4">
-                <div className="text-sm text-gray-600">年代</div>
+              <div className="bg-gradient-to-br from-soft-orange-light/20 to-white rounded-lg p-4 border border-soft-orange/15">
+                <div className="text-sm text-soft-grey">年代</div>
                 <div className="text-lg font-bold text-soft-orange">{userProfile.age}</div>
               </div>
-              <div className="bg-white rounded-lg p-4">
-                <div className="text-sm text-gray-600">職業</div>
-                <div className="text-lg font-bold text-soft-orange">{userProfile.jobType}</div>
+              <div className="bg-gradient-to-br from-lime-green-light/20 to-white rounded-lg p-4 border border-lime-green/15">
+                <div className="text-sm text-soft-grey">職業</div>
+                <div className="text-lg font-bold text-lime-green-dark">{userProfile.jobType}</div>
               </div>
-              <div className="bg-white rounded-lg p-4">
-                <div className="text-sm text-gray-600">年収</div>
-                <div className="text-lg font-bold text-soft-orange">{userProfile.income}</div>
+              <div className="bg-gradient-to-br from-pale-blue-light/20 to-white rounded-lg p-4 border border-pale-blue/15">
+                <div className="text-sm text-soft-grey">年収</div>
+                <div className="text-lg font-bold text-pale-blue-dark">{userProfile.income}</div>
               </div>
-              <div className="bg-white rounded-lg p-4">
-                <div className="text-sm text-gray-600">関心事</div>
-                <div className="text-sm font-medium">{userProfile.concerns.join('、')}</div>
+              <div className="bg-gradient-to-br from-soft-orange/10 via-lime-green/8 to-pale-blue/10 rounded-lg p-4 border border-soft-orange/15">
+                <div className="text-sm text-soft-grey">関心事</div>
+                <div className="text-sm font-medium text-dark-grey">{userProfile.concerns.join('、')}</div>
               </div>
             </div>
           </div>
@@ -432,8 +432,12 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
           {/* 詳細推奨事項 */}
           <div className="space-y-8">
             <h3 className="text-2xl font-bold">あなた専用の改善戦略</h3>
-            {recommendations.map((rec, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-xl overflow-hidden">
+            {recommendations.map((rec, index) => {
+              const cardClass = index % 3 === 0 ? 'diagnosis-card-primary' : 
+                               index % 3 === 1 ? 'diagnosis-card-secondary' : 
+                               'diagnosis-card-accent'
+              return (
+              <div key={index} className={`${cardClass} rounded-xl overflow-hidden`}>
                 <div className="bg-gray-50 p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
@@ -543,14 +547,15 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
                   </div>
                 </div>
               </div>
-            ))}
+            )
+            })}
           </div>
 
           {/* 今後のスケジュール */}
-          <div className="mt-8 bg-gradient-to-r from-pale-green/20 to-pale-blue/20 rounded-lg p-6">
+          <div className="mt-8 bg-gradient-to-r from-lime-green/15 via-soft-orange/10 to-pale-blue/15 rounded-lg p-6 border border-lime-green/20">
             <h3 className="text-xl font-bold mb-4">📅 今後3ヶ月のアクションスケジュール</h3>
             <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-white rounded-lg p-4">
+              <div className="bg-gradient-to-br from-soft-orange-light/15 to-white rounded-lg p-4 border border-soft-orange/20">
                 <h4 className="font-bold text-soft-orange mb-2">1ヶ月目</h4>
                 <ul className="text-sm space-y-1">
                   <li>• 各種口座開設手続き</li>
@@ -558,16 +563,16 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
                   <li>• 専門家相談の予約</li>
                 </ul>
               </div>
-              <div className="bg-white rounded-lg p-4">
-                <h4 className="font-bold text-soft-orange mb-2">2ヶ月目</h4>
+              <div className="bg-gradient-to-br from-lime-green-light/15 to-white rounded-lg p-4 border border-lime-green/20">
+                <h4 className="font-bold text-lime-green-dark mb-2">2ヶ月目</h4>
                 <ul className="text-sm space-y-1">
                   <li>• 投資・積立の開始</li>
                   <li>• 保険見直しの実行</li>
                   <li>• 税金対策の本格実施</li>
                 </ul>
               </div>
-              <div className="bg-white rounded-lg p-4">
-                <h4 className="font-bold text-soft-orange mb-2">3ヶ月目</h4>
+              <div className="bg-gradient-to-br from-pale-blue-light/15 to-white rounded-lg p-4 border border-pale-blue/20">
+                <h4 className="font-bold text-pale-blue-dark mb-2">3ヶ月目</h4>
                 <ul className="text-sm space-y-1">
                   <li>• 運用状況の初回確認</li>
                   <li>• 家計改善効果の測定</li>
@@ -606,7 +611,7 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
           </div>
 
           {/* CTAセクション */}
-          <div className="mt-8 text-center bg-soft-orange/10 rounded-lg p-6">
+          <div className="mt-8 text-center bg-gradient-to-r from-soft-orange/12 via-lime-green/8 to-pale-blue/12 rounded-lg p-6 border border-soft-orange/20">
             <h3 className="text-xl font-bold mb-4">次のステップ</h3>
             <p className="text-gray-700 mb-6">
               診断結果を踏まえた具体的なアドバイスをご希望の方は、<br />

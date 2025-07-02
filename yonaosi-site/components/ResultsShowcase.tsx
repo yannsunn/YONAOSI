@@ -30,7 +30,7 @@ export default function ResultsShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl shadow-lg p-6 text-center"
+            className="feature-card-1 rounded-xl p-6 text-center"
           >
             <div className="text-4xl mb-4">💰</div>
             <h3 className="text-xl font-bold mb-3">税金最適化</h3>
@@ -48,7 +48,7 @@ export default function ResultsShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-xl shadow-lg p-6 text-center"
+            className="feature-card-2 rounded-xl p-6 text-center"
           >
             <div className="text-4xl mb-4">🛡️</div>
             <h3 className="text-xl font-bold mb-3">保険見直し</h3>
@@ -66,7 +66,7 @@ export default function ResultsShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-xl shadow-lg p-6 text-center"
+            className="feature-card-3 rounded-xl p-6 text-center"
           >
             <div className="text-4xl mb-4">📊</div>
             <h3 className="text-xl font-bold mb-3">資産形成相談</h3>

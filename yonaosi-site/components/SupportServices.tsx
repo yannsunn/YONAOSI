@@ -141,7 +141,7 @@ export default function SupportServices() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="card relative overflow-hidden"
+                className="card-bg-gradient relative overflow-hidden border border-soft-orange/15"
               >
                 {stage.badge && (
                   <div className="absolute top-4 right-4">
@@ -156,14 +156,19 @@ export default function SupportServices() {
                   <p className="text-gray-600 mb-6">{stage.content.description}</p>
                   
                   <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {stage.content.services.map((service, index) => (
-                      <div key={index} className="bg-white rounded-lg p-6 border border-gray-200">
+                    {stage.content.services.map((service, index) => {
+                      const serviceCardClass = index % 3 === 0 ? 'feature-card-1' : 
+                                              index % 3 === 1 ? 'feature-card-2' : 
+                                              'feature-card-3'
+                      return (
+                      <div key={index} className={`${serviceCardClass} rounded-lg p-6`}>
                         <div className="text-3xl mb-3">{service.icon}</div>
                         <h4 className="font-bold mb-2">{service.title}</h4>
                         <p className="text-sm text-soft-orange font-medium mb-2">{service.impact}</p>
                         <p className="text-xs text-gray-600">{service.detail}</p>
                       </div>
-                    ))}
+                      )
+                    })}
                   </div>
 
                   <div className="bg-gray-50 rounded-lg p-4 mb-6">

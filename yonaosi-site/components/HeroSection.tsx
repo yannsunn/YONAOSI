@@ -6,7 +6,7 @@ import SimpleDiagnosisForm from './SimpleDiagnosisForm'
 export default function HeroSection() {
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-white section-bg-pattern">
+    <section className="section-padding py-16 md:py-24 bg-warm-white hero-bg-pattern">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           <motion.div
@@ -44,7 +44,7 @@ export default function HeroSection() {
               サポートいたします。
             </p>
 
-            <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div className="card-bg-gradient rounded-xl shadow-lg p-6 mb-8">
               <div className="text-center">
                 <h3 className="text-lg font-bold mb-4">YONAOSIの特徴</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
