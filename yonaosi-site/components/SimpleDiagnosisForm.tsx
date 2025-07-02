@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import DiagnosisResult from './DiagnosisResult'
+import EnhancedDiagnosisResult from './EnhancedDiagnosisResult'
 
 export default function SimpleDiagnosisForm() {
   const [isOpen, setIsOpen] = useState(false)
@@ -264,7 +264,7 @@ export default function SimpleDiagnosisForm() {
       {/* 診断結果表示 */}
       <AnimatePresence>
         {showResult && (
-          <DiagnosisResult 
+          <EnhancedDiagnosisResult 
             userProfile={formData}
             onClose={handleCloseResult}
           />
