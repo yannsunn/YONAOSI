@@ -2,10 +2,12 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import DiagnosisResult from './DiagnosisResult'
 
 export default function SimpleDiagnosisForm() {
   const [isOpen, setIsOpen] = useState(false)
   const [step, setStep] = useState(1)
+  const [showResult, setShowResult] = useState(false)
   const [formData, setFormData] = useState({
     age: '',
     income: '',
@@ -31,9 +33,13 @@ export default function SimpleDiagnosisForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // 公式LINEへリダイレクト
-    window.open('https://line.me/R/ti/p/@yonaosi', '_blank')
+    // 診断結果を表示
     setIsOpen(false)
+    setShowResult(true)
+  }
+
+  const handleCloseResult = () => {
+    setShowResult(false)
     setStep(1)
     setFormData({ age: '', income: '', jobType: '', concerns: [] })
   }
@@ -219,7 +225,7 @@ export default function SimpleDiagnosisForm() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                   >
-                    <h4 className="font-bold mb-4">診断結果の受け取り方法</h4>
+                    <h4 className="font-bold mb-4">診断内容確認</h4>
                     <div className="bg-gray-50 rounded-lg p-4 mb-6">
                       <p className="text-sm text-gray-600 mb-2">以下の内容で診断を行います：</p>
                       <ul className="text-sm space-y-1">
@@ -235,9 +241,9 @@ export default function SimpleDiagnosisForm() {
                         className="btn-primary w-full flex items-center justify-center gap-2"
                       >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                        公式LINEで相談を受け取る
+                        診断結果を見る
                       </button>
                       <button
                         type="button"
@@ -252,6 +258,16 @@ export default function SimpleDiagnosisForm() {
               </form>
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 診断結果表示 */}
+      <AnimatePresence>
+        {showResult && (
+          <DiagnosisResult 
+            userProfile={formData}
+            onClose={handleCloseResult}
+          />
         )}
       </AnimatePresence>
     </>
