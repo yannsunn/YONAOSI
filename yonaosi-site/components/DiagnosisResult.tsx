@@ -42,9 +42,9 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
     // 年代別基本推奨事項（総務省家計調査データ基準）
     if (profile.age === '20代' || profile.age === '30代') {
       recommendations.push({
-        title: 'つみたてNISA優先活用',
-        description: '年間40万円まで非課税投資が可能。20年間の長期投資で複利効果を最大化できます。',
-        potentialBenefit: '20年後資産形成効果：統計上平均1.5-2.0倍の成長可能性',
+        title: 'つみたてNISA制度の検討',
+        description: '年間40万円まで非課税投資が可能な制度です。長期投資による複利効果の活用が期待されます。',
+        potentialBenefit: '長期投資による資産形成の可能性（効果は市場環境により変動）',
         evidenceSource: {
           category: '投資行動統計',
           source: '金融広報中央委員会「家計の金融行動に関する世論調査」',
@@ -60,9 +60,9 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
     // 職業別推奨（国税庁データ基準）
     if (profile.jobType === '会社員・公務員') {
       recommendations.push({
-        title: 'iDeCo（個人型確定拠出年金）活用',
-        description: '月額23,000円まで拠出可能。所得控除により節税効果があります。',
-        potentialBenefit: profile.income.includes('500') ? '年間節税効果：約5.5万円' : '年間節税効果：約2.8万円',
+        title: 'iDeCo（個人型確定拠出年金）制度の検討',
+        description: '月額23,000円まで拠出可能な制度です。所得控除による節税効果が期待されます。',
+        potentialBenefit: '所得控除による節税効果（効果は年収・税率により変動）',
         evidenceSource: {
           category: '税制統計',
           source: '国税庁「民間給与実態統計調査」',
@@ -78,9 +78,9 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
     // 悩み別対応（各種統計データ基準）
     if (profile.concerns.includes('保険料が高い')) {
       recommendations.push({
-        title: '保険の必要保障額見直し',
-        description: '統計上、30-40代の保険加入件数は平均3.2件。重複保障の整理で負担軽減が期待できます。',
-        potentialBenefit: '年間保険料適正化：平均8-15万円の見直し効果',
+        title: '保険の必要保障額見直し検討',
+        description: '保険加入状況を確認し、重複保障がないか専門家と検討することをお勧めします。',
+        potentialBenefit: '適正な保障での保険料最適化の可能性（効果は個人の状況により変動）',
         evidenceSource: {
           category: '保険統計',
           source: '生命保険文化センター「生活保障に関する調査」',
@@ -95,9 +95,9 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
 
     if (profile.concerns.includes('税金を減らしたい')) {
       recommendations.push({
-        title: 'ふるさと納税上限額活用',
-        description: '年収に応じた控除上限額まで活用することで、実質的な税負担軽減が可能です。',
-        potentialBenefit: profile.income.includes('500-700') ? '控除上限額：約8.5万円' : '控除上限額：約4.8万円',
+        title: 'ふるさと納税制度の検討',
+        description: '年収に応じた控除上限額の範囲内で活用することで、税負担軽減の可能性があります。',
+        potentialBenefit: '控除上限額の活用による税負担軽減の可能性（上限額は年収により変動）',
         evidenceSource: {
           category: '税制統計',
           source: '総務省「ふるさと納税に関する現況調査」',
@@ -206,10 +206,12 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
           <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h4 className="font-bold text-yellow-800 mb-2">⚠️ 重要な注意事項</h4>
             <ul className="text-sm text-yellow-700 space-y-1">
-              <li>• 本診断は公的統計データに基づく一般的な傾向を示すものです</li>
-              <li>• 個別の効果や成果を保証するものではありません</li>
-              <li>• 実際の投資判断は専門家にご相談ください</li>
-              <li>• 税制改正等により内容が変更される場合があります</li>
+              <li>• 本診断は公的統計データに基づく一般的な傾向の参考情報です</li>
+              <li>• 個別の効果・成果・結果を保証するものではありません</li>
+              <li>• 投資にはリスクが伴い、元本割れの可能性があります</li>
+              <li>• 具体的な金融判断は必ず専門家にご相談ください</li>
+              <li>• 税制改正等により制度内容が変更される場合があります</li>
+              <li>• 統計数値は調査年度により変動することがあります</li>
             </ul>
           </div>
 
