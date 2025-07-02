@@ -23,9 +23,9 @@ export default function PowerfulCTA() {
               </h2>
               
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                5年後、10年後のあなたは、今日の決断に感謝する可能性があります。
+                資産形成の第一歩、今日から始めてみませんか？
                 <br />
-                まずは診断で、改善の可能性を確かめてみませんか？
+                まずは無料診断で、現状を確認してみましょう。
               </p>
             </div>
 
@@ -56,7 +56,7 @@ export default function PowerfulCTA() {
                   <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span className="text-gray-700">年間改善可能性の算出</span>
+                  <span className="text-gray-700">年間プランの作成</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}

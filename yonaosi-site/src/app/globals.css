@@ -50,9 +50,50 @@
   /* 背景デザイン */
   .section-bg-pattern {
     background-image: 
-      radial-gradient(circle at 20% 50%, rgba(255, 185, 139, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(168, 216, 255, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(152, 216, 191, 0.03) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(255, 185, 139, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(168, 216, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(152, 216, 191, 0.08) 0%, transparent 50%);
+  }
+
+  .hero-bg-pattern {
+    background: linear-gradient(135deg, 
+      rgba(255, 185, 139, 0.05) 0%,
+      rgba(168, 216, 255, 0.05) 50%,
+      rgba(152, 216, 191, 0.05) 100%
+    );
+  }
+
+  .card-bg-gradient {
+    background: linear-gradient(145deg, 
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(248, 249, 250, 0.95) 100%
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .feature-card-1 {
+    background: linear-gradient(135deg, 
+      rgba(255, 185, 139, 0.1) 0%,
+      rgba(255, 255, 255, 0.9) 100%
+    );
+    border-left: 4px solid #FFB98B;
+  }
+
+  .feature-card-2 {
+    background: linear-gradient(135deg, 
+      rgba(168, 216, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.9) 100%
+    );
+    border-left: 4px solid #A8D8FF;
+  }
+
+  .feature-card-3 {
+    background: linear-gradient(135deg, 
+      rgba(152, 216, 191, 0.1) 0%,
+      rgba(255, 255, 255, 0.9) 100%
+    );
+    border-left: 4px solid #98D8BF;
   }
 
   /* Mobile-specific optimizations */

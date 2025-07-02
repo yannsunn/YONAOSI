@@ -39,9 +39,9 @@ export default function HeroSection() {
             </p>
             
             <p className="text-lg mb-8 text-gray-700">
-              効果を実感いただく方もいらっしゃいます。プロの視点で、
+              プロの視点で、あなたの資産形成を
               <br />
-              あなたの資産形成を最適化する可能性があります。
+              サポートいたします。
             </p>
 
             <div className="bg-white rounded-xl shadow-lg p-6 mb-8">

@@ -21,11 +21,11 @@ export default function Footer() {
             </div>
             
             <div>
-              <h4 className="font-medium mb-4">情報</h4>
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li><a href="#" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">プライバシーポリシー</a></li>
-                <li><a href="#" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">特定商取引法</a></li>
-              </ul>
+              <h4 className="font-medium mb-4">お問い合わせ</h4>
+              <div className="space-y-3 text-sm text-gray-300">
+                <p>support@yonaosi.jp</p>
+                <p>まずはお気軽にLINEでご相談ください</p>
+              </div>
             </div>
             
             <div>
@@ -48,10 +48,6 @@ export default function Footer() {
                 </a>
               </div>
               
-              <div className="mt-6">
-                <p className="text-sm text-gray-300 mb-2">お問い合わせ</p>
-                <p className="text-sm text-gray-300">support@yonaosi.jp</p>
-              </div>
             </div>
           </div>
           

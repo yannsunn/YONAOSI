@@ -15,19 +15,19 @@ const stageData = [
         {
           icon: '💰',
           title: '新NISA・iDeCo完全活用',
-          impact: '非課税投資の活用',
+          impact: '税制優遇を活用',
           detail: '税制優遇を最大活用して効率的な資産形成'
         },
         {
           icon: '💼',
           title: '年収アップ戦略',
-          impact: '年収アップの可能性',
+          impact: 'キャリア設計支援',
           detail: 'キャリア設計と転職サポートで収入増'
         },
         {
           icon: '🏠',
           title: '賢い一人暮らし術',
-          impact: '余剰資金創出の可能性',
+          impact: '家計の最適化',
           detail: '家賃交渉や光熱費削減で投資原資を確保'
         }
       ],
@@ -45,19 +45,19 @@ const stageData = [
         {
           icon: '🎓',
           title: '教育資金の準備方法',
-          impact: '月額積立で用意可能',
+          impact: '計画的な積立',
           detail: 'ジュニアNISA活用と学資保険の見直し'
         },
         {
           icon: '🏡',
           title: '住宅ローン最適化',
-          impact: '返済額削減の可能性',
+          impact: 'ローンの最適化',
           detail: '繰上返済と借り換えの最適タイミング'
         },
         {
           icon: '📊',
           title: '家計の見える化サポート',
-          impact: '家計節約の可能性',
+          impact: '支出管理サポート',
           detail: '支出管理アプリ導入と固定費削減'
         }
       ],
@@ -75,19 +75,19 @@ const stageData = [
         {
           icon: '🏦',
           title: '年金受給額を最大化',
-          impact: '受給額改善の可能性',
+          impact: '年金制度の活用',
           detail: '繰下げ受給と加給年金の活用術'
         },
         {
           icon: '💎',
           title: '退職金運用の黄金ルール',
-          impact: '運用改善の可能性',
+          impact: 'リスク管理型運用',
           detail: 'リスク分散と定期収入の確保'
         },
         {
           icon: '🏥',
           title: '医療・介護費用の準備',
-          impact: '負担軽減の可能性',
+          impact: '保険制度の活用',
           detail: '高額療養費制度と民間保険の最適化'
         }
       ],
@@ -198,22 +198,22 @@ export default function SupportServices() {
             <div className="text-center">
               <div className="text-3xl mb-2">📊</div>
               <h4 className="font-bold mb-1">税金最適化</h4>
-              <p className="text-sm text-gray-600">節税効果の可能性</p>
+              <p className="text-sm text-gray-600">適切な税務管理</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🛡️</div>
               <h4 className="font-bold mb-1">保険見直し</h4>
-              <p className="text-sm text-gray-600">保険料削減の可能性</p>
+              <p className="text-sm text-gray-600">保険の最適化</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">⚡</div>
               <h4 className="font-bold mb-1">光熱費削減</h4>
-              <p className="text-sm text-gray-600">光熱費削減の可能性</p>
+              <p className="text-sm text-gray-600">エネルギー最適化</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">💳</div>
               <h4 className="font-bold mb-1">ローン見直し</h4>
-              <p className="text-sm text-gray-600">金利削減の可能性</p>
+              <p className="text-sm text-gray-600">金利最適化</p>
             </div>
           </div>
           <p className="text-gray-600">
