@@ -56,7 +56,7 @@ export default function PowerfulCTA() {
                   <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span className="text-gray-700">年間プランの作成</span>
+                  <span className="text-gray-700 text-sm sm:text-base">シミュレーションの作成</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -68,7 +68,7 @@ export default function PowerfulCTA() {
                   <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span className="text-gray-700">専門家による無料アドバイス</span>
+                  <span className="text-gray-700 text-sm sm:text-base">専門家による無料アドバイス</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -80,7 +80,7 @@ export default function PowerfulCTA() {
                   <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span className="text-gray-700">実行可能な具体的ステップ</span>
+                  <span className="text-gray-700 text-sm sm:text-base">実行可能な具体的ステップ</span>
                 </motion.div>
               </div>
             </div>
@@ -113,21 +113,21 @@ export default function PowerfulCTA() {
                   簡単な質問に答えるだけ
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-gray-600 font-bold">2</span>
+              <div className="text-center p-3 sm:p-0">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                  <span className="text-gray-600 font-bold text-sm sm:text-base">2</span>
                 </div>
-                <h4 className="font-bold mb-2">初回オンライン相談</h4>
-                <p className="text-sm text-gray-600">
+                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">初回オンライン相談</h4>
+                <p className="text-xs sm:text-sm text-gray-600">
                   専門家が最適な改善策を提案
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-gray-600 font-bold">3</span>
+              <div className="text-center p-3 sm:p-0">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                  <span className="text-gray-600 font-bold text-sm sm:text-base">3</span>
                 </div>
-                <h4 className="font-bold mb-2">実行サポート</h4>
-                <p className="text-sm text-gray-600">
+                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">実行サポート</h4>
+                <p className="text-xs sm:text-sm text-gray-600">
                   成果が出るまで完全サポート
                 </p>
               </div>

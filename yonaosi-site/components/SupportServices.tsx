@@ -177,12 +177,14 @@ export default function SupportServices() {
                     <p className="text-xs text-gray-500">{stage.content.stat.detail}</p>
                   </div>
 
-                  <button 
-                    onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-                    className="btn-primary w-full sm:w-auto min-h-[44px] px-6 py-3"
-                  >
-                    LINE相談を申し込む
-                  </button>
+                  <div className="text-center">
+                    <button 
+                      onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+                      className="btn-primary w-full sm:w-auto min-h-[44px] px-6 py-3"
+                    >
+                      LINE相談を申し込む
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </Tabs.Content>
@@ -202,8 +204,8 @@ export default function SupportServices() {
           <div className="grid md:grid-cols-4 gap-6 mb-8">
             <div className="text-center">
               <div className="text-3xl mb-2">📊</div>
-              <h4 className="font-bold mb-1">税金最適化</h4>
-              <p className="text-sm text-gray-600">適切な税務管理</p>
+              <h4 className="font-bold mb-1">所得控除15種類の活用</h4>
+              <p className="text-sm text-gray-600">会社員／公務員でも使える減価償却による控除申請や消費税還付をご提案</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🛡️</div>
