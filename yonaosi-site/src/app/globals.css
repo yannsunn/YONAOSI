@@ -313,6 +313,151 @@
     .desktop-spacing {
       @apply gap-8 p-8;
     }
+    
+    /* 💻 PC専用レイアウト - 限界突破最適化 */
+    .pc-hero-layout {
+      @apply flex items-center justify-between min-h-screen;
+    }
+    
+    .pc-hero-content {
+      @apply flex-1 max-w-xl pr-12;
+    }
+    
+    .pc-hero-visual {
+      @apply flex-1 max-w-lg;
+    }
+    
+    .pc-sidebar-layout {
+      @apply grid grid-cols-4 gap-8;
+    }
+    
+    .pc-main-content {
+      @apply col-span-3;
+    }
+    
+    .pc-sidebar {
+      @apply col-span-1 space-y-6;
+    }
+    
+    .pc-card-grid {
+      @apply grid grid-cols-3 gap-8;
+    }
+    
+    .pc-feature-showcase {
+      @apply grid grid-cols-2 gap-16 items-center;
+    }
+    
+    .pc-navigation {
+      @apply flex items-center space-x-8;
+    }
+    
+    .pc-cta-section {
+      @apply flex items-center justify-between p-16 rounded-2xl;
+    }
+  }
+  
+  /* 📱 タブレット専用最適化 */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .tablet-hero-layout {
+      @apply space-y-8 py-12;
+    }
+    
+    .tablet-card-grid {
+      @apply grid grid-cols-2 gap-6;
+    }
+    
+    .tablet-feature-showcase {
+      @apply space-y-12;
+    }
+    
+    .tablet-navigation {
+      @apply flex items-center space-x-6;
+    }
+    
+    .tablet-touch-target {
+      @apply min-h-[56px] min-w-[56px];
+    }
+    
+    .tablet-form-layout {
+      @apply space-y-6 p-8;
+    }
+    
+    .tablet-button-large {
+      @apply min-h-[56px] text-lg font-bold px-8 py-4;
+    }
+  }
+  
+  /* 📱 モバイル専用 - 限界突破最適化 */
+  @media (max-width: 767px) {
+    .mobile-hero-compact {
+      @apply space-y-6 py-8 text-center;
+    }
+    
+    .mobile-hero-title {
+      @apply text-2xl leading-tight font-bold;
+    }
+    
+    .mobile-hero-subtitle {
+      @apply text-base leading-relaxed;
+    }
+    
+    .mobile-cta-stack {
+      @apply flex flex-col space-y-4 w-full;
+    }
+    
+    .mobile-card-stack {
+      @apply space-y-4;
+    }
+    
+    .mobile-feature-stack {
+      @apply space-y-8;
+    }
+    
+    .mobile-form-fullwidth {
+      @apply w-full space-y-4;
+    }
+    
+    .mobile-navigation-hamburger {
+      @apply fixed top-4 right-4 z-50;
+    }
+    
+    .mobile-section-padding {
+      @apply px-4 py-8;
+    }
+    
+    .mobile-text-large {
+      @apply text-lg leading-relaxed;
+    }
+    
+    .mobile-button-full {
+      @apply w-full min-h-[56px] text-lg font-bold;
+    }
+    
+    .mobile-simulator-compact {
+      @apply space-y-4 p-4;
+    }
+  }
+  
+  /* 🎯 デバイス別ホバー効果 */
+  @media (hover: hover) {
+    .desktop-hover:hover {
+      @apply transform scale-105 shadow-xl;
+    }
+    
+    .desktop-card:hover {
+      @apply transform translateY(-4px) shadow-2xl;
+    }
+  }
+  
+  /* 📱 タッチデバイス専用 */
+  @media (hover: none) {
+    .touch-feedback:active {
+      @apply transform scale-95;
+    }
+    
+    .touch-highlight {
+      @apply active:bg-soft-orange/10;
+    }
   }
   
   /* High contrast for better visibility */

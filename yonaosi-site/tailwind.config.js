@@ -59,6 +59,21 @@ module.exports = {
       willChange: {
         'transform-opacity': 'transform, opacity',
       },
+      // 🎯 PC、タブレット、モバイル専用ブレークポイント
+      screens: {
+        'xs': '475px',      // 大型スマートフォン
+        'sm': '640px',      // 小型タブレット
+        'md': '768px',      // 標準タブレット
+        'lg': '1024px',     // 小型PC
+        'xl': '1280px',     // 標準PC
+        '2xl': '1536px',    // 大型PC
+        '3xl': '1920px',    // 超大型PC
+        // カスタムブレークポイント
+        'tablet': '768px',  // タブレット専用
+        'laptop': '1024px', // ノートPC
+        'desktop': '1280px', // デスクトップPC
+        'wide': '1920px',   // ワイドスクリーン
+      },
     },
   },
   // CSS最適化

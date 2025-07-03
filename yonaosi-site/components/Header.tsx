@@ -24,31 +24,59 @@ export default function Header() {
             </svg>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8" aria-label="メインナビゲーション">
+          {/* 💻 PC専用ナビゲーション */}
+          <nav className="hidden lg:flex pc-navigation" aria-label="メインナビゲーション">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-dark-grey hover:text-soft-orange transition-colors duration-300 min-h-[44px] flex items-center"
+                className="text-dark-grey hover:text-soft-orange transition-colors duration-300 min-h-[44px] flex items-center text-lg font-medium desktop-hover"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
+          {/* 📱 タブレット専用ナビゲーション */}
+          <nav className="hidden md:flex lg:hidden tablet-navigation" aria-label="メインナビゲーション">
+            {navItems.slice(0, 3).map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-dark-grey hover:text-soft-orange transition-colors duration-300 tablet-touch-target flex items-center text-base font-medium touch-highlight"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* 💻 PC専用LINEボタン */}
           <button 
             onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-secondary flex items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-2 md:py-3 min-h-[48px] sm:min-h-[44px] hidden sm:flex"
+            className="btn-secondary hidden lg:flex items-center gap-2 text-lg px-6 py-3 min-h-[52px] font-medium desktop-hover"
             aria-label="YONAOSI公式LINEアカウントを開く（新しいタブで開きます）"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
             </svg>
             公式LINE
           </button>
 
+          {/* 📱 タブレット専用LINEボタン */}
+          <button 
+            onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+            className="btn-secondary hidden md:flex lg:hidden items-center gap-2 text-base px-4 py-3 tablet-touch-target font-medium touch-highlight"
+            aria-label="YONAOSI公式LINEアカウントを開く（新しいタブで開きます）"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
+            </svg>
+            LINE
+          </button>
+
+          {/* 📱 モバイル専用ハンバーガーメニュー */}
           <button
-            className="md:hidden min-h-[56px] min-w-[56px] sm:min-h-[48px] sm:min-w-[48px] flex items-center justify-center bg-soft-orange text-white rounded-lg shadow-md hover:bg-opacity-90 transition-all duration-200"
+            className="md:hidden mobile-navigation-hamburger min-h-[56px] min-w-[56px] flex items-center justify-center bg-soft-orange text-white rounded-lg shadow-md hover:bg-opacity-90 transition-all duration-200 touch-feedback"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
             aria-expanded={isMenuOpen}

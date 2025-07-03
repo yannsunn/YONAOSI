@@ -125,7 +125,7 @@ export default function SimpleDiagnosisForm() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="btn-primary w-full sm:w-auto min-h-[56px] sm:min-h-[48px] text-base sm:text-lg px-6 sm:px-8 py-4 font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+        className="btn-primary w-full sm:w-auto min-h-[56px] sm:min-h-[48px] text-base sm:text-lg px-6 sm:px-8 py-4 font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 desktop-hover touch-feedback"
         aria-label="3分で完了する無料資産形成診断を開始する"
       >
         📊 3分で診断を受ける
@@ -147,7 +147,7 @@ export default function SimpleDiagnosisForm() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-sm sm:max-w-md w-full p-4 sm:p-6 md:p-8 mx-2 sm:mx-0"
+              className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl w-full p-4 sm:p-6 md:p-8 lg:p-10 mx-2 sm:mx-0"
             >
               <div className="flex justify-between items-center mb-6">
                 <h3 id="diagnosis-modal-title" className="text-lg sm:text-xl font-bold">診断フォーム</h3>
