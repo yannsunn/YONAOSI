@@ -37,11 +37,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-soft-orange text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[48px] sm:min-h-[44px] flex items-center justify-center focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none text-sm sm:text-base;
+    @apply bg-soft-orange text-white px-5 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[52px] sm:min-h-[48px] flex items-center justify-center focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none text-base sm:text-base;
   }
   
   .btn-secondary {
-    @apply bg-pale-blue text-dark-grey px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[48px] sm:min-h-[44px] flex items-center justify-center focus:ring-2 focus:ring-pale-blue focus:ring-opacity-50 focus:outline-none text-sm sm:text-base;
+    @apply bg-pale-blue text-dark-grey px-5 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[52px] sm:min-h-[48px] flex items-center justify-center focus:ring-2 focus:ring-pale-blue focus:ring-opacity-50 focus:outline-none text-base sm:text-base;
   }
   
   .btn-large {
@@ -221,11 +221,11 @@
   /* Mobile-specific optimizations */
   @media (max-width: 640px) {
     .mobile-optimized {
-      @apply text-sm leading-relaxed;
+      @apply text-base leading-relaxed;
     }
     
     .mobile-touch-target {
-      @apply min-h-[48px] min-w-[48px];
+      @apply min-h-[52px] min-w-[52px];
     }
     
     .mobile-spacing {
@@ -233,11 +233,26 @@
     }
     
     .mobile-text-scale {
-      @apply text-base leading-7;
+      @apply text-lg leading-7;
     }
     
     .mobile-heading {
-      @apply text-xl leading-tight;
+      @apply text-2xl leading-tight;
+    }
+    
+    /* モバイル専用の大きなボタン */
+    .mobile-btn-large {
+      @apply min-h-[56px] text-lg font-bold px-6 py-4;
+    }
+    
+    /* モバイル専用のカード */
+    .mobile-card {
+      @apply p-5 rounded-xl shadow-md;
+    }
+    
+    /* モバイル専用のタイトル */
+    .mobile-title {
+      @apply text-xl font-bold leading-tight;
     }
   }
   

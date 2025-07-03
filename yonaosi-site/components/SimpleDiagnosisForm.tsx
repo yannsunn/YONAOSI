@@ -48,10 +48,10 @@ export default function SimpleDiagnosisForm() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="btn-primary w-full sm:w-auto min-h-[48px] sm:min-h-[44px] text-sm sm:text-base px-4 sm:px-6"
+        className="btn-primary w-full sm:w-auto min-h-[56px] sm:min-h-[48px] text-base sm:text-lg px-6 sm:px-8 py-4 font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
         aria-label="3分で完了する無料資産形成診断を開始する"
       >
-        3分で診断を受ける
+        📊 3分で診断を受ける
       </button>
 
       <AnimatePresence>
@@ -179,10 +179,10 @@ export default function SimpleDiagnosisForm() {
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="btn-primary w-full mt-4 sm:mt-6 min-h-[48px] sm:min-h-[44px] text-sm sm:text-base"
+                      className="btn-primary w-full mt-4 sm:mt-6 min-h-[52px] sm:min-h-[48px] text-base sm:text-lg font-medium"
                       disabled={!formData.age || !formData.income || !formData.jobType}
                     >
-                      次へ
+                      次へ →
                     </button>
                   </motion.div>
                 )}
@@ -227,10 +227,10 @@ export default function SimpleDiagnosisForm() {
                       <button
                         type="button"
                         onClick={() => setStep(3)}
-                        className="flex-1 btn-primary"
+                        className="flex-1 btn-primary min-h-[52px] sm:min-h-[48px] text-base sm:text-lg font-medium"
                         disabled={formData.concerns.length === 0}
                       >
-                        次へ
+                        次へ →
                       </button>
                     </div>
                   </motion.div>
@@ -255,12 +255,12 @@ export default function SimpleDiagnosisForm() {
                     <div className="space-y-3">
                       <button
                         type="submit"
-                        className="btn-primary w-full flex items-center justify-center gap-2"
+                        className="btn-primary w-full flex items-center justify-center gap-2 min-h-[56px] sm:min-h-[52px] text-base sm:text-lg font-bold shadow-lg"
                       >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                        診断結果を見る
+                        🎉 診断結果を見る
                       </button>
                       <button
                         type="button"

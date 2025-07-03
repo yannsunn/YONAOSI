@@ -377,16 +377,16 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-sm sm:max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto mx-2 sm:mx-0"
       >
-        <div className="p-6 md:p-8" id="diagnosis-content">
+        <div className="p-4 sm:p-6 md:p-8" id="diagnosis-content">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">包括的診断結果レポート</h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold">包括的診断結果レポート</h2>
             <div className="flex gap-2">
               <button
                 onClick={generatePDF}
                 disabled={isGeneratingPDF}
-                className="btn-secondary flex items-center gap-2 text-sm"
+                className="btn-secondary flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-3 sm:px-4 py-2 min-h-[44px] sm:min-h-[40px]"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -399,9 +399,9 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
               </button>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-gray-400 hover:text-gray-600 min-h-[48px] min-w-[48px] sm:min-h-[32px] sm:min-w-[32px] flex items-center justify-center"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="sm:w-6 sm:h-6">
                   <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </button>
@@ -409,12 +409,12 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
           </div>
 
           {/* ユーザープロファイル詳細 */}
-          <div className="bg-gradient-to-r from-soft-orange/8 via-lime-green/6 to-pale-blue/8 rounded-lg p-6 mb-8 border border-soft-orange/20">
-            <h3 className="text-xl font-bold mb-4">診断対象プロファイル</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-gradient-to-br from-soft-orange-light/20 to-white rounded-lg p-4 border border-soft-orange/15">
-                <div className="text-sm text-soft-grey">年代</div>
-                <div className="text-lg font-bold text-soft-orange">{userProfile.age}</div>
+          <div className="bg-gradient-to-r from-soft-orange/8 via-lime-green/6 to-pale-blue/8 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 border border-soft-orange/20">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4">診断対象プロファイル</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <div className="bg-gradient-to-br from-soft-orange-light/20 to-white rounded-lg p-3 sm:p-4 border border-soft-orange/15">
+                <div className="text-xs sm:text-sm text-soft-grey">年代</div>
+                <div className="text-base sm:text-lg font-bold text-soft-orange">{userProfile.age}</div>
               </div>
               <div className="bg-gradient-to-br from-lime-green-light/20 to-white rounded-lg p-4 border border-lime-green/15">
                 <div className="text-sm text-soft-grey">職業</div>
@@ -433,7 +433,7 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
 
           {/* 詳細推奨事項 */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold">あなた専用の改善戦略</h3>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold">あなた専用の改善戦略</h3>
             {recommendations.map((rec, index) => {
               const cardClass = index % 3 === 0 ? 'diagnosis-card-primary' : 
                                index % 3 === 1 ? 'diagnosis-card-secondary' : 
