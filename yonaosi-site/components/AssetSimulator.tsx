@@ -14,6 +14,8 @@ export default function AssetSimulator() {
   })
 
   const [showResult, setShowResult] = useState(false)
+  const [isCalculating, setIsCalculating] = useState(false)
+  const [calculationError, setCalculationError] = useState('')
 
   const calculateProjection = () => {
     const monthlyInvestment = (formData.income - formData.expenses) * 10000 / 12
@@ -36,9 +38,31 @@ export default function AssetSimulator() {
     return data
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setShowResult(true)
+    setIsCalculating(true)
+    setCalculationError('')
+    
+    try {
+      // 計算処理のシミュレーション
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // 入力値の検証
+      if (formData.income <= formData.expenses) {
+        throw new Error('年収が年間支出より小さいため、資産形成は困難です。家計の見直しをお勧めします。')
+      }
+      
+      if (formData.investmentPeriod < 5) {
+        throw new Error('投資期間5年未満ではリスクが高いため、シミュレーションできません。')
+      }
+      
+      // 成功時の処理
+      setShowResult(true)
+    } catch (err) {
+      setCalculationError(err instanceof Error ? err.message : '計算中にエラーが発生しました')
+    } finally {
+      setIsCalculating(false)
+    }
   }
 
   const projectionData = calculateProjection()
@@ -156,8 +180,38 @@ export default function AssetSimulator() {
                 <div className="text-center mt-2 font-medium">{formData.investmentPeriod}年</div>
               </div>
 
-              <button type="submit" className="btn-primary w-full min-h-[48px] sm:min-h-[44px] text-sm sm:text-base" aria-describedby="simulation-note">
-                シミュレーション実行
+              {/* エラー表示 */}
+              {calculationError && (
+                <div className="mb-4 p-4 bg-soft-orange/10 border border-soft-orange/30 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-soft-orange flex-shrink-0 mt-0.5">
+                      <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.232 16.5c-.77.833.192 2.5 1.732 2.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <div>
+                      <p className="text-sm text-soft-orange font-medium mb-1">計算エラー</p>
+                      <p className="text-xs text-soft-orange">{calculationError}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                disabled={isCalculating}
+                className="btn-primary w-full min-h-[48px] sm:min-h-[44px] text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2" 
+                aria-describedby="simulation-note"
+              >
+                {isCalculating ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    📊 計算中...
+                  </>
+                ) : (
+                  '🚀 シミュレーション実行'
+                )}
               </button>
               <div id="simulation-note" className="sr-only">入力した条件で資産形成のシミュレーションを実行します</div>
             </form>
@@ -172,7 +226,27 @@ export default function AssetSimulator() {
           >
             <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">シミュレーション結果</h3>
             
-            {showResult ? (
+            {calculationError && !showResult ? (
+              <div className="text-center py-12">
+                <div className="text-soft-orange text-6xl mb-4">🚨</div>
+                <p className="text-gray-600 mb-4">計算できませんでした</p>
+                <p className="text-sm text-gray-500">入力値を確認して再度お試しください</p>
+              </div>
+            ) : isCalculating ? (
+              <div className="text-center py-12">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-soft-orange/10 rounded-full mb-4">
+                  <svg className="animate-spin h-8 w-8 text-soft-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <p className="text-gray-600 mb-2">📊 高精度計算中...</p>
+                <p className="text-sm text-gray-500">あなたの未来をシミュレーションしています</p>
+                <div className="mt-4 bg-gray-100 rounded-full h-2 w-64 mx-auto">
+                  <div className="bg-soft-orange h-2 rounded-full animate-pulse" style={{width: '70%'}}></div>
+                </div>
+              </div>
+            ) : showResult ? (
               <div>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={projectionData}>

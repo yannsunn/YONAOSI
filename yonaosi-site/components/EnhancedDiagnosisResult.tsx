@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 
@@ -48,8 +48,66 @@ interface EnhancedDiagnosisResultProps {
 }
 
 export default function EnhancedDiagnosisResult({ userProfile, onClose }: EnhancedDiagnosisResultProps) {
+  const [, setSavedResults] = useState<UserProfile[]>([]) // 今後の拡張用
+  const [shareUrl, setShareUrl] = useState('')
+  const [showShareModal, setShowShareModal] = useState(false)
+  
+  // 診断結果をLocalStorageに保存
+  useEffect(() => {
+    const saveResult = () => {
+      const existingResults = JSON.parse(localStorage.getItem('yonaosi-diagnosis-history') || '[]')
+      const newResult = {
+        ...userProfile,
+        timestamp: new Date().toISOString(),
+        id: Date.now().toString()
+      }
+      const updatedResults = [newResult, ...existingResults.slice(0, 9)] // 最大10件保存
+      localStorage.setItem('yonaosi-diagnosis-history', JSON.stringify(updatedResults))
+      setSavedResults(updatedResults)
+    }
+    
+    saveResult()
+  }, [userProfile])
+  
+  // 共有用URL生成
+  const generateShareUrl = () => {
+    const resultData = {
+      age: userProfile.age,
+      jobType: userProfile.jobType,
+      income: userProfile.income,
+      concerns: userProfile.concerns
+    }
+    const encodedData = btoa(JSON.stringify(resultData))
+    const url = `${window.location.origin}${window.location.pathname}?result=${encodedData}`
+    setShareUrl(url)
+    setShowShareModal(true)
+  }
+  
+  // クリップボードにコピー
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      alert('コピーしました！')
+    } catch (err) {
+      console.error('コピーに失敗しました:', err)
+    }
+  }
+  
+  // LINEで共有
+  const shareToLine = () => {
+    const text = `YONAOSI診断結果をシェアします！\n年代: ${userProfile.age}\n職業: ${userProfile.jobType}\n年収: ${userProfile.income}\n関心事: ${userProfile.concerns.join('、')}\n\n詳細はこちら: ${shareUrl}`
+    window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text)}`, '_blank')
+  }
+  
+  // Twitterで共有
+  const shareToTwitter = () => {
+    const text = `YONAOSIで資産形成診断を受けました！\n将来の資産形成に向けたアドバイスを受けて、安心できました。 #YONAOSI #資産形成 #ファイナンシャルプランニング\n${shareUrl}`
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank')
+  }
   // const [showDetailedView, setShowDetailedView] = useState(false) // 将来の機能拡張用
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
+  const [emailAddress, setEmailAddress] = useState('')
+  const [isEmailSending] = useState(false) // 今後の拡張用
 
   // 詳細な診断ロジック
   const generateDetailedRecommendations = (profile: UserProfile): DetailedRecommendation[] => {
@@ -626,14 +684,126 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
               >
                 📱 LINEで専門家に相談
               </button>
-              <button 
-                onClick={generatePDF}
-                disabled={isGeneratingPDF}
-                className="btn-secondary text-lg px-8 py-4 w-full sm:w-auto min-h-[56px]"
-              >
-                📄 診断結果をPDF保存
-              </button>
+              
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <button 
+                  onClick={generatePDF}
+                  disabled={isGeneratingPDF}
+                  className="btn-secondary text-base px-6 py-3 min-h-[48px] flex items-center justify-center gap-2"
+                >
+                  {isGeneratingPDF ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      生成中...
+                    </>
+                  ) : (
+                    <>📄 PDF保存</>
+                  )}
+                </button>
+                
+                <button 
+                  onClick={generateShareUrl}
+                  className="btn-lime text-base px-6 py-3 min-h-[48px] flex items-center justify-center gap-2"
+                >
+                  🔗 結果を共有
+                </button>
+              </div>
             </div>
+            
+            {/* 共有モーダル */}
+            {showShareModal && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+                onClick={(e) => e.target === e.currentTarget && setShowShareModal(false)}
+              >
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6"
+                >
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-xl font-bold">📤 診断結果を共有</h3>
+                    <button
+                      onClick={() => setShowShareModal(false)}
+                      className="text-gray-400 hover:text-gray-600 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none rounded"
+                    >
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">共有URL</label>
+                      <div className="flex gap-2">
+                        <input
+                          type="text"
+                          value={shareUrl}
+                          readOnly
+                          className="flex-1 px-3 py-2 border rounded-lg bg-gray-50 text-sm"
+                        />
+                        <button
+                          onClick={() => copyToClipboard(shareUrl)}
+                          className="px-4 py-2 bg-soft-orange text-white rounded-lg hover:opacity-90 text-sm"
+                        >
+                          コピー
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <p className="text-sm font-medium mb-3">SNSで共有</p>
+                      <div className="flex gap-3">
+                        <button
+                          onClick={shareToLine}
+                          className="flex-1 px-4 py-3 bg-green-500 text-white rounded-lg hover:opacity-90 flex items-center justify-center gap-2"
+                        >
+                          📱 LINE
+                        </button>
+                        <button
+                          onClick={shareToTwitter}
+                          className="flex-1 px-4 py-3 bg-blue-500 text-white rounded-lg hover:opacity-90 flex items-center justify-center gap-2"
+                        >
+                          🐦 Twitter
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <p className="text-sm font-medium mb-3">メールで送信</p>
+                      <div className="flex gap-2">
+                        <input
+                          type="email"
+                          value={emailAddress}
+                          onChange={(e) => setEmailAddress(e.target.value)}
+                          placeholder="送信先メールアドレス"
+                          className="flex-1 px-3 py-2 border rounded-lg text-sm"
+                        />
+                        <button
+                          onClick={() => {
+                            const subject = 'YONAOSI診断結果'
+                            const body = `YONAOSI診断結果をお送りします。\\n\\n年代: ${userProfile.age}\\n職業: ${userProfile.jobType}\\n年収: ${userProfile.income}\\n関心事: ${userProfile.concerns.join('、')}\\n\\n詳細はこちら: ${shareUrl}`
+                            window.open(`mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
+                          }}
+                          disabled={!emailAddress || isEmailSending}
+                          className="px-4 py-2 bg-pale-blue text-white rounded-lg hover:opacity-90 text-sm disabled:opacity-50"
+                        >
+                          送信
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
           </div>
         </div>
       </motion.div>

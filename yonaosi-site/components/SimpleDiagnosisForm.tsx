@@ -8,6 +8,9 @@ export default function SimpleDiagnosisForm() {
   const [isOpen, setIsOpen] = useState(false)
   const [step, setStep] = useState(1)
   const [showResult, setShowResult] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({})
   const [formData, setFormData] = useState({
     age: '',
     income: '',
@@ -31,16 +34,90 @@ export default function SimpleDiagnosisForm() {
     'その他'
   ]
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // 診断結果を表示
-    setIsOpen(false)
-    setShowResult(true)
+    setIsLoading(true)
+    setError('')
+    
+    try {
+      // 診断処理のシミュレーション
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // ランダムエラーシミュレーション (10%の確率)
+      if (Math.random() < 0.1) {
+        throw new Error('診断システムが一時的に利用できません。しばらくしてから再度お試しください。')
+      }
+      
+      // 成功時の処理
+      setIsOpen(false)
+      setShowResult(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '未知のエラーが発生しました')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
+  const validateField = (field: string, value: string | string[]) => {
+    const errors: {[key: string]: string} = {}
+    
+    switch (field) {
+      case 'age':
+        if (!value) {
+          errors.age = '年齢を選択してください'
+        }
+        break
+      case 'jobType':
+        if (!value) {
+          errors.jobType = '職業を選択してください'
+        }
+        break
+      case 'income':
+        if (!value) {
+          errors.income = '年収を選択してください'
+        }
+        break
+      case 'concerns':
+        if (!value || value.length === 0) {
+          errors.concerns = '少なくとも1つのお悩みを選択してください'
+        }
+        break
+    }
+    
+    setValidationErrors(prev => ({ ...prev, [field]: errors[field] || '' }))
+    return !errors[field]
+  }
+  
+  const validateStep = (stepNum: number): boolean => {
+    const errors: {[key: string]: string} = {}
+    
+    if (stepNum >= 1) {
+      if (!formData.age) {
+        errors.age = '年齢を選択してください'
+      }
+      if (!formData.jobType) {
+        errors.jobType = '職業を選択してください'
+      }
+      if (!formData.income) {
+        errors.income = '年収を選択してください'
+      }
+    }
+    
+    if (stepNum >= 2) {
+      if (formData.concerns.length === 0) {
+        errors.concerns = '少なくとも1つのお悩みを選択してください'
+      }
+    }
+    
+    setValidationErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+  
   const handleCloseResult = () => {
     setShowResult(false)
     setStep(1)
+    setError('')
+    setValidationErrors({})
     setFormData({ age: '', income: '', jobType: '', concerns: [] })
   }
 
@@ -112,8 +189,14 @@ export default function SimpleDiagnosisForm() {
                         <select
                           id="age-select"
                           value={formData.age}
-                          onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                          className="w-full p-3 sm:p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none text-sm sm:text-base min-h-[48px] sm:min-h-[44px]"
+                          onChange={(e) => {
+                            const value = e.target.value
+                            setFormData({ ...formData, age: value })
+                            validateField('age', value)
+                          }}
+                          className={`w-full p-3 sm:p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none text-sm sm:text-base min-h-[48px] sm:min-h-[44px] ${
+                            validationErrors.age ? 'border-soft-orange bg-soft-orange/5' : 'border-gray-300'
+                          }`}
                           required
                           aria-describedby="age-help"
                         >
@@ -125,6 +208,14 @@ export default function SimpleDiagnosisForm() {
                           <option value="60代以上">60代以上</option>
                         </select>
                         <div id="age-help" className="sr-only">あなたの年代を選択してください</div>
+                        {validationErrors.age && (
+                          <p className="mt-1 text-xs text-soft-orange flex items-center gap-1">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.232 16.5c-.77.833.192 2.5 1.732 2.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            {validationErrors.age}
+                          </p>
+                        )}
                       </div>
                       <div>
                         <fieldset>
@@ -161,8 +252,14 @@ export default function SimpleDiagnosisForm() {
                         <select
                           id="income-select"
                           value={formData.income}
-                          onChange={(e) => setFormData({ ...formData, income: e.target.value })}
-                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none"
+                          onChange={(e) => {
+                            const value = e.target.value
+                            setFormData({ ...formData, income: value })
+                            validateField('income', value)
+                          }}
+                          className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none ${
+                            validationErrors.income ? 'border-soft-orange bg-soft-orange/5' : 'border-gray-300'
+                          }`}
                           required
                           aria-describedby="income-help"
                         >
@@ -174,13 +271,24 @@ export default function SimpleDiagnosisForm() {
                           <option value="1000万円以上">1000万円以上</option>
                         </select>
                         <div id="income-help" className="sr-only">あなたの年収を選択してください</div>
+                        {validationErrors.income && (
+                          <p className="mt-1 text-xs text-soft-orange flex items-center gap-1">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.232 16.5c-.77.833.192 2.5 1.732 2.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            {validationErrors.income}
+                          </p>
+                        )}
                       </div>
                     </div>
                     <button
                       type="button"
-                      onClick={() => setStep(2)}
+                      onClick={() => {
+                        if (validateStep(1)) {
+                          setStep(2)
+                        }
+                      }}
                       className="btn-primary w-full mt-4 sm:mt-6 min-h-[52px] sm:min-h-[48px] text-base sm:text-lg font-medium"
-                      disabled={!formData.age || !formData.income || !formData.jobType}
                     >
                       次へ →
                     </button>
@@ -202,11 +310,14 @@ export default function SimpleDiagnosisForm() {
                             type="checkbox"
                             checked={formData.concerns.includes(concern)}
                             onChange={(e) => {
+                              let newConcerns
                               if (e.target.checked) {
-                                setFormData({ ...formData, concerns: [...formData.concerns, concern] })
+                                newConcerns = [...formData.concerns, concern]
                               } else {
-                                setFormData({ ...formData, concerns: formData.concerns.filter(c => c !== concern) })
+                                newConcerns = formData.concerns.filter(c => c !== concern)
                               }
+                              setFormData({ ...formData, concerns: newConcerns })
+                              validateField('concerns', newConcerns)
                             }}
                             className="w-4 h-4 text-soft-orange focus:ring-soft-orange"
                           />
@@ -214,6 +325,14 @@ export default function SimpleDiagnosisForm() {
                         </label>
                       ))}
                       </div>
+                      {validationErrors.concerns && (
+                        <p className="mt-2 text-xs text-soft-orange flex items-center gap-1">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.232 16.5c-.77.833.192 2.5 1.732 2.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          {validationErrors.concerns}
+                        </p>
+                      )}
                     </fieldset>
                     <div className="flex gap-4 mt-6">
                       <button
@@ -226,9 +345,12 @@ export default function SimpleDiagnosisForm() {
                       </button>
                       <button
                         type="button"
-                        onClick={() => setStep(3)}
+                        onClick={() => {
+                          if (validateStep(2)) {
+                            setStep(3)
+                          }
+                        }}
                         className="flex-1 btn-primary min-h-[52px] sm:min-h-[48px] text-base sm:text-lg font-medium"
-                        disabled={formData.concerns.length === 0}
                       >
                         次へ →
                       </button>
@@ -252,20 +374,50 @@ export default function SimpleDiagnosisForm() {
                         <li>お悩み: {formData.concerns.join('、')}</li>
                       </ul>
                     </div>
+                    
+                    {/* エラー表示 */}
+                    {error && (
+                      <div className="mb-4 p-4 bg-soft-orange/10 border border-soft-orange/30 rounded-lg">
+                        <div className="flex items-center gap-2">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-soft-orange flex-shrink-0">
+                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.232 16.5c-.77.833.192 2.5 1.732 2.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <p className="text-sm text-soft-orange font-medium">{error}</p>
+                        </div>
+                      </div>
+                    )}
+                    
                     <div className="space-y-3">
                       <button
                         type="submit"
-                        className="btn-primary w-full flex items-center justify-center gap-2 min-h-[56px] sm:min-h-[52px] text-base sm:text-lg font-bold shadow-lg"
+                        disabled={isLoading}
+                        className="btn-primary w-full flex items-center justify-center gap-2 min-h-[56px] sm:min-h-[52px] text-base sm:text-lg font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                        🎉 診断結果を見る
+                        {isLoading ? (
+                          <>
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            🔍 診断中...
+                          </>
+                        ) : (
+                          <>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            🎉 診断結果を見る
+                          </>
+                        )}
                       </button>
                       <button
                         type="button"
-                        onClick={() => setStep(2)}
-                        className="w-full px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none"
+                        onClick={() => {
+                          setStep(2)
+                          setError('')
+                        }}
+                        disabled={isLoading}
+                        className="w-full px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                         aria-label="お悩み選択ステップに戻る"
                       >
                         戻る
