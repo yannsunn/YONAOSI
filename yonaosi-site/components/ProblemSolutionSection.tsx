@@ -12,7 +12,7 @@ export default function ProblemSolutionSection() {
       icon: '📊',
       title: '投資は始めたけど、これで正解？',
       description: 'とりあえず始めた投資信託。手数料は適正？リスクは大丈夫？本当にこのままでいいのか不安。',
-      solution: '証券外務員が最適なポートフォリオを診断。手数料削減とリターン向上の可能性を検討。',
+      solution: '投資のプロが、あなたに合った商品選びをお手伝い。手数料の見直しで、もっと効率よく資産を増やせる可能性があります。',
       stat: '最適な投資戦略'
     },
     {
@@ -25,8 +25,8 @@ export default function ProblemSolutionSection() {
     {
       icon: '💰',
       title: '税金、もっと減らせるはず',
-      description: '年末調整だけで終わらせていませんか？実は使える控除がまだある。知識の差が、手取りの差に。',
-      solution: 'iDeCo、ふるさと納税、医療費控除を完全活用。合法的に税金を最小化。',
+      description: '年末調整だけで税金対策は終わりではありません。実はまだ使える控除があるかもしれません。',
+      solution: 'iDeCo、ふるさと納税、医療費控除など、あなたが使える制度を一緒に確認します。正しい方法で税負担を軽くしましょう。',
       stat: '適切な税務管理'
     }
   ]
@@ -48,7 +48,8 @@ export default function ProblemSolutionSection() {
             はありませんか？
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            多くの人が抱える「お金の不安」。実は、知識と行動で解決できます。
+            実は、同じようなことで悩んでいる方はたくさんいらっしゃいます。<br />
+            ひとりで考え込まず、まずはお気軽にお話しませんか？
           </p>
         </motion.div>
 

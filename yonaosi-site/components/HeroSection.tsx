@@ -21,10 +21,10 @@ export default function HeroSection() {
               className="mb-4"
             >
               <span className="inline-flex items-center gap-2 bg-soft-orange text-white px-4 py-2 rounded-full text-sm font-bold mb-2">
-                ⚖️ 世直しの専門家
+                🌟 あなたの味方
               </span>
               <p className="text-gray-600 font-medium">
-                情報格差から消費者を守る、中立的な立場
+                一緒に考え、一緒に解決する、あなた専属のパートナー
               </p>
             </motion.div>
             
@@ -35,13 +35,13 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl mb-4 font-bold">
-              お金の不安から解放される、新しい生き方へ
+              お金の心配をなくして、やりたいことに集中する毎日を
             </p>
             
             <p className="text-lg mb-8 text-gray-700">
-              プロの視点で、あなたの資産形成を
+              難しい金融知識は必要ありません。
               <br />
-              サポートいたします。
+              まずは今の状況を整理することから始めましょう。
             </p>
 
             <div className="card-bg-gradient rounded-xl shadow-lg p-6 mb-8">
@@ -49,16 +49,16 @@ export default function HeroSection() {
                 <h3 className="text-lg font-bold mb-4">YONAOSIの特徴</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-soft-orange">中立</div>
-                    <div className="text-sm sm:text-xs text-gray-600">公正な立場</div>
+                    <div className="text-2xl font-bold text-soft-orange">寄り添う</div>
+                    <div className="text-sm sm:text-xs text-gray-600">あなたの味方</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-soft-orange">包括</div>
-                    <div className="text-sm sm:text-xs text-gray-600">総合サポート</div>
+                    <div className="text-2xl font-bold text-soft-orange">わかりやすく</div>
+                    <div className="text-sm sm:text-xs text-gray-600">簡単説明</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-soft-orange">継続</div>
-                    <div className="text-sm sm:text-xs text-gray-600">長期フォロー</div>
+                    <div className="text-2xl font-bold text-soft-orange">一緒に</div>
+                    <div className="text-sm sm:text-xs text-gray-600">実行支援</div>
                   </div>
                 </div>
                 <p className="text-xs text-gray-500 mt-4">
@@ -146,19 +146,19 @@ export default function HeroSection() {
               </div>
               
               <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm font-bold text-dark-grey mb-2">YONAOSIが変える、3つのこと</p>
+                <p className="text-sm font-bold text-dark-grey mb-2">YONAOSIと始める、3つの変化</p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
                     <span className="text-soft-orange">●</span>
-                    <span>売りたいものではなく、必要なものを</span>
+                    <span>無理のない範囲で、着実に前進</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-soft-orange">●</span>
-                    <span>点ではなく、面で捉える最適化</span>
+                    <span>複雑なお金の話を、わかりやすく整理</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-soft-orange">●</span>
-                    <span>今日から、人生が変わる実践</span>
+                    <span>小さな一歩から、大きな変化へ</span>
                   </div>
                 </div>
               </div>

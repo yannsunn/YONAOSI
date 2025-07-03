@@ -23,9 +23,9 @@ export default function PowerfulCTA() {
               </h2>
               
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                資産形成の第一歩、今日から始めてみませんか？
+                「お金の話は難しそう…」そんな風に思われる方も多いかもしれません。
                 <br />
-                まずは無料診断で、現状を確認してみましょう。
+                でも、まずは3分だけお時間をください。今の状況を一緒に整理するだけでも、意外な発見があるものです。
               </p>
             </div>
 
@@ -141,12 +141,12 @@ export default function PowerfulCTA() {
               className="mt-8 p-6 bg-gray-100 rounded-xl text-center"
             >
               <p className="text-lg font-bold text-dark-grey mb-2">
-                安心の保証
+                💭 こんな方にも安心してご利用いただけます
               </p>
               <p className="text-gray-700">
-                相談後の強引な勧誘は一切ありません。効果を保証するものではありません。
+                「とりあえず現状を知りたいだけ」「無理に何かを始めたくない」
                 <br />
-                まずは気軽にご相談ください。
+                そんな方も大歓迎です。まずは気軽にお話を聞かせてください。
               </p>
             </motion.div>
           </div>
