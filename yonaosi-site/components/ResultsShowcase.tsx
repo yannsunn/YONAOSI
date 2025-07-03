@@ -87,12 +87,14 @@ export default function ResultsShowcase() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <button 
-            onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-primary text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 min-h-[48px] sm:min-h-[44px]"
-          >
-            まずはLINEでご相談ください
-          </button>
+          <div className="flex justify-center">
+            <button 
+              onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+              className="btn-primary text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 min-h-[52px] w-full sm:w-auto mx-auto"
+            >
+              まずはLINEでご相談ください
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

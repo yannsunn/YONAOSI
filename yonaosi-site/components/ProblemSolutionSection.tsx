@@ -101,12 +101,14 @@ export default function ProblemSolutionSection() {
             あなたも、
             <span className="text-soft-orange">今日から変われます</span>
           </p>
-          <button 
-            onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-primary text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 min-h-[48px] sm:min-h-[44px]"
-          >
-            改善ポイントを診断する
-          </button>
+          <div className="flex justify-center">
+            <button 
+              onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+              className="btn-primary text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 min-h-[52px] w-full sm:w-auto mx-auto"
+            >
+              改善ポイントを診断する
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

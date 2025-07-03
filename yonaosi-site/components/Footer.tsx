@@ -18,7 +18,7 @@ export default function Footer() {
               <h4 className="font-medium mb-4">サービス</h4>
               <ul className="space-y-3 text-sm text-gray-300">
                 <li><a href="/diagnosis" className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center">無料診断</a></li>
-                <li><button onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')} className="hover:text-soft-orange transition-colors min-h-[44px] flex items-center text-left">LINE相談</button></li>
+                <li className="flex justify-center sm:justify-start"><button onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')} className="hover:text-soft-orange transition-colors min-h-[52px] flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-soft-orange text-white rounded-lg">LINE相談</button></li>
               </ul>
             </div>
             
