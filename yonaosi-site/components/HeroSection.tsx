@@ -32,22 +32,20 @@ export default function HeroSection() {
               </motion.div>
               
               <h1 id="hero-heading" className="text-5xl xl:text-6xl font-bold mb-8 leading-tight">
-                <span className="text-soft-orange">毎月赤字、将来不安</span>
-                <br />
-                <span className="text-soft-orange">その悩み、今日で終わり</span>
+                <span className="text-soft-orange">毎月赤字、将来不安 その悩み、今日で終わり</span>
               </h1>
               
-              <p className="text-2xl mb-6 font-bold leading-relaxed text-soft-orange">
-                💸 電気代が高すぎて家計を圧迫<br />
-                🏠 家賃ばかり払って資産が増えない<br />
-                💳 ローンの返済が終わらない
-              </p>
+              <div className="text-2xl mb-6 font-bold leading-relaxed text-soft-orange">
+                <div className="flex flex-wrap gap-x-8 gap-y-2">
+                  <span className="whitespace-nowrap">💸 電気代が高すぎて家計を圧迫</span>
+                  <span className="whitespace-nowrap">🏠 家賃ばかり払って資産が増えない</span>
+                  <span className="whitespace-nowrap">💳 ローンの返済が終わらない</span>
+                </div>
+              </div>
               
               <p className="text-lg mb-8 text-gray-700 leading-relaxed">
-                <span className="font-bold text-soft-orange">✨ でも安心してください！</span><br />
-                月3万円の固定費削減 + 年利3%の資産運用で、
-                <br />
-                <span className="font-bold">10年で300万円以上の差</span>が生まれます。
+                <span className="font-bold text-soft-orange">✨ でも安心してください！</span>
+                月3万円の固定費削減 + 年利3%の資産運用で、<span className="font-bold">10年で300万円以上の差</span>が生まれます。
               </p>
 
               <div className="card-bg-gradient rounded-xl shadow-lg p-8 mb-8">

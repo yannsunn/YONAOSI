@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function Footer() {
   // ヘッダーと統一したナビゲーション項目のみ
   const navItems = [
@@ -34,12 +36,12 @@ export default function Footer() {
               <ul className="space-y-3">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <a 
+                    <Link 
                       href={item.href} 
                       className="text-sm text-gray-300 hover:text-soft-orange transition-colors"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -66,14 +68,14 @@ export default function Footer() {
               <h4 className="font-bold mb-4 text-base">重要事項</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#privacy" className="text-sm text-gray-300 hover:text-soft-orange transition-colors">
+                  <Link href="#privacy" className="text-sm text-gray-300 hover:text-soft-orange transition-colors">
                     プライバシーポリシー
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#terms" className="text-sm text-gray-300 hover:text-soft-orange transition-colors">
+                  <Link href="#terms" className="text-sm text-gray-300 hover:text-soft-orange transition-colors">
                     利用規約
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <div className="mt-4 p-3 bg-soft-orange/10 rounded-lg border border-soft-orange/20">
