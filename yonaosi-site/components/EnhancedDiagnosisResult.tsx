@@ -446,9 +446,9 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
                       <h4 className="text-xl font-bold mb-2">{rec.title}</h4>
                       <div className="flex items-center gap-4 mb-2">
                         <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                          rec.priority === 'high' ? 'bg-red-100 text-red-700' :
-                          rec.priority === 'medium' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-green-100 text-green-700'
+                          rec.priority === 'high' ? 'bg-soft-orange/15 text-soft-orange' :
+                          rec.priority === 'medium' ? 'bg-pale-blue/15 text-pale-blue-dark' :
+                          'bg-lime-green/15 text-lime-green-dark'
                         }`}>
                           {rec.priority === 'high' ? '🔥 高優先度' : 
                            rec.priority === 'medium' ? '⚡ 中優先度' : '💡 参考'}
@@ -511,9 +511,9 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
                                   📅 {step.deadline}
                                 </span>
                                 <span className={`text-xs px-2 py-1 rounded ${
-                                  step.difficulty === 'easy' ? 'bg-green-100 text-green-700' :
+                                  step.difficulty === 'easy' ? 'bg-lime-green/15 text-lime-green-dark' :
                                   step.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-700' :
-                                  'bg-red-100 text-red-700'
+                                  'bg-soft-orange/15 text-soft-orange'
                                 }`}>
                                   {step.difficulty === 'easy' ? '😊 簡単' :
                                    step.difficulty === 'medium' ? '🤔 普通' : '😰 要注意'}

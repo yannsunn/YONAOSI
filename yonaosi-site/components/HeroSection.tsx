@@ -29,12 +29,12 @@ export default function HeroSection() {
             </motion.div>
             
             <h1 id="hero-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              <span className="text-red-600">毎月赤字、将来不安</span>
+              <span className="text-soft-orange">毎月赤字、将来不安</span>
               <br className="hidden sm:block" />
               <span className="text-soft-orange">その悩み、今日で終わり</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-3 sm:mb-4 font-bold leading-relaxed text-red-600">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-3 sm:mb-4 font-bold leading-relaxed text-soft-orange">
               💸 電気代が高すぎて家計を圧迫<br className="sm:hidden" />
               🏠 家賃ばかり払って資産が増えない<br className="sm:hidden" />
               💳 ローンの返済が終わらない
@@ -116,7 +116,7 @@ export default function HeroSection() {
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <div className="text-gray-700">
-                    <p className="font-bold text-red-600">電気代、上がりすぎ！</p>
+                    <p className="font-bold text-soft-orange">電気代、上がりすぎ！</p>
                     <p className="text-sm text-gray-600 mt-1">昔に比べて、光熱費があがってきたけど、少しでも安くできる方法ってないの？</p>
                   </div>
                 </motion.div>
@@ -130,7 +130,7 @@ export default function HeroSection() {
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <div className="text-gray-700">
-                    <p className="font-bold text-red-600">家賃、もったいない！</p>
+                    <p className="font-bold text-soft-orange">家賃、もったいない！</p>
                     <p className="text-sm text-gray-600 mt-1">毎月の家賃が生活の負担に。家賃って掛け捨ててるだけだし、何か良い改善方法はないのだろうか？</p>
                   </div>
                 </motion.div>
@@ -144,7 +144,7 @@ export default function HeroSection() {
                     <span className="text-soft-orange text-xs">✓</span>
                   </div>
                   <div className="text-gray-700">
-                    <p className="font-bold text-red-600">金利、高すぎて、、、</p>
+                    <p className="font-bold text-soft-orange">金利、高すぎて、、、</p>
                     <p className="text-sm text-gray-600 mt-1">気付けば金利高！返してもなかなか減らないし、毎月の返済は増えるし、どうにかしたい！</p>
                   </div>
                 </motion.div>

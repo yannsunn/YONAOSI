@@ -163,9 +163,9 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
                     <h4 className="text-lg font-bold mb-2">{rec.title}</h4>
                     <div className="flex items-center gap-2 mb-2">
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        rec.priority === 'high' ? 'bg-red-100 text-red-700' :
-                        rec.priority === 'medium' ? 'bg-yellow-100 text-yellow-700' :
-                        'bg-green-100 text-green-700'
+                        rec.priority === 'high' ? 'bg-soft-orange/15 text-soft-orange' :
+                        rec.priority === 'medium' ? 'bg-pale-blue/15 text-pale-blue-dark' :
+                        'bg-lime-green/15 text-lime-green-dark'
                       }`}>
                         {rec.priority === 'high' ? '高優先度' : 
                          rec.priority === 'medium' ? '中優先度' : '低優先度'}
@@ -203,9 +203,9 @@ export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResul
           </div>
 
           {/* 免責事項 */}
-          <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <h4 className="font-bold text-yellow-800 mb-2">⚠️ 重要な注意事項</h4>
-            <ul className="text-sm text-yellow-700 space-y-1">
+          <div className="mt-8 p-4 bg-pale-blue/10 border border-pale-blue/30 rounded-lg">
+            <h4 className="font-bold text-pale-blue-dark mb-2">⚠️ 重要な注意事項</h4>
+            <ul className="text-sm text-pale-blue-dark space-y-1">
               <li>• 本診断は公的統計データに基づく一般的な傾向の参考情報です</li>
               <li>• 個別の効果・成果・結果を保証するものではありません</li>
               <li>• 投資にはリスクが伴い、元本割れの可能性があります</li>
