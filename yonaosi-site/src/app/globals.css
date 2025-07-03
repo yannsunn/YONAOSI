@@ -445,7 +445,7 @@
     }
     
     .desktop-card:hover {
-      @apply transform translateY(-4px) shadow-2xl;
+      @apply transform -translate-y-1 shadow-2xl;
     }
   }
   
