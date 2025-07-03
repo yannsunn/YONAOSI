@@ -619,17 +619,17 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
               診断結果を踏まえた具体的なアドバイスをご希望の方は、<br />
               専門家による個別相談をお申し込みください。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-4 items-center">
               <button 
                 onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-                className="btn-primary text-lg px-8 py-4"
+                className="btn-primary text-lg px-8 py-4 w-full sm:w-auto min-h-[56px]"
               >
                 📱 LINEで専門家に相談
               </button>
               <button 
                 onClick={generatePDF}
                 disabled={isGeneratingPDF}
-                className="btn-secondary text-lg px-8 py-4"
+                className="btn-secondary text-lg px-8 py-4 w-full sm:w-auto min-h-[56px]"
               >
                 📄 診断結果をPDF保存
               </button>

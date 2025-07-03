@@ -70,19 +70,21 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <div className="flex-1">
+            <div className="flex flex-col gap-4">
+              <div className="w-full flex justify-center">
                 <SimpleDiagnosisForm />
               </div>
-              <button 
-                onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-                className="btn-secondary flex items-center justify-center gap-2 text-base sm:text-base md:text-lg py-4 sm:py-4 min-h-[56px] sm:min-h-[48px] font-medium"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
-                </svg>
-                今すぐLINEで相談
-              </button>
+              <div className="w-full flex justify-center">
+                <button 
+                  onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+                  className="btn-secondary flex items-center justify-center gap-2 text-base sm:text-base md:text-lg py-4 sm:py-4 min-h-[56px] sm:min-h-[48px] font-medium w-full sm:w-auto"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>
+                  </svg>
+                  今すぐLINEで相談
+                </button>
+              </div>
             </div>
             
             <motion.p 

@@ -143,16 +143,15 @@ export default function SupportServices() {
                 transition={{ duration: 0.4 }}
                 className="card-bg-gradient relative overflow-hidden border border-soft-orange/15"
               >
-                {stage.badge && (
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-soft-orange text-white px-4 py-2 rounded-full text-sm font-bold">
-                      {stage.badge}
-                    </span>
-                  </div>
-                )}
-                
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-4">{stage.content.title}</h3>
+                  {stage.badge && (
+                    <div className="text-center mb-4">
+                      <span className="bg-soft-orange text-white px-3 py-1 rounded-full text-xs font-bold inline-block">
+                        {stage.badge}
+                      </span>
+                    </div>
+                  )}
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-center sm:text-left">{stage.content.title}</h3>
                   <p className="text-gray-600 mb-6">{stage.content.description}</p>
                   
                   <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -177,10 +176,10 @@ export default function SupportServices() {
                     <p className="text-xs text-gray-500">{stage.content.stat.detail}</p>
                   </div>
 
-                  <div className="text-center">
+                  <div className="flex justify-center">
                     <button 
                       onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-                      className="btn-primary w-full sm:w-auto min-h-[44px] px-6 py-3"
+                      className="btn-primary w-full sm:w-auto min-h-[52px] px-6 py-3 mx-auto"
                     >
                       LINE相談を申し込む
                     </button>

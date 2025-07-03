@@ -98,13 +98,15 @@ export default function FAQSection() {
           <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
             その他のご質問はお気軽にお問い合わせください
           </p>
-          <button 
-            onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-secondary min-h-[48px] sm:min-h-[44px] px-4 sm:px-6 py-3 text-sm sm:text-base"
-            aria-label="YONAOSI公式LINEでお問い合わせ（新しいタブで開きます）"
-          >
-            LINEでお問い合わせ
-          </button>
+          <div className="flex justify-center">
+            <button 
+              onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
+              className="btn-secondary min-h-[52px] sm:min-h-[44px] px-4 sm:px-6 py-3 text-sm sm:text-base w-full sm:w-auto mx-auto"
+              aria-label="YONAOSI公式LINEでお問い合わせ（新しいタブで開きます）"
+            >
+              LINEでお問い合わせ
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
