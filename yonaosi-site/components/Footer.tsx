@@ -22,7 +22,7 @@ export default function Footer() {
             {/* ロゴと説明 */}
             <div className="lg:col-span-1">
               <svg width="140" height="36" viewBox="0 0 150 40" className="text-soft-orange mb-4" aria-hidden="true">
-                <text x="0" y="30" fontSize="24" fontWeight="700" fill="currentColor">YONAOSI</text>
+                <text x="0" y="30" fontSize="28" fontWeight="700" fontFamily="Noto Sans JP, sans-serif" fill="currentColor">YONAOSI</text>
               </svg>
               <p className="text-sm text-gray-300 leading-relaxed mb-4">
                 人生の転換期に寄り添う、
@@ -63,39 +63,11 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* 法的情報 */}
+            {/* 投資に関する注意事項 */}
             <div>
-              <h4 className="font-bold mb-4 text-base">重要事項</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#privacy" className="text-sm text-gray-300 hover:text-soft-orange transition-colors">
-                    プライバシーポリシー
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#terms" className="text-sm text-gray-300 hover:text-soft-orange transition-colors">
-                    利用規約
-                  </Link>
-                </li>
-              </ul>
-              
-              {/* プライバシーポリシーと利用規約のコンテンツ */}
-              <div id="privacy" className="mt-6 pt-6 border-t border-gray-600">
-                <h5 className="text-sm font-bold text-gray-300 mb-2">プライバシーポリシー</h5>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  当社はお客様の個人情報保護を重視し、適切な取り扱いを行います。
-                  お預かりした個人情報は相談対応の目的のみに使用し、第三者への提供は行いません。
-                </p>
-              </div>
-              
-              <div id="terms" className="mt-4 pt-4 border-t border-gray-700">
-                <h5 className="text-sm font-bold text-gray-300 mb-2">利用規約</h5>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  本サービスのご利用にあたり、投資にはリスクが伴うことをご理解ください。
-                  提供する情報は一般的なものであり、個別の投資判断は自己責任でお願いいたします。
-                </p>
-              </div>
-              <div className="mt-4 p-3 bg-soft-orange/10 rounded-lg border border-soft-orange/20">
+              <div id="privacy" className="hidden"></div>
+              <div id="terms" className="hidden"></div>
+              <div className="p-3 bg-soft-orange/10 rounded-lg border border-soft-orange/20">
                 <p className="text-xs text-gray-400 leading-relaxed">
                   投資にはリスクが伴います。元本割れの可能性があります。
                   投資判断は自己責任でお願いいたします。

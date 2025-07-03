@@ -20,7 +20,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="YONAOSIホームページ">
             <svg width="140" height="36" viewBox="0 0 150 40" className="text-soft-orange w-[140px] sm:w-[150px] md:w-[160px]" aria-hidden="true">
-              <text x="0" y="30" fontSize="28" fontWeight="700" fill="currentColor">YONAOSI</text>
+              <text x="0" y="30" fontSize="28" fontWeight="700" fontFamily="Noto Sans JP, sans-serif" fill="currentColor">YONAOSI</text>
             </svg>
           </Link>
 

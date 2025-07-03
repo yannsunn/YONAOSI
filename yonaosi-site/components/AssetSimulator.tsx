@@ -208,13 +208,14 @@ export default function AssetSimulator() {
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={projectionData}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="year" fontSize={14} />
-                        <YAxis fontSize={14} />
+                        <XAxis dataKey="year" fontSize={14} style={{fontFamily: 'Noto Sans JP, sans-serif'}} />
+                        <YAxis fontSize={14} style={{fontFamily: 'Noto Sans JP, sans-serif'}} />
                         <Tooltip 
                           contentStyle={{ 
                             backgroundColor: 'white', 
                             border: '1px solid #FFB98B',
-                            borderRadius: '8px'
+                            borderRadius: '8px',
+                            fontFamily: 'Noto Sans JP, sans-serif'
                           }}
                         />
                         <Legend />
@@ -378,14 +379,15 @@ export default function AssetSimulator() {
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={projectionData}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="year" fontSize={10} />
-                        <YAxis fontSize={10} />
+                        <XAxis dataKey="year" fontSize={10} style={{fontFamily: 'Noto Sans JP, sans-serif'}} />
+                        <YAxis fontSize={10} style={{fontFamily: 'Noto Sans JP, sans-serif'}} />
                         <Tooltip 
                           contentStyle={{ 
                             backgroundColor: 'white', 
                             border: '1px solid #FFB98B',
                             borderRadius: '8px',
-                            fontSize: '12px'
+                            fontSize: '12px',
+                            fontFamily: 'Noto Sans JP, sans-serif'
                           }}
                         />
                         <Legend />
