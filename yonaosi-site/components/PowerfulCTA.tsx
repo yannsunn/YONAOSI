@@ -15,25 +15,25 @@ export default function PowerfulCTA() {
           className="bg-soft-orange p-1 rounded-3xl shadow-xl"
         >
           <div className="bg-white rounded-3xl p-4 md:p-8 lg:p-12">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
                 今日が、
-                <span className="text-soft-orange">人生を変える日</span>
+                <span className="text-soft-orange block sm:inline">人生を変える日</span>
                 になる
               </h2>
               
-              <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
                 まずは3分だけお時間をください。
-                <br />
+                <br className="hidden sm:block" />
                 今の状況を整理するだけでも、新しい発見があります。
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-6 mb-8">
-              <h3 className="text-xl font-bold mb-4 text-center">
+            <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center">
                 💡 初回診断で得られるもの
               </h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -44,7 +44,7 @@ export default function PowerfulCTA() {
                   <div className="w-6 h-6 rounded-full bg-soft-orange flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span className="text-gray-700">あなた専用の改善プラン</span>
+                  <span className="text-gray-700 text-sm sm:text-base">あなた専用の改善プラン</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -103,13 +103,13 @@ export default function PowerfulCTA() {
               <SimpleDiagnosisForm />
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-soft-orange font-bold">1</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8 md:mt-12">
+              <div className="text-center p-3 sm:p-0">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                  <span className="text-soft-orange font-bold text-sm sm:text-base">1</span>
                 </div>
-                <h4 className="font-bold mb-2">3分で診断完了</h4>
-                <p className="text-sm text-gray-600">
+                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">3分で診断完了</h4>
+                <p className="text-xs sm:text-sm text-gray-600">
                   簡単な質問に答えるだけ
                 </p>
               </div>
@@ -138,14 +138,14 @@ export default function PowerfulCTA() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 p-6 bg-gray-100 rounded-xl text-center"
+              className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-100 rounded-xl text-center"
             >
-              <p className="text-lg font-bold text-dark-grey mb-2">
+              <p className="text-base sm:text-lg font-bold text-dark-grey mb-2">
                 💭 こんな方にも安心してご利用いただけます
               </p>
-              <p className="text-gray-700">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 「とりあえず現状を知りたいだけ」「無理に何かを始めたくない」
-                <br />
+                <br className="hidden sm:block" />
                 そんな方も大歓迎です。まずは気軽にお話を聞かせてください。
               </p>
             </motion.div>

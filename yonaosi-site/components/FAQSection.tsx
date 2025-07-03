@@ -45,10 +45,10 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 id="faq-heading" className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+          <h2 id="faq-heading" className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
             よくあるご質問
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
             お客様からよくいただく質問にお答えします
           </p>
         </motion.div>
@@ -64,8 +64,8 @@ export default function FAQSection() {
             >
               <Accordion.Item value={`item-${index}`} className="card">
                 <Accordion.Header>
-                  <Accordion.Trigger className="w-full flex items-center justify-between text-left py-4 md:py-3 hover:text-soft-orange transition-colors min-h-[44px]" aria-expanded="false">
-                    <span className="font-medium pr-4">{faq.question}</span>
+                  <Accordion.Trigger className="w-full flex items-center justify-between text-left py-3 sm:py-4 md:py-3 hover:text-soft-orange transition-colors min-h-[48px] sm:min-h-[44px]" aria-expanded="false">
+                    <span className="font-medium pr-3 sm:pr-4 text-sm sm:text-base">{faq.question}</span>
                     <svg
                       className="transform transition-transform duration-300 data-[state=open]:rotate-180"
                       width="20"
@@ -79,7 +79,7 @@ export default function FAQSection() {
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
-                  <div className="pb-4 pt-2 text-gray-600 text-sm md:text-base leading-relaxed">
+                  <div className="pb-3 sm:pb-4 pt-2 text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
                     {faq.answer}
                   </div>
                 </Accordion.Content>
@@ -95,12 +95,12 @@ export default function FAQSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <p className="text-gray-600 mb-4">
+          <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
             その他のご質問はお気軽にお問い合わせください
           </p>
           <button 
             onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-secondary min-h-[44px] px-6 py-3"
+            className="btn-secondary min-h-[48px] sm:min-h-[44px] px-4 sm:px-6 py-3 text-sm sm:text-base"
             aria-label="YONAOSI公式LINEでお問い合わせ（新しいタブで開きます）"
           >
             LINEでお問い合わせ

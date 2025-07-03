@@ -15,16 +15,16 @@ export default function ResultsShowcase() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
             YONAOSIの
-            <span className="text-soft-orange">サポート内容</span>
+            <span className="text-soft-orange block sm:inline">サポート内容</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
             あなたの資産形成を包括的にサポートします
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,9 +32,9 @@ export default function ResultsShowcase() {
             transition={{ duration: 0.6 }}
             className="feature-card-1 rounded-xl p-6 text-center"
           >
-            <div className="text-4xl mb-4">💰</div>
-            <h3 className="text-xl font-bold mb-3">税金最適化</h3>
-            <p className="text-gray-600 mb-4">
+            <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">💰</div>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">税金最適化</h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">
               iDeCo、NISA、ふるさと納税などの制度を活用した節税戦略をご提案
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-soft-orange/10 rounded-full">
@@ -89,7 +89,7 @@ export default function ResultsShowcase() {
         >
           <button 
             onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-primary text-lg px-8 py-4"
+            className="btn-primary text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 min-h-[48px] sm:min-h-[44px]"
           >
             まずはLINEでご相談ください
           </button>

@@ -28,37 +28,37 @@ export default function HeroSection() {
               </p>
             </motion.div>
             
-            <h1 id="hero-heading" className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 id="hero-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               今の選択で、
-              <br />
+              <br className="hidden sm:block" />
               <span className="text-soft-orange">未来は変わる</span>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl mb-4 font-bold">
-              お金の心配をなくして、やりたいことに集中する毎日を
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-3 sm:mb-4 font-bold leading-relaxed">
+              お金の心配をなくして、<br className="sm:hidden" />やりたいことに集中する毎日を
             </p>
             
-            <p className="text-lg mb-8 text-gray-700">
+            <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-700 leading-relaxed">
               難しい金融知識は必要ありません。
-              <br />
+              <br className="hidden sm:block" />
               まずは今の状況を整理することから始めましょう。
             </p>
 
             <div className="card-bg-gradient rounded-xl shadow-lg p-6 mb-8">
               <div className="text-center">
-                <h3 className="text-lg font-bold mb-4">YONAOSIの特徴</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-soft-orange">寄り添う</div>
-                    <div className="text-sm sm:text-xs text-gray-600">あなたの味方</div>
+                <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">YONAOSIの特徴</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center">
+                  <div className="p-2 sm:p-0">
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-soft-orange">寄り添う</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mt-1">あなたの味方</div>
                   </div>
-                  <div>
-                    <div className="text-2xl font-bold text-soft-orange">わかりやすく</div>
-                    <div className="text-sm sm:text-xs text-gray-600">簡単説明</div>
+                  <div className="p-2 sm:p-0">
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-soft-orange">わかりやすく</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mt-1">簡単説明</div>
                   </div>
-                  <div>
-                    <div className="text-2xl font-bold text-soft-orange">一緒に</div>
-                    <div className="text-sm sm:text-xs text-gray-600">実行支援</div>
+                  <div className="p-2 sm:p-0">
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-soft-orange">一緒に</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mt-1">実行支援</div>
                   </div>
                 </div>
                 <p className="text-xs text-gray-500 mt-4">
@@ -67,11 +67,13 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <SimpleDiagnosisForm />
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex-1">
+                <SimpleDiagnosisForm />
+              </div>
               <button 
                 onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-                className="btn-secondary flex items-center justify-center gap-2 text-lg py-4"
+                className="btn-secondary flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg py-3 sm:py-4 min-h-[48px] sm:min-h-[44px]"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C13.19 22 14.34 21.78 15.41 21.37L21 22L20.37 16.41C21.78 14.34 22 13.19 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor"/>

@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="section-padding py-4">
+      <div className="section-padding py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="YONAOSIホームページ">
             <svg width="120" height="32" viewBox="0 0 150 40" className="text-soft-orange w-[120px] md:w-[150px]" aria-hidden="true">
@@ -35,7 +35,7 @@ export default function Header() {
 
           <button 
             onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
-            className="btn-secondary flex items-center gap-2 text-sm md:text-base px-3 md:px-6 py-2 md:py-3 min-h-[44px] hidden sm:flex"
+            className="btn-secondary flex items-center gap-2 text-xs sm:text-sm md:text-base px-2 sm:px-3 md:px-6 py-2 md:py-3 min-h-[44px] sm:min-h-[44px] hidden xs:flex"
             aria-label="YONAOSI公式LINEアカウントを開く（新しいタブで開きます）"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -45,7 +45,7 @@ export default function Header() {
           </button>
 
           <button
-            className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="md:hidden min-h-[48px] min-w-[48px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
             aria-expanded={isMenuOpen}

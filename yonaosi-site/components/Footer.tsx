@@ -3,12 +3,12 @@
 export default function Footer() {
   return (
     <footer className="bg-dark-grey text-white" role="contentinfo">
-      <div className="section-padding py-12">
+      <div className="section-padding py-8 sm:py-12">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8">
             <div>
-              <h3 className="font-bold mb-4">YONAOSI</h3>
-              <p className="text-sm text-gray-300">
+              <h3 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">YONAOSI</h3>
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 人生の転換期に寄り添う、
                 あなたの専属ファイナンシャルプランナー
               </p>

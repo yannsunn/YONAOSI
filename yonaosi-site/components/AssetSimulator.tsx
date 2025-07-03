@@ -53,10 +53,10 @@ export default function AssetSimulator() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 id="simulator-heading" className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 id="simulator-heading" className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
             資産形成シミュレーター
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
             将来の資産形成の参考イメージ
           </p>
           <p className="text-sm text-gray-500 mt-2">
@@ -64,7 +64,7 @@ export default function AssetSimulator() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -72,7 +72,7 @@ export default function AssetSimulator() {
             transition={{ duration: 0.6 }}
             className="card"
           >
-            <h3 className="text-xl font-bold mb-6">シミュレーション条件</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">シミュレーション条件</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -84,7 +84,7 @@ export default function AssetSimulator() {
                   type="number"
                   value={formData.age}
                   onChange={(e) => setFormData({ ...formData, age: parseInt(e.target.value) })}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-transparent text-sm sm:text-base min-h-[48px] sm:min-h-[44px]"
                   min="20"
                   max="70"
                   aria-describedby="age-help"
@@ -156,7 +156,7 @@ export default function AssetSimulator() {
                 <div className="text-center mt-2 font-medium">{formData.investmentPeriod}年</div>
               </div>
 
-              <button type="submit" className="btn-primary w-full" aria-describedby="simulation-note">
+              <button type="submit" className="btn-primary w-full min-h-[48px] sm:min-h-[44px] text-sm sm:text-base" aria-describedby="simulation-note">
                 シミュレーション実行
               </button>
               <div id="simulation-note" className="sr-only">入力した条件で資産形成のシミュレーションを実行します</div>
@@ -170,7 +170,7 @@ export default function AssetSimulator() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="card"
           >
-            <h3 className="text-xl font-bold mb-6">シミュレーション結果</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">シミュレーション結果</h3>
             
             {showResult ? (
               <div>

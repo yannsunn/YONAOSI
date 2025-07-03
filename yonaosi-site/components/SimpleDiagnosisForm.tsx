@@ -48,7 +48,7 @@ export default function SimpleDiagnosisForm() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="btn-primary"
+        className="btn-primary w-full sm:w-auto min-h-[48px] sm:min-h-[44px] text-sm sm:text-base px-4 sm:px-6"
         aria-label="3分で完了する無料資産形成診断を開始する"
       >
         3分で診断を受ける
@@ -70,10 +70,10 @@ export default function SimpleDiagnosisForm() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-8"
+              className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-sm sm:max-w-md w-full p-4 sm:p-6 md:p-8 mx-2 sm:mx-0"
             >
               <div className="flex justify-between items-center mb-6">
-                <h3 id="diagnosis-modal-title" className="text-xl font-bold">診断フォーム</h3>
+                <h3 id="diagnosis-modal-title" className="text-lg sm:text-xl font-bold">診断フォーム</h3>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-gray-400 hover:text-gray-600 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none rounded"
@@ -113,7 +113,7 @@ export default function SimpleDiagnosisForm() {
                           id="age-select"
                           value={formData.age}
                           onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none"
+                          className="w-full p-3 sm:p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none text-sm sm:text-base min-h-[48px] sm:min-h-[44px]"
                           required
                           aria-describedby="age-help"
                         >
@@ -179,7 +179,7 @@ export default function SimpleDiagnosisForm() {
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="btn-primary w-full mt-6"
+                      className="btn-primary w-full mt-4 sm:mt-6 min-h-[48px] sm:min-h-[44px] text-sm sm:text-base"
                       disabled={!formData.age || !formData.income || !formData.jobType}
                     >
                       次へ
