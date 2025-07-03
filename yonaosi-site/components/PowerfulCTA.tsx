@@ -5,7 +5,7 @@ import SimpleDiagnosisForm from './SimpleDiagnosisForm'
 
 export default function PowerfulCTA() {
   return (
-    <section className="section-padding py-20 bg-gray-50 section-bg-pattern">
+    <section id="contact" className="section-padding py-20 bg-gray-50 section-bg-pattern">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

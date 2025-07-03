@@ -6,7 +6,7 @@ import SimpleDiagnosisForm from './SimpleDiagnosisForm'
 export default function HeroSection() {
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-warm-white hero-bg-pattern" aria-labelledby="hero-heading">
+    <section id="diagnosis" className="section-padding py-16 md:py-24 bg-warm-white hero-bg-pattern" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto">
         {/* 🎯 PC専用レイアウト */}
         <div className="hidden lg:block">

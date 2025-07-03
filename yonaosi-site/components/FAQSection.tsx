@@ -36,7 +36,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="section-padding py-16 md:py-24" aria-labelledby="faq-heading">
+    <section id="faq" className="section-padding py-16 md:py-24" aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

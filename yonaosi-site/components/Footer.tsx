@@ -78,6 +78,23 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
+              
+              {/* プライバシーポリシーと利用規約のコンテンツ */}
+              <div id="privacy" className="mt-6 pt-6 border-t border-gray-600">
+                <h5 className="text-sm font-bold text-gray-300 mb-2">プライバシーポリシー</h5>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  当社はお客様の個人情報保護を重視し、適切な取り扱いを行います。
+                  お預かりした個人情報は相談対応の目的のみに使用し、第三者への提供は行いません。
+                </p>
+              </div>
+              
+              <div id="terms" className="mt-4 pt-4 border-t border-gray-700">
+                <h5 className="text-sm font-bold text-gray-300 mb-2">利用規約</h5>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  本サービスのご利用にあたり、投資にはリスクが伴うことをご理解ください。
+                  提供する情報は一般的なものであり、個別の投資判断は自己責任でお願いいたします。
+                </p>
+              </div>
               <div className="mt-4 p-3 bg-soft-orange/10 rounded-lg border border-soft-orange/20">
                 <p className="text-xs text-gray-400 leading-relaxed">
                   投資にはリスクが伴います。元本割れの可能性があります。

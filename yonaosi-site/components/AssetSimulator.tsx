@@ -67,7 +67,7 @@ export default function AssetSimulator() {
   const projectionData = calculateProjection()
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-gray-50 section-bg-pattern" aria-labelledby="simulator-heading">
+    <section id="simulator" className="section-padding py-16 md:py-24 bg-gray-50 section-bg-pattern" aria-labelledby="simulator-heading">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
