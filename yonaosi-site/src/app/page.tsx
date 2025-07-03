@@ -137,7 +137,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Header />
-      <main>
+      <main role="main" id="main-content">
         <HeroSection />
         <ProblemSolutionSection />
         <ResultsShowcase />

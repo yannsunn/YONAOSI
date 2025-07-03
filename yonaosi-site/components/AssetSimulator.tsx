@@ -18,7 +18,7 @@ export default function AssetSimulator() {
   const calculateProjection = () => {
     const monthlyInvestment = (formData.income - formData.expenses) * 10000 / 12
     const annualReturn = 0.05 // 年利5%想定
-    const months = formData.investmentPeriod * 12
+    // const months = formData.investmentPeriod * 12 // 将来使用予定
     
     const data = []
     let total = 0
@@ -44,7 +44,7 @@ export default function AssetSimulator() {
   const projectionData = calculateProjection()
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-gray-50 section-bg-pattern">
+    <section className="section-padding py-16 md:py-24 bg-gray-50 section-bg-pattern" aria-labelledby="simulator-heading">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function AssetSimulator() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 id="simulator-heading" className="text-3xl md:text-4xl font-bold mb-4">
             資産形成シミュレーター
           </h2>
           <p className="text-lg text-gray-600">
@@ -76,24 +76,28 @@ export default function AssetSimulator() {
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label htmlFor="sim-age" className="block text-sm font-medium mb-2">
                   現在の年齢
                 </label>
                 <input
+                  id="sim-age"
                   type="number"
                   value={formData.age}
                   onChange={(e) => setFormData({ ...formData, age: parseInt(e.target.value) })}
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-transparent"
                   min="20"
                   max="70"
+                  aria-describedby="age-help"
                 />
+                <div id="age-help" className="sr-only">20歳から70歳の範囲で入力してください</div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label htmlFor="sim-income" className="block text-sm font-medium mb-2">
                   年収（万円）
                 </label>
                 <input
+                  id="sim-income"
                   type="number"
                   value={formData.income}
                   onChange={(e) => setFormData({ ...formData, income: parseInt(e.target.value) })}
@@ -101,7 +105,9 @@ export default function AssetSimulator() {
                   min="100"
                   max="2000"
                   step="50"
+                  aria-describedby="income-help"
                 />
+                <div id="income-help" className="sr-only">100万円から2000万円の範囲で入50万円単位で入力してください</div>
               </div>
 
               <div>
@@ -150,9 +156,10 @@ export default function AssetSimulator() {
                 <div className="text-center mt-2 font-medium">{formData.investmentPeriod}年</div>
               </div>
 
-              <button type="submit" className="btn-primary w-full">
+              <button type="submit" className="btn-primary w-full" aria-describedby="simulation-note">
                 シミュレーション実行
               </button>
+              <div id="simulation-note" className="sr-only">入力した条件で資産形成のシミュレーションを実行します</div>
             </form>
           </motion.div>
 
@@ -204,6 +211,7 @@ export default function AssetSimulator() {
                 <button 
                   onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
                   className="btn-primary w-full mt-6"
+                  aria-label="シミュレーション結果を踏まえたYONAOSIの詳細な相談をLINEで申し込む（新しいタブで開きます）"
                 >
                   詳細な相談を申し込む
                 </button>

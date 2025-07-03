@@ -15,11 +15,22 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-soft-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[44px] flex items-center justify-center;
+    @apply bg-soft-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[44px] flex items-center justify-center focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none;
   }
   
   .btn-secondary {
-    @apply bg-pale-blue text-dark-grey px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[44px] flex items-center justify-center;
+    @apply bg-pale-blue text-dark-grey px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg min-h-[44px] flex items-center justify-center focus:ring-2 focus:ring-pale-blue focus:ring-opacity-50 focus:outline-none;
+  }
+  
+  /* スクリーンリーダー専用テキスト */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .focus\:not-sr-only:focus {
+    @apply static w-auto h-auto p-1 m-0 overflow-visible whitespace-normal;
+    clip: auto;
   }
   
   .card {

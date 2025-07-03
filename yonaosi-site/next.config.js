@@ -4,8 +4,10 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
     serverMinification: true,
-    serverComponentsExternalPackages: ['jspdf', 'html2canvas'],
   },
+  
+  // External packages configuration
+  serverExternalPackages: ['jspdf', 'html2canvas'],
   
   // 画像最適化
   images: {
@@ -35,7 +37,6 @@ const nextConfig = {
   // Core Web Vitals最適化
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   
   // SEO最適化
   trailingSlash: false,

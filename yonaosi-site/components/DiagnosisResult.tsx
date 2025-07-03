@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+// import { useState } from 'react' // 将来使用予定
 
 interface UserProfile {
   age: string
@@ -33,7 +33,7 @@ interface DiagnosisResultProps {
 }
 
 export default function DiagnosisResult({ userProfile, onClose }: DiagnosisResultProps) {
-  const [showEvidence, setShowEvidence] = useState(false)
+  // const [showEvidence, setShowEvidence] = useState(false) // 将来の機能拡張用
 
   // エビデンスベース診断ロジック
   const generateRecommendations = (profile: UserProfile): Recommendation[] => {

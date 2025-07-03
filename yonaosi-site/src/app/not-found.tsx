@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // 将来使用予定
 import Link from 'next/link'
 
 // メタデータはapp/layout.tsxで404ページ用を定義

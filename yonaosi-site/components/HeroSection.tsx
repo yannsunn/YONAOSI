@@ -6,7 +6,7 @@ import SimpleDiagnosisForm from './SimpleDiagnosisForm'
 export default function HeroSection() {
 
   return (
-    <section className="section-padding py-16 md:py-24 bg-warm-white hero-bg-pattern">
+    <section className="section-padding py-16 md:py-24 bg-warm-white hero-bg-pattern" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           <motion.div
@@ -28,7 +28,7 @@ export default function HeroSection() {
               </p>
             </motion.div>
             
-            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 id="hero-heading" className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
               今の選択で、
               <br />
               <span className="text-soft-orange">未来は変わる</span>

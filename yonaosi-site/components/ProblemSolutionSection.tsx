@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import Link from 'next/link'
+// import Link from 'next/link' // 将来使用予定
 
 export default function ProblemSolutionSection() {
   const [activeTab, setActiveTab] = useState(0)

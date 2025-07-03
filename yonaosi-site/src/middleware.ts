@@ -1,5 +1,4 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next()
@@ -58,9 +57,8 @@ export function middleware(request: NextRequest) {
 
   // API レート制限 (簡易版)
   if (request.nextUrl.pathname.startsWith('/api/')) {
-    const userIP = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
-    
     // 実際の実装では Redis などでレート制限を実装
+    // const userIP = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
     response.headers.set('X-RateLimit-Limit', '100')
     response.headers.set('X-RateLimit-Remaining', '99')
   }

@@ -49,6 +49,7 @@ export default function SimpleDiagnosisForm() {
       <button
         onClick={() => setIsOpen(true)}
         className="btn-primary"
+        aria-label="3分で完了する無料資産形成診断を開始する"
       >
         3分で診断を受ける
       </button>
@@ -61,6 +62,9 @@ export default function SimpleDiagnosisForm() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
             onClick={(e) => e.target === e.currentTarget && setIsOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="diagnosis-modal-title"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -69,12 +73,13 @@ export default function SimpleDiagnosisForm() {
               className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-8"
             >
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-bold">診断フォーム</h3>
+                <h3 id="diagnosis-modal-title" className="text-xl font-bold">診断フォーム</h3>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-gray-600 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none rounded"
+                  aria-label="診断フォームを閉じる"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </button>
@@ -83,8 +88,9 @@ export default function SimpleDiagnosisForm() {
               <div className="mb-6">
                 <div className="flex justify-between mb-2">
                   <span className="text-sm text-gray-600">ステップ {step} / 3</span>
+                  <span className="text-sm text-gray-600">{Math.round((step / 3) * 100)}%完了</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={step} aria-valuemin={1} aria-valuemax={3} aria-label="診断の進行状況">
                   <div 
                     className="bg-soft-orange h-2 rounded-full transition-all duration-300"
                     style={{ width: `${(step / 3) * 100}%` }}
@@ -102,12 +108,14 @@ export default function SimpleDiagnosisForm() {
                     <h4 className="font-bold mb-4">基本情報</h4>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2">年齢</label>
+                        <label htmlFor="age-select" className="block text-sm font-medium mb-2">年齢</label>
                         <select
+                          id="age-select"
                           value={formData.age}
                           onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange"
+                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none"
                           required
+                          aria-describedby="age-help"
                         >
                           <option value="">選択してください</option>
                           <option value="20代">20代</option>
@@ -116,9 +124,11 @@ export default function SimpleDiagnosisForm() {
                           <option value="50代">50代</option>
                           <option value="60代以上">60代以上</option>
                         </select>
+                        <div id="age-help" className="sr-only">あなたの年代を選択してください</div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2">職業</label>
+                        <fieldset>
+                          <legend className="block text-sm font-medium mb-2">職業</legend>
                         <div className="grid grid-cols-2 gap-3">
                           {jobTypes.map((job) => (
                             <label
@@ -144,14 +154,17 @@ export default function SimpleDiagnosisForm() {
                             </label>
                           ))}
                         </div>
+                        </fieldset>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2">年収（税込）</label>
+                        <label htmlFor="income-select" className="block text-sm font-medium mb-2">年収（税込）</label>
                         <select
+                          id="income-select"
                           value={formData.income}
                           onChange={(e) => setFormData({ ...formData, income: e.target.value })}
-                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange"
+                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-soft-orange focus:border-soft-orange focus:outline-none"
                           required
+                          aria-describedby="income-help"
                         >
                           <option value="">選択してください</option>
                           <option value="〜300万円">〜300万円</option>
@@ -160,6 +173,7 @@ export default function SimpleDiagnosisForm() {
                           <option value="700〜1000万円">700〜1000万円</option>
                           <option value="1000万円以上">1000万円以上</option>
                         </select>
+                        <div id="income-help" className="sr-only">あなたの年収を選択してください</div>
                       </div>
                     </div>
                     <button
@@ -179,8 +193,9 @@ export default function SimpleDiagnosisForm() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                   >
-                    <h4 className="font-bold mb-4">お悩み・ご相談内容</h4>
-                    <div className="space-y-3">
+                    <fieldset>
+                      <legend className="font-bold mb-4">お悩み・ご相談内容</legend>
+                      <div className="space-y-3">
                       {concerns.map((concern) => (
                         <label key={concern} className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
                           <input
@@ -198,12 +213,14 @@ export default function SimpleDiagnosisForm() {
                           <span>{concern}</span>
                         </label>
                       ))}
-                    </div>
+                      </div>
+                    </fieldset>
                     <div className="flex gap-4 mt-6">
                       <button
                         type="button"
                         onClick={() => setStep(1)}
-                        className="flex-1 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50"
+                        className="flex-1 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none"
+                        aria-label="前のステップに戻る"
                       >
                         戻る
                       </button>
@@ -240,7 +257,7 @@ export default function SimpleDiagnosisForm() {
                         type="submit"
                         className="btn-primary w-full flex items-center justify-center gap-2"
                       >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         診断結果を見る
@@ -248,7 +265,8 @@ export default function SimpleDiagnosisForm() {
                       <button
                         type="button"
                         onClick={() => setStep(2)}
-                        className="w-full px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50"
+                        className="w-full px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-soft-orange focus:ring-opacity-50 focus:outline-none"
+                        aria-label="お悩み選択ステップに戻る"
                       >
                         戻る
                       </button>

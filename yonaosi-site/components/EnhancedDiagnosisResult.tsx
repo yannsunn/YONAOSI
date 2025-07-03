@@ -48,7 +48,7 @@ interface EnhancedDiagnosisResultProps {
 }
 
 export default function EnhancedDiagnosisResult({ userProfile, onClose }: EnhancedDiagnosisResultProps) {
-  const [showDetailedView, setShowDetailedView] = useState(false)
+  // const [showDetailedView, setShowDetailedView] = useState(false) // 将来の機能拡張用
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
 
   // 詳細な診断ロジック
@@ -322,7 +322,9 @@ export default function EnhancedDiagnosisResult({ userProfile, onClose }: Enhanc
     setIsGeneratingPDF(true)
     try {
       const element = document.getElementById('diagnosis-content')
-      if (!element) return
+      if (!element) {
+        return
+      }
 
       const canvas = await html2canvas(element, {
         scale: 2,

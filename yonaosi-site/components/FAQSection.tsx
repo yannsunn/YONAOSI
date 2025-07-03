@@ -36,7 +36,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="section-padding py-16 md:py-24">
+    <section className="section-padding py-16 md:py-24" aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+          <h2 id="faq-heading" className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             よくあるご質問
           </h2>
           <p className="text-lg text-gray-600">
@@ -53,7 +53,7 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        <Accordion.Root type="single" collapsible className="space-y-4">
+        <Accordion.Root type="single" collapsible className="space-y-4" aria-label="よくある質問と回答">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -64,7 +64,7 @@ export default function FAQSection() {
             >
               <Accordion.Item value={`item-${index}`} className="card">
                 <Accordion.Header>
-                  <Accordion.Trigger className="w-full flex items-center justify-between text-left py-4 md:py-3 hover:text-soft-orange transition-colors min-h-[44px]">
+                  <Accordion.Trigger className="w-full flex items-center justify-between text-left py-4 md:py-3 hover:text-soft-orange transition-colors min-h-[44px]" aria-expanded="false">
                     <span className="font-medium pr-4">{faq.question}</span>
                     <svg
                       className="transform transition-transform duration-300 data-[state=open]:rotate-180"
@@ -72,6 +72,7 @@ export default function FAQSection() {
                       height="20"
                       viewBox="0 0 24 24"
                       fill="none"
+                      aria-hidden="true"
                     >
                       <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -100,6 +101,7 @@ export default function FAQSection() {
           <button 
             onClick={() => window.open('https://line.me/R/ti/p/@yonaosi', '_blank')}
             className="btn-secondary min-h-[44px] px-6 py-3"
+            aria-label="YONAOSI公式LINEでお問い合わせ（新しいタブで開きます）"
           >
             LINEでお問い合わせ
           </button>
