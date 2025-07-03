@@ -17,7 +17,7 @@ export default function AssetSimulator() {
 
   const calculateProjection = () => {
     const monthlyInvestment = (formData.income - formData.expenses) * 10000 / 12
-    const annualReturn = 0.05 // 年利5%想定
+    const annualReturn = 0.03 // 年利3%想定（保守的な想定）
     // const months = formData.investmentPeriod * 12 // 将来使用予定
     
     const data = []
@@ -57,10 +57,10 @@ export default function AssetSimulator() {
             資産形成シミュレーター
           </h2>
           <p className="text-lg text-gray-600">
-            あなたの条件で将来の資産形成をシミュレーション
+            将来の資産形成の参考イメージ
           </p>
           <p className="text-sm text-gray-500 mt-2">
-            ※ このシミュレーションは参考例であり、運用成果を保証するものではありません
+            ※ あくまで参考例です。実際の運用成果は市場環境により大きく変動し、元本割れのリスクもあります
           </p>
         </motion.div>
 
@@ -200,12 +200,15 @@ export default function AssetSimulator() {
                 </ResponsiveContainer>
 
                 <div className="mt-6 p-4 bg-soft-orange/10 rounded-lg">
-                  <h4 className="font-bold mb-2">推奨アクション</h4>
+                  <h4 className="font-bold mb-2">一般的な検討項目例</h4>
                   <ul className="space-y-2 text-sm">
-                    <li>• つみたてNISAで年間40万円の非課税投資</li>
-                    <li>• iDeCoで節税しながら老後資金準備</li>
-                    <li>• 固定費見直しで投資余力を増やす</li>
+                    <li>• つみたてNISAの活用検討</li>
+                    <li>• iDeCoの活用検討</li>
+                    <li>• 家計の見直し検討</li>
                   </ul>
+                  <p className="text-xs text-gray-500 mt-2">
+                    ※ 投資にはリスクが伴います。個別の状況により適切な方法は異なりますので、詳しくはご相談ください
+                  </p>
                 </div>
 
                 <button 

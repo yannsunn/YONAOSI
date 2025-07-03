@@ -113,7 +113,7 @@ const structuredData = {
       },
       "audience": {
         "@type": "Audience",
-        "audienceType": "年収500万円以上の方、すべての資産形成を考える方"
+        "audienceType": "資産形成を考える方"
       }
     },
     {
