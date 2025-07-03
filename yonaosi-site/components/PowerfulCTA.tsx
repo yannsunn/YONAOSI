@@ -23,9 +23,9 @@ export default function PowerfulCTA() {
               </h2>
               
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                「お金の話は難しそう…」そんな風に思われる方も多いかもしれません。
+                まずは3分だけお時間をください。
                 <br />
-                でも、まずは3分だけお時間をください。今の状況を一緒に整理するだけでも、意外な発見があるものです。
+                今の状況を整理するだけでも、新しい発見があります。
               </p>
             </div>
 
