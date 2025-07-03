@@ -191,7 +191,7 @@ export default function AssetSimulator() {
                     <Line 
                       type="monotone" 
                       dataKey="principal" 
-                      stroke="#98D8BF" 
+                      stroke="#C8E6A0" 
                       strokeWidth={2}
                       strokeDasharray="5 5"
                       name="元本"

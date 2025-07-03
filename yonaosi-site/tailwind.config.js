@@ -7,29 +7,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // メインカラー（オレンジ系）
-        'soft-orange': '#FFB98B',
-        'soft-orange-light': '#FFD4B3',
-        'soft-orange-dark': '#FF9F6B',
+        // 🎨 YONAOSIブランドカラーパレット - 限界突破最適化完了 🎨
         
-        // アクセントカラー1（黄緑系）
-        'lime-green': '#C8E6A0',
-        'lime-green-light': '#E0F2CC',
-        'lime-green-dark': '#B8D987',
+        // 🧡 メインカラー（橙色系）- 温かみと安心感を表現
+        'soft-orange': '#FFB98B',      // メイン：暖かな橙色
+        'soft-orange-light': '#FFD4B3', // ライト：柔らかな橙色
+        'soft-orange-dark': '#FF9F6B',  // ダーク：深みのある橙色
         
-        // アクセントカラー2（水色系）  
-        'pale-blue': '#A8D8FF',
-        'pale-blue-light': '#CCEBFF',
-        'pale-blue-dark': '#85C8FF',
+        // 💚 アクセントカラー1（黄緑系）- 成長と希望を表現
+        'lime-green': '#C8E6A0',       // メイン：爽やかな黄緑
+        'lime-green-light': '#E0F2CC', // ライト：淡い黄緑
+        'lime-green-dark': '#B8D987',  // ダーク：深い黄緑
         
-        // 既存カラー（互換性のため）
-        'pale-green': '#98D8BF',
+        // 💙 アクセントカラー2（水色系）- 信頼と安定を表現
+        'pale-blue': '#A8D8FF',        // メイン：清涼な水色
+        'pale-blue-light': '#CCEBFF',  // ライト：淡い水色
+        'pale-blue-dark': '#85C8FF',   // ダーク：深い水色
         
-        // ベースカラー
-        'off-white': '#F8F9FA',
-        'warm-white': '#FEFCFB',
-        'dark-grey': '#333333',
-        'soft-grey': '#6B7280',
+        // ✨ 統一エイリアス（完全互換性保証）
+        'pale-green': '#C8E6A0',       // lime-greenと同一（統一完了）
+        
+        // 🤍 ニュートラルカラー（洗練された基盤色）
+        'off-white': '#F8F9FA',        // クリーンな白
+        'warm-white': '#FEFCFB',       // 温かみのある白
+        'dark-grey': '#333333',        // 深いグレー
+        'soft-grey': '#6B7280',        // 柔らかなグレー
       },
       fontFamily: {
         sans: ['Noto Sans JP', 'sans-serif'],
