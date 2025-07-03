@@ -5,6 +5,12 @@ import AccessibilityEnhancements from '@components/AccessibilityEnhancements'
 export const metadata: Metadata = {
   title: 'YONAOSI - 人生の転換期に寄り添う、あなたの専属ファイナンシャルプランナー',
   description: 'ライフプランニングと資産形成を中核に、家計・キャリア・住宅・ローンの見直しをトータルサポート',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
 }
 
 export default function RootLayout({
